@@ -2,1070 +2,393 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>民国公文套语速查（通用版）· 识读任何一篇民国公文</title>
-<meta name="description" content="民国公文套语速查：87 条套语释义与用例、四篇通用例文、1912—1928 年五版《公文程式》法规原文，四步识读任意一篇民国公文。">
-<meta name="keywords" content="民国公文,公文程式,套语,等因奉此,训令,指令,呈,批,布告,公函,咨,文书学,档案,历史研究">
-<meta name="theme-color" content="#f7f3e9">
-<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="民国公文速查：文种、公文用语十二类、上行/平行/下行惯用辞令、通用例文与《公文程式》历次规则原文；支持即时检索与公文识读。">
+<meta name="theme-color" content="#f7f2e4">
+<meta property="og:title" content="民国公文速查">
+<meta property="og:description" content="文种 · 公文用语十二类 · 上行/平行/下行惯用辞令 · 例文 · 法规原文，支持检索与公文识读。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="民国公文套语速查（通用版）">
-<meta property="og:description" content="87 条套语 · 四篇通用例文 · 五版《公文程式》原文 · 四步识读任意一篇民国公文">
-<meta property="og:locale" content="zh_CN">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23a8322d'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23fdfaf2' font-family='serif'%3E%E5%85%AC%3C/text%3E%3C/svg%3E">
+<title>民国公文速查 · 文种 / 用语 / 惯用辞令</title>
 <style>
   :root{
-    --paper:#f7f3e9; --ink:#2b2622; --ink2:#6b6257; --line:#e3dccb;
-    --red:#a8322d;
-    --A:#3f5b8b; --B:#4a6b4f; --C:#a8322d; --D:#8a6a2f; --E:#6b4c7a;
-    --card:#fffdf7;
+    --ink:#241f19; --ink2:#5c554a; --ink3:#948b7b;
+    --bg:#f7f2e4; --card:#fffdf7; --line:#e0d5bd;
+    --accent:#2b4a66; --accent-l:#3d6080;
+    --seal:#9a3b32;
+    --up:#35597d; --par:#8a6a3f; --down:#9c4a3a; --allc:#6f675a;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    background:
-      radial-gradient(circle at 20% 0%, #fbf8f0 0%, transparent 55%),
-      radial-gradient(circle at 90% 10%, #f4efe0 0%, transparent 50%),
-      var(--paper);
-    color:var(--ink);
-    font-family:"Songti SC","STSong","SimSun","Noto Serif SC",serif;
-    line-height:1.75;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
-  header{text-align:center;margin-bottom:14px}
-  header::after{content:"";display:block;width:64px;height:3px;margin:14px auto 0;background:var(--red);border-radius:2px}
-  h1{font-size:30px;letter-spacing:3px;margin:0 0 6px;font-weight:700}
-  .sub{color:var(--ink2);font-size:14px;letter-spacing:1px}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.72;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px 90px;}
 
-  /* 四步法 */
-  .steps-title{font-size:19px;letter-spacing:2px;border-left:4px solid var(--red);padding-left:12px;margin:38px 0 14px}
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:0 3px 12px rgba(90,70,40,.04)}
-  .step .no{font-size:12px;letter-spacing:2px;color:var(--red);font-weight:700}
-  .step h4{margin:2px 0 8px;font-size:16px;letter-spacing:1px}
-  .step ul{margin:0;padding-left:16px;font-size:13.5px;color:#4a4238;line-height:1.85}
-  .step li{margin:2px 0}
-  .step b{color:var(--ink)}
+  header{padding:42px 0 4px;text-align:center;}
+  .brand{font-size:12.5px;letter-spacing:5px;color:var(--accent-l);margin-bottom:12px;}
+  h1{font-size:clamp(24px,4.4vw,33px);letter-spacing:4px;font-weight:700;}
+  .sub{margin-top:9px;color:var(--ink2);font-size:13.5px;letter-spacing:1.5px;}
+  .searchwrap{margin:24px auto 0;max-width:560px;position:relative;}
+  .searchwrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:.32;}
+  #q{width:100%;padding:13px 16px 13px 45px;border:1px solid var(--line);border-radius:11px;
+     background:var(--card);font-size:15.5px;font-family:inherit;color:var(--ink);outline:none;transition:.15s;}
+  #q:focus{border-color:var(--accent-l);box-shadow:0 0 0 3px rgba(61,96,128,.10);}
 
-  .searchbar{display:flex;gap:10px;align-items:center;margin:26px 0 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 8px 6px 18px;box-shadow:0 6px 20px rgba(90,70,40,.06)}
-  .searchbar svg{flex:none;opacity:.5}
-  #q{flex:1;border:0;outline:0;background:transparent;font-family:inherit;font-size:17px;color:var(--ink);padding:12px 4px}
-  #q::placeholder{color:#b3a996}
-  .kbd{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#a89e8b;border:1px solid var(--line);border-radius:5px;padding:1px 6px;flex:none}
-  #clear{flex:none;border:0;background:#efe9da;color:var(--ink2);cursor:pointer;font-family:inherit;font-size:13px;padding:9px 14px;border-radius:9px;transition:.15s}
-  #clear:hover{background:#e6dfcc;color:var(--ink)}
+  /* 首页 */
+  .home{margin-top:32px;}
+  .home-hint{text-align:center;color:var(--ink3);font-size:12.5px;margin-bottom:14px;letter-spacing:1px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;}
+  @media(max-width:720px){.cards{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.cards{grid-template-columns:1fr;}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:20px 18px;
+        cursor:pointer;transition:.16s;text-align:left;display:flex;flex-direction:column;gap:6px;min-height:112px;}
+  .card:hover{border-color:var(--accent-l);box-shadow:0 8px 22px rgba(43,74,102,.08);transform:translateY(-2px);}
+  .card .no{font-size:11.5px;letter-spacing:2px;color:var(--accent-l);font-weight:700;}
+  .card .t{font-size:17px;font-weight:700;letter-spacing:1px;}
+  .card .d{font-size:12.5px;color:var(--ink2);line-height:1.55;}
+  .card .n{font-size:11.5px;color:var(--ink3);margin-top:auto;}
 
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .chip{cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink2);font-family:inherit;font-size:13.5px;padding:6px 14px;border-radius:999px;transition:.15s;white-space:nowrap}
-  .chip:hover{border-color:#cfc5ae;color:var(--ink)}
-  .chip.on{background:var(--ink);color:#fdfaf2;border-color:var(--ink)}
-  .chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px}
-  .chip.on .dot{opacity:.9}
+  /* 详情 */
+  .detail{display:none;margin-top:26px;}
+  .detail.show{display:block;}
+  .back{display:inline-flex;gap:6px;font-size:13px;color:var(--accent-l);cursor:pointer;
+        border:none;background:none;font-family:inherit;padding:4px 0;margin-bottom:4px;}
+  .back:hover{color:var(--accent);}
+  .sec-h{font-size:22px;letter-spacing:2px;margin:2px 0 4px;font-weight:700;color:var(--ink);}
+  .sec-d{color:var(--ink2);font-size:13.5px;margin-bottom:14px;}
+  .sub{font-size:13px;font-weight:700;color:var(--accent-l);letter-spacing:1px;
+       margin:26px 0 4px;padding-bottom:5px;border-bottom:1px solid var(--line);}
+  .sub small{font-weight:400;color:var(--ink3);letter-spacing:0;margin-left:6px;}
 
-  .meta{display:flex;justify-content:space-between;align-items:center;color:var(--ink2);font-size:13px;margin:6px 2px 16px}
-  .meta b{color:var(--red);font-size:15px}
+  /* 条目（保留全部解释） */
+  .item{padding:13px 2px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:210px 1fr;gap:16px;}
+  @media(max-width:640px){.item{grid-template-columns:1fr;gap:5px;}}
+  .it-h{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+  .it-t{font-size:16.5px;font-weight:700;letter-spacing:.5px;}
+  .it-p{order:3;flex-basis:100%;margin-top:2px;font-size:11.5px;color:var(--ink3);overflow-wrap:anywhere;min-width:0;}
+  .tag{font-size:10.5px;padding:1px 7px;border-radius:20px;line-height:1.6;}
+  .tag.up{background:#e6edf4;color:var(--up);}
+  .tag.par{background:#f3ecdb;color:var(--par);}
+  .tag.down{background:#f6e6e0;color:var(--down);}
+  .tag.allc{background:#efe9dc;color:var(--allc);}
+  .it-d{font-size:14px;color:var(--ink);}
+  .meta{font-size:12.8px;color:var(--ink2);margin-top:4px;line-height:1.65;}
+  .meta .k{color:var(--ink3);margin-right:5px;}
+  .meta .eg{font-family:"Noto Serif SC","Songti SC",serif;color:#7c4a2c;}
+  .meta .nu{color:#6b5a3e;}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px 16px;position:relative;overflow:hidden;box-shadow:0 3px 14px rgba(90,70,40,.05);transition:transform .16s,box-shadow .16s}
-  .card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(90,70,40,.1)}
-  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
-  .card.c-A{--accent:var(--A)} .card.c-B{--accent:var(--B)}
-  .card.c-C{--accent:var(--C)} .card.c-D{--accent:var(--D)}
-  .card.c-E{--accent:var(--E)}
+  /* 文种表 / 方法 */
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+        border-radius:11px;overflow:hidden;font-size:13.5px;margin-top:6px;}
+  th{background:#f2ebd9;color:var(--ink2);font-weight:600;text-align:left;padding:10px 13px;font-size:12px;letter-spacing:1px;}
+  td{padding:10px 13px;border-top:1px solid var(--line);vertical-align:top;}
+  td.t{font-weight:700;white-space:nowrap;}
+  td.use{white-space:normal;line-height:1.65;}
+  .tb-wenlei th:first-child,.tb-wenlei td:first-child{width:28%;text-align:center;}
+  .tb-wenlei td.t{white-space:normal;vertical-align:middle;text-align:center;line-height:1.45;}
+  .tb-wenlei td.t .tag{display:block;width:max-content;margin:6px auto 0;}
+  .tb-wenlei td.use{vertical-align:middle;}
+  .meth h3{font-size:15px;color:var(--accent);margin:20px 0 6px;letter-spacing:1px;}
+  .meth p{font-size:14px;color:var(--ink2);margin:5px 0;}
+  .meth b{color:var(--ink);}
+  .chain{font-size:14px;background:#f2ebd9;border-left:3px solid var(--accent-l);padding:10px 14px;margin:8px 0;border-radius:0 6px 6px 0;}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;margin-top:8px;}
+  .step{border:1px solid var(--line);border-radius:11px;background:var(--card);margin:0;overflow:hidden;}
+  .step summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:13px 16px;background:#f2ebd9;}
+  .step summary::-webkit-details-marker{display:none;}
+  .step summary .no{font-size:11px;letter-spacing:2px;color:var(--accent-l);font-weight:700;flex:none;}
+  .step summary .st{font-size:15.5px;font-weight:700;letter-spacing:1px;}
+  .step summary .arw{margin-left:auto;color:var(--ink3);transition:.2s;font-size:16px;}
+  .step[open] summary .arw{transform:rotate(90deg);}
+  .step ul{list-style:none;padding:4px 16px 12px;}
+  .step li{font-size:13.8px;color:var(--ink2);padding:7px 0;border-top:1px dashed var(--line);line-height:1.65;}
+  .step li:first-child{border-top:none;}
+  .step li b{color:var(--ink);}
+  .step li .sl{display:block;padding-left:16px;padding-top:3px;font-weight:400;color:var(--ink2);}
+  /* 清空按钮 */
+  .searchwrap .clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:none;
+    background:#e9e2d2;color:#6f675a;border-radius:50%;width:26px;height:26px;cursor:pointer;
+    font-size:14px;line-height:1;display:none;}
+  .searchwrap .clear.show{display:block;}
+  .searchwrap .clear:hover{background:#ded5c3;}
+  /* 例文 / 法规 */
+  .hint{font-size:13px;color:var(--ink2);margin:2px 0 14px;line-height:1.7;}
+  .exbody{font-size:14.5px;line-height:2;color:#2b2620;background:var(--card);border:1px solid var(--line);
+          border-radius:10px;padding:14px 18px;margin:10px 0;}
+  .tk{border-bottom:1px dashed #b9a06a;color:#7c4a2c;cursor:pointer;}
+  .tk:active,.tk.hit{background:#f7e8c8;border-radius:3px;}
+  .tip{position:fixed;z-index:9999;max-width:250px;background:#2b2724;color:#fffdf7;
+       font-size:12.5px;line-height:1.55;padding:7px 11px;border-radius:9px;
+       box-shadow:0 8px 24px rgba(0,0,0,.2);display:none;pointer-events:none;}
+  .tip.show{display:block;}
+  /* 公文识读 */
+  .sd textarea{width:100%;min-height:170px;padding:12px 14px;border:1px solid var(--line);
+    border-radius:11px;background:var(--card);font-family:"Noto Serif SC","Songti SC",serif;
+    font-size:14.5px;line-height:1.9;color:var(--ink);outline:none;resize:vertical;}
+  .sd textarea:focus{border-color:var(--accent-l);box-shadow:0 0 0 3px rgba(61,96,128,.10);}
+  .sd-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 14px;}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink2);font-size:13px;
+    padding:8px 14px;border-radius:9px;cursor:pointer;font-family:inherit;}
+  .btn:hover{border-color:var(--accent-l);color:var(--accent);}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .btn.primary:hover{background:var(--accent-l);color:#fff;}
+  .sd-opt{font-size:12.5px;color:var(--ink2);display:inline-flex;align-items:center;gap:5px;cursor:pointer;}
+  .sd-out{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px;
+    font-family:"Noto Serif SC","Songti SC",serif;font-size:14.5px;line-height:2;
+    white-space:pre-wrap;word-break:break-word;}
+  .sd-out:empty{display:none;}
+  .report{margin-top:6px;}
+  .report .rline{font-size:13px;color:var(--ink2);margin:6px 0;}
+  .report .rline b{color:var(--accent);}
+  .report .rbox{background:#f2ebd9;border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;margin-top:6px;font-size:13.2px;color:var(--ink2);line-height:1.9;}
+  .report .pill{display:inline-block;background:#fff;border:1px solid var(--line);
+    border-radius:20px;padding:2px 10px;margin:3px 4px 0 0;font-size:12px;}
+  /* 首页主工具入口 */
+  .tool-cta{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#2b4a66,#3d6080);
+    color:#fff;border-radius:14px;padding:18px 22px;margin:0 0 22px;cursor:pointer;
+    box-shadow:0 8px 22px rgba(43,74,102,.16);transition:.18s;text-align:left;}
+  .tool-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(43,74,102,.24);}
+  .tool-cta .tc-main{flex:1;min-width:0;}
+  .tool-cta .tc-t{font-size:18px;font-weight:700;letter-spacing:1px;}
+  .tool-cta .tc-d{font-size:12.8px;opacity:.88;margin-top:4px;line-height:1.6;}
+  .tool-cta .tc-btn{flex:none;font-size:13.5px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.38);padding:8px 14px;border-radius:20px;white-space:nowrap;}
+  .tool-cta:hover .tc-btn{background:rgba(255,255,255,.28);}
+  .divider{height:1px;background:var(--line);margin:12px 0;}
+  details{border:1px solid var(--line);border-radius:10px;background:var(--card);margin:10px 0;overflow:hidden;}
+  details>summary{cursor:pointer;padding:12px 15px;font-size:14.5px;font-weight:600;background:#f2ebd9;list-style:none;}
+  details>summary::-webkit-details-marker{display:none;}
+  details .exbody{border:none;border-radius:0;margin:0;background:transparent;padding:6px 15px 14px;}
+  .art{font-family:"Noto Serif SC","Songti SC",serif;font-size:13.8px;line-height:1.95;color:#333;white-space:pre-wrap;}
+  .ver-note{font-size:12.8px;color:var(--ink2);line-height:1.8;margin:8px 0;}
+  .ver-note .hl{color:#9a3b32;font-weight:700;}
+  .minih{font-size:11.5px;color:var(--ink3);letter-spacing:1px;margin:15px 0 2px;}
+  .dirh{margin-top:32px;font-size:15.5px;}
+  .dirh.up{color:var(--up);border-color:var(--up);}
+  .dirh.par{color:var(--par);border-color:var(--par);}
+  .dirh.down{color:var(--down);border-color:var(--down);}
+  .dirh.allc{color:var(--allc);border-color:var(--allc);}
+  /* 小类导航 */
+  .subtabs{display:none;flex-wrap:wrap;gap:8px;margin:4px 0 16px;}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink2);font-size:13px;
+        padding:7px 12px;border-radius:20px;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
+  .chip:hover{border-color:var(--accent-l);color:var(--accent);}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .chip b{font-size:11px;font-weight:600;opacity:.7;background:rgba(0,0,0,.06);border-radius:9px;padding:0 6px;}
+  .chip.on b{background:rgba(255,255,255,.22);opacity:.95;}
+  .grp{border:1px solid var(--line);border-radius:11px;background:var(--card);margin:10px 0;overflow:hidden;}
+  .grp>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 16px;background:#f2ebd9;font-weight:700;font-size:14px;}
+  .grp>summary::-webkit-details-marker{display:none;}
+  .grp .cnt{margin-left:auto;font-size:11.5px;color:var(--ink3);font-weight:400;}
+  .grp .arw{color:var(--ink3);transition:.2s;font-size:15px;}
+  .grp[open] .arw{transform:rotate(90deg);}
+  .grp .item{padding:12px 16px;}
 
-  .chead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
-  .chead h3{margin:0;font-size:22px;letter-spacing:2px;font-weight:700}
-  .py{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#b0a690;letter-spacing:.5px}
-  .tag{display:inline-block;font-size:11.5px;letter-spacing:1px;padding:2px 9px;border-radius:999px;margin-bottom:10px;background:color-mix(in srgb, var(--accent) 12%, transparent);color:var(--accent);border:1px solid color-mix(in srgb, var(--accent) 28%, transparent)}
-  .row{margin:9px 0}
-  .lab{font-size:11.5px;letter-spacing:2px;color:#a89e8b;display:block;margin-bottom:2px}
-  .row p{margin:0;font-size:14.5px;color:var(--ink)}
-  .eg{margin-top:12px;padding:11px 14px;border-radius:9px;background:#f4efe1;border-left:2px solid var(--accent);font-size:14px;color:#3a332b;line-height:1.7}
-  .eg .qm{color:var(--accent);font-weight:700;margin-right:4px}
-  .src{margin-top:10px;font-size:12px;color:#a89e8b;letter-spacing:.5px}
-  .note{margin-top:8px;font-size:12.5px;color:#8a7f6d;border-top:1px dashed var(--line);padding-top:8px}
-  mark{background:#ffe9a8;color:inherit;border-radius:2px;padding:0 1px}
+  /* 结果 */
+  #results{display:none;margin-top:26px;}
+  #results.show{display:block;}
+  .res-h{font-size:14px;color:var(--ink2);margin-bottom:10px;}
+  .res-h b{color:var(--accent);}
+  .empty{display:none;text-align:center;color:var(--ink3);padding:46px 0;font-size:13.5px;}
+  .empty.show{display:block;}
+  .src-tag{font-size:11px;color:var(--ink3);border:1px solid var(--line);border-radius:20px;padding:0 8px;}
 
-  .empty{display:none;text-align:center;color:#a89e8b;padding:60px 20px;font-size:15px}
-  .empty.show{display:block}
-  .empty span{display:block;font-size:34px;margin-bottom:10px;opacity:.4}
-
-  /* 例文 & 法规 */
-  .sec{margin-top:48px}
-  .sec h2{font-size:19px;letter-spacing:2px;border-left:4px solid var(--red);padding-left:12px;margin:0 0 6px}
-  .sec .hint{color:var(--ink2);font-size:13px;margin:0 0 16px 16px;line-height:1.8}
-  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
-  summary{cursor:pointer;padding:14px 18px;font-size:15px;font-weight:700;letter-spacing:1px;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"＋";color:var(--red);font-weight:400}
-  details[open] summary::after{content:"－"}
-  .exbody{padding:4px 20px 20px;font-size:15px;line-height:2.05;color:#3a332b;text-align:justify}
-  .tk{color:var(--red);font-weight:700;border-bottom:1px dotted var(--red);cursor:help}
-  .exbody .divider{height:1px;background:var(--line);margin:16px 0}
-
-  .legal .art{white-space:pre-wrap;background:#fbf8ef;border:1px solid #efe8d6;border-radius:9px;padding:14px 16px;margin:10px 0;font-size:14px;line-height:1.95;color:#3a332b}
-  .legal .ver-note{font-size:13px;color:#7a7060;margin:2px 0 10px;line-height:1.9}
-  .legal .hl{color:var(--red);font-weight:700}
-
-  footer{text-align:center;color:#b3a996;font-size:12.5px;margin-top:46px;line-height:2}
-
+  footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
+         text-align:center;color:var(--ink3);font-size:11.5px;letter-spacing:1px;line-height:2;}
+  .ft-line{font-size:12.5px;color:#857d6d;letter-spacing:1.5px;margin-bottom:8px;}
+  .ft-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;margin-bottom:10px;}
+  .ft-meta span{font-size:11.5px;color:var(--ink3);background:var(--card);
+    border:1px solid var(--line);border-radius:20px;padding:2px 10px;letter-spacing:0;line-height:1.6;}
+  .ft-note{font-size:11px;color:var(--ink3);line-height:1.95;letter-spacing:0;}
+  .ft-ref-t{font-size:11px;color:#857d6d;margin-bottom:4px;letter-spacing:1px;}
+  .ft-refs{list-style:none;padding:0;margin:0 0 8px;display:flex;flex-wrap:wrap;
+    justify-content:center;gap:2px 12px;}
+  .ft-refs li{font-size:11px;color:var(--ink3);}
+  .ft-disc{font-size:10.8px;color:var(--ink3);margin-top:2px;}
+  /* ===== 移动端适配（375 / 414 / 768）===== */
   @media (max-width:560px){
-    h1{font-size:22px;letter-spacing:1px}
-    .grid{grid-template-columns:1fr}
-    .wrap{padding:20px 14px 50px}
-    #q{font-size:16px}
+    body{-webkit-text-size-adjust:100%;}
+    .wrap{padding:0 26px 72px;}
+    header{padding-top:30px;}
+    h1{letter-spacing:2px;}
+    .sub{letter-spacing:.5px;font-size:12.5px;}
+    .searchwrap{margin-top:20px;}
+    #q{font-size:14.5px;padding:12px 42px 12px 40px;}
+    .searchwrap svg{left:13px;width:15px;height:15px;}
+    .searchwrap .clear{right:6px;width:24px;height:24px;}
+    .cards{gap:10px;}
+    .card{padding:16px 14px;min-height:auto;gap:5px;border-radius:12px;}
+    .card .t{font-size:15.5px;}
+    .card .d{font-size:12px;}
+    .tool-cta{flex-direction:column;align-items:stretch;gap:10px;padding:16px 18px;}
+    .tool-cta .tc-btn{align-self:stretch;text-align:center;}
+    .home-hint{font-size:11.5px;}
+    .sec-h{font-size:19px;letter-spacing:1px;}
+    .sec-d{font-size:12.8px;}
+    .subtabs{gap:6px;margin:2px 0 12px;}
+    .chip{font-size:12px;padding:6px 10px;gap:5px;}
+    .chip b{font-size:10.5px;padding:0 5px;}
+    .item{grid-template-columns:1fr;gap:4px;padding:12px 0;}
+    .it-h{gap:5px;align-items:center;}
+    .it-t{font-size:15.5px;overflow-wrap:anywhere;}
+    .it-p{font-size:11px;overflow-wrap:anywhere;}
+    .it-d{font-size:13.5px;}
+    .meta{font-size:12.2px;}
+    table{font-size:12.5px;}
+    th,td{padding:8px 9px;}
+    td.t{white-space:normal;overflow-wrap:anywhere;}
+    .exbody{font-size:13.8px;line-height:1.85;padding:11px 12px;border-radius:8px;overflow-wrap:anywhere;}
+    .art{font-size:12.5px;line-height:1.85;}
+    details>summary{font-size:13.2px;padding:10px 12px;line-height:1.5;overflow-wrap:anywhere;}
+    details .exbody{padding:4px 12px 12px;}
+    .grp>summary{font-size:12.8px;padding:10px 12px;}
+    .grp .item{padding:10px 12px;}
+    .steps{grid-template-columns:1fr;gap:10px;}
+    .step summary{padding:11px 13px;gap:8px;}
+    .step summary .st{font-size:13.8px;}
+    .step summary .no{font-size:10px;}
+    .step li{font-size:13px;}
+    .sub{font-size:12.5px;}
+    .minih{font-size:11px;}
+    .chain{font-size:12.8px;padding:9px 11px;}
+    .dirh{font-size:14px;margin-top:26px;}
+    .hint{font-size:12.2px;}
+    .tag{font-size:10px;padding:1px 6px;}
+    .tb-wenlei th:first-child,.tb-wenlei td:first-child{width:30%;}
+    .tb-wenlei th,.tb-wenlei td{padding:11px 8px;}
+    .tb-wenlei td.t{font-size:13.5px;}
+    .tb-wenlei td.t .tag{margin-top:5px;}
+    .tb-wenlei td.use{font-size:12.5px;line-height:1.75;}
+    footer{font-size:10.8px;letter-spacing:.5px;line-height:1.9;}
+    .ft-line{font-size:12px;letter-spacing:1px;}
+    .ft-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;margin:2px 0 12px;}
+    .ft-meta span{display:block;flex:0 0 45%;text-align:center;background:var(--card);
+      border:1px solid var(--line);border-radius:20px;padding:4px 6px;font-size:11.5px;line-height:1.6;}
+    .ft-meta span:not(:last-child)::after{content:none;}
+    .ft-note{font-size:10.5px;line-height:2;}
+    .ft-ref-t{margin-bottom:5px;}
+    .ft-refs{flex-direction:column;gap:3px;margin-bottom:9px;}
+    .ft-refs li{font-size:10.5px;line-height:1.7;}
   }
-
-  /* ============ 移动端防溢出补丁 ============ */
-  html,body{max-width:100%;overflow-x:hidden}
-  .meta{flex-wrap:wrap;gap:2px 10px}
-  .step ul,.step ol{padding-left:15px}
-  img,svg{max-width:100%}
-  /* 网格：最小列宽不再硬性 330px，窄屏自动降为满宽 */
-  .grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
-  .steps{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
-  /* 输入框与卡片长词允许断行 */
-  #q{min-width:0;width:100%}
-  .searchbar{flex-wrap:nowrap}
-  .chead h3{min-width:0;overflow-wrap:anywhere;word-break:break-word}
-  .card{overflow-wrap:anywhere;word-break:break-word}
-  .row p,.eg,.note,.src,.tag,.py{overflow-wrap:anywhere;word-break:break-word}
-  summary{min-width:0;gap:12px;overflow-wrap:anywhere;word-break:break-word}
-  .exbody{overflow-wrap:anywhere;word-break:break-word}
-  .art{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;max-width:100%}
-  .legal .ver-note{overflow-wrap:anywhere}
-
-  @media (max-width:640px){
-    .wrap{padding:18px 14px 46px}
-    h1{font-size:21px;letter-spacing:1px}
-    .sub{font-size:12.5px;letter-spacing:.5px}
-    .steps-title,.sec h2{font-size:17px;margin-top:32px}
-    .steps{grid-template-columns:1fr;gap:10px}
-    .step{padding:12px 13px}
-    .step h4{font-size:15px}
-    .step ul{font-size:13px;line-height:1.8}
-    .searchbar{padding:4px 6px 4px 13px;gap:6px;border-radius:12px}
-    .kbd{display:none}
-    #q{font-size:16px;padding:10px 2px}
-    #clear{padding:8px 11px;font-size:12.5px;border-radius:8px}
-    .chips{gap:6px}
-    .chip{font-size:12.5px;padding:5px 11px}
-    .grid{grid-template-columns:1fr;gap:12px}
-    .card{padding:15px 15px 14px;border-radius:12px}
-    .chead h3{font-size:19px;letter-spacing:1px}
-    .py{font-size:11px}
-    .tag{font-size:11px;padding:2px 8px}
-    .row p{font-size:14px}
-    .eg{font-size:13.5px;padding:10px 12px}
-    .note{font-size:12px}
-    summary{padding:12px 14px;font-size:14px}
-    .exbody{padding:2px 14px 16px;font-size:14px;line-height:1.95}
-    .art{padding:11px 12px;font-size:13px;line-height:1.85}
-    .legal .ver-note{font-size:12.5px}
-    .sec .hint{margin-left:12px;font-size:12.5px}
-  }
-
   @media (max-width:380px){
-    .wrap{padding:14px 10px 42px}
-    h1{font-size:19px;letter-spacing:0}
-    .card{padding:13px 12px 12px}
-    .chead h3{font-size:17.5px}
-    .eg,.row p{font-size:13px}
-    .exbody{padding:2px 10px 14px;font-size:13px;line-height:1.9}
-    .art{padding:10px;font-size:12.5px}
-    .step ul{font-size:12.5px}
+    .wrap{padding:0 22px 66px;}
+    h1{font-size:22px;letter-spacing:1px;}
+    #q{font-size:14px;}
+    .it-t{font-size:15px;}
+    th,td{padding:7px 7px;}
+    .chip{font-size:11.5px;padding:5px 9px;}
   }
 
-  /* ===== 识读四步法：折叠模式 ===== */
-  .steps-hint{font-size:12.5px;color:var(--ink2);margin:-8px 0 12px 16px;letter-spacing:.5px}
-  .steps .step{padding:0;overflow:hidden;transition:box-shadow .18s}
-  .steps .step summary{padding:13px 15px;font-size:15px;letter-spacing:1px;font-weight:700;gap:9px;align-items:baseline;list-style:none}
-  .steps .step summary::-webkit-details-marker{display:none}
-  .steps .step summary .no{font-size:11.5px;letter-spacing:2px;color:var(--red);font-weight:700;flex:none}
-  .steps .step summary .st{flex:1;min-width:0;overflow-wrap:anywhere;word-break:break-word}
-  .steps .step summary::after{content:"＋";color:var(--red);font-weight:400;margin-left:auto;padding-left:8px;flex:none}
-  .steps .step[open] summary::after{content:"－"}
-  .steps .step[open]{box-shadow:0 6px 18px rgba(90,70,40,.09)}
-  .steps .step ul{margin:0;padding:0 16px 14px 18px;font-size:13.5px;line-height:1.9;color:#4a4238}
-  .steps .step li{margin:3px 0}
-  .steps .step[open] summary{border-bottom:1px dashed var(--line)}
-
-  /* ===== 打印 ===== */
   @media print{
-    body{background:#fff}
-    .searchbar,.chips,.meta,#toTop,footer,.steps-hint{display:none !important}
-    .wrap{max-width:none;padding:0}
-    .card,.step,details{box-shadow:none;break-inside:avoid}
-    .grid{grid-template-columns:1fr 1fr !important;gap:10px}
-    a[href]::after{content:""}
+    .searchwrap,.back,#results{display:none!important;}
+    .home,.detail{display:block!important;}
+    .item{break-inside:avoid;}
+    body{background:#fff;}
   }
-  /* ===== 回到顶部 ===== */
-  #toTop{
-    position:fixed;right:16px;bottom:20px;z-index:50;
-    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
-    background:var(--card);color:var(--red);font-size:18px;line-height:1;
-    cursor:pointer;box-shadow:0 6px 18px rgba(90,70,40,.16);
-    opacity:0;visibility:hidden;transition:.2s;font-family:inherit;
-  }
-  #toTop.show{opacity:1;visibility:visible}
-  #toTop:active{transform:scale(.94)}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <header>
-    <h1>民国公文套语速查</h1>
-    <div class="sub">通用版 · 四步识读任何一篇民国公文</div>
+    <h1>民国公文速查</h1>
+    <div class="sub">文种 · 用语 · 惯用辞令</div>
+    <div class="searchwrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5c554a" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="q" type="text" placeholder="输入套语名搜索，如「等因」「仰祈」「此令」">
+      <button class="clear" id="clearq" title="清空">✕</button>
+    </div>
   </header>
 
-  <h2 class="steps-title">识读四步法</h2>
-  <p class="steps-hint">点击任意一步展开全文（共四步）</p>
-  <div class="steps">
-    <details class="step">
-      <summary><span class="no">第 一 步</span><span class="st">判行文方向</span></summary>
-      <ul>
-        <li><b>看称谓</b>：钧、职 → 上行｜贵、敝 → 平行｜该、本 → 下行</li>
-        <li><b>看引叙</b>：奉 → 上级来文｜准 → 平行来文｜据 → 下级来文</li>
-        <li><b>看结尾</b>：谨呈、请祈 → 上行｜此咨、此致、为荷 → 平行｜此令、此批、此布 → 下行</li>
-      </ul>
-    </details>
-    <details class="step">
-      <summary><span class="no">第 二 步</span><span class="st">拆四段结构</span></summary>
-      <ul>
-        <li><b>叙由</b>（起）：为什么发这篇文</li>
-        <li><b>依据</b>（承）：凭什么——法令、前案、来文</li>
-        <li><b>申述</b>（转）：怎么办——意见与办法</li>
-        <li><b>归结</b>（合）：请什么——请示、照办、备案</li>
-      </ul>
-    </details>
-    <details class="step">
-      <summary><span class="no">第 三 步</span><span class="st">认套语链条</span></summary>
-      <ul>
-        <li><b>等因</b>：引上级来文到此为止</li>
-        <li><b>奉此</b>：接到此令，转入自叙</li>
-        <li><b>等情</b>：引下级呈状到此为止</li>
-        <li><b>各在案</b>：旧卷可稽，坐实依据</li>
-      </ul>
-    </details>
-    <details class="step">
-      <summary><span class="no">第 四 步</span><span class="st">断文种</span></summary>
-      <ul>
-        <li>"为…事"＋"此令" → <b>令</b></li>
-        <li>"呈为…事"＋"谨呈" → <b>呈</b></li>
-        <li>"呈悉/状悉"＋"此批" → <b>批</b></li>
-        <li>"为布告事/照得"＋"此布" → <b>布告</b></li>
-        <li>"径启者"＋"此致" → <b>公函</b></li>
-      </ul>
-    </details>
+  <section class="home" id="home">
+    <div class="tool-cta" id="toolCta">
+      <div class="tc-main">
+        <div class="tc-t">公文识读</div>
+        <div class="tc-d">粘贴一篇公文，自动标红套语、点按看释义，并生成识读报告。本地运行，不上传、不耗流量。</div>
+      </div>
+      <div class="tc-btn">进入识读 →</div>
+    </div>
+    <div class="home-hint">资料浏览 · 点击进入</div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="detail" id="detail">
+    <button class="back" id="back">← 返回大类</button>
+    <div class="sec-h" id="dh"></div>
+    <div class="sec-d" id="dd"></div>
+    <div class="subtabs" id="subtabs"></div>
+    <div id="dbody"></div>
+  </section>
+
+  <section id="results">
+    <div class="res-h" id="resh"></div>
+    <div id="resbody"></div>
+    <div class="empty" id="empty">没有找到匹配项，换个关键词试试</div>
+  </section>
+
+  <div id="tpl-li12" style="display:none">
+    <h3 class="minih" style="margin-top:30px">十二文种示例（虚构公文，仅供套语演示）</h3>
+
+    <details><summary>一 · 令（公布法规 / 任免）</summary><div class="exbody">
+      <span class="tk" title="训令起首语，令知＝使其知道">为令知事</span>：兹制定《某县河道管理规则》一种，除公布外，<span class="tk" title="理合行文，引出本机关发文动作">合行</span><span class="tk" title="上级对下级祈使">令仰</span>该县<span class="tk" title="催促性副词，立即">即便</span>遵照，并转饬所属一体知照，<span class="tk" title="令的结尾收束语">此令</span>。
+    </div></details>
+
+    <details><summary>二 · 训令（布置工作）</summary><div class="exbody">
+      <span class="tk" title="训令起首语，令遵＝使下级遵行">为令遵事</span>：<span class="tk" title="案卷内据有下级来文">案据</span>该县<span class="tk" title="引叙下级陈述">呈称</span>河道淤塞、亟应疏浚<span class="tk" title="收束所引下级来文">等情</span>到厅，<span class="tk" title="当时已经">当经</span><span class="tk" title="下行自称">本厅</span>复核属实。<span class="tk" title="理合行文">合行</span><span class="tk" title="上级对下级祈使">令仰</span>该县<span class="tk" title="催促性副词，立即">即便</span>遵照办理，<span class="tk" title="上报办理结果">具报</span>查核，<span class="tk" title="督饬语，不得">毋得</span>稍涉敷衍，<span class="tk" title="谆谆告诫">切切</span><span class="tk" title="令的结尾收束语">此令</span>。
+    </div></details>
+
+    <details><summary>三 · 指令（对呈请的批复）</summary><div class="exbody">
+      <span class="tk" title="来呈已阅">呈悉</span>。据呈请拨发修路经费<span class="tk" title="收束所引来文">等情</span>，所请尚属可行，<span class="tk" title="应当批准">应准</span>如所请办理，<span class="tk" title="希望立即">仰即</span>造具预算，呈候核销。<span class="tk" title="指令结尾，亦用此令">此令</span>。
+    </div></details>
+
+    <details><summary>四 · 布告（对民众宣布）</summary><div class="exbody">
+      <span class="tk" title="布告起首语">为布告事</span>：<span class="tk" title="查察所知，告示体开首">照得</span>本县河道疏浚工程，定于本月十五日开工，所有沿河住户应即迁让，<span class="tk" title="督饬语，不得">毋得</span>阻碍。<span class="tk" title="理合行文">合行</span>布告，<span class="tk" title="对民众祈使">仰</span>一体知照，<span class="tk" title="谆谆告诫">切切</span><span class="tk" title="布告的结尾收束语">此布</span>。
+    </div></details>
+
+    <details><summary>五 · 任命状（任命官吏）</summary><div class="exbody">
+      任命状：<span class="tk" title="任命状起首，标官等">荐任</span>某某为某县教育局局长。此状。
+      <div class="divider"></div>
+      <span style="color:#948b7b;font-size:12.5px">注：任命状分特任、简任、荐任、委任四级，结尾作「此状」。</span>
+    </div></details>
+
+    <details><summary>六 · 呈（上行请示 / 报告）</summary><div class="exbody">
+      <span class="tk" title="上行起首语">呈为呈请事</span>：<span class="tk" title="引叙上级来文">案奉</span><span class="tk" title="上行尊称上级">钧厅</span>训令开，饬即查明灾情具报<span class="tk" title="收束所引上级来文">等因</span>。<span class="tk" title="接到此令，转入自叙">奉此</span>：查<span class="tk" title="下级自称">职县</span>受灾田亩三千余亩、灾民二千余口，业经查勘明确，造册<span class="tk" title="旧卷可稽">在案</span>。<span class="tk" title="下行自称谦词，此处上行亦用「窃」发语">窃查</span>职县仓谷无多，赈济不敷，拟请钧厅<span class="tk" title="催促性副词，迅速">迅予</span>拨发赈款。<span class="tk" title="征求上级裁酌的谦辞">是否有当</span>，<span class="tk" title="理应，引出呈请">理合</span>具文呈请，<span class="tk" title="上行祈请，请审察核定">仰祈鉴核示遵</span>。<span class="tk" title="上行结尾敬语">谨呈</span>某厅厅长。
+    </div></details>
+
+    <details><summary>七 · 签呈（内部签拟）</summary><div class="exbody">
+      签呈：<span class="tk" title="发语词，转入自陈">窃查</span>本府某项经费不敷，拟请于预备费项下动支若干，<span class="tk" title="谦辞，征求裁酌">是否有当</span>，<span class="tk" title="俯伏乞求">伏乞</span>鉴核。<span class="tk" title="上行结尾敬语">谨呈</span>秘书长。
+      <div class="divider"></div>
+      <span style="color:#948b7b;font-size:12.5px">注：签呈为机关内部属员签拟意见、由长官核夺，故止于「谨呈」长官。</span>
+    </div></details>
+
+    <details><summary>八 · 咨（同级机关往来）</summary><div class="exbody">
+      <span class="tk" title="平行文起首语，咨请＝请人办事">为咨请事</span>：<span class="tk" title="引叙平行来文">案准</span><span class="tk" title="平行敬称对方">贵县</span>咨开，以两县交界河道淤塞、亟应疏浚<span class="tk" title="收束所引平行来文">等由</span>。<span class="tk" title="接到平行来文，对应奉此">准此</span>：查此项工程经费，拟由两县分认，尚属可行。<span class="tk" title="结束语，相应函请">相应</span>咨请贵县<span class="tk" title="查明照办">查照</span>，<span class="tk" title="平行祈请，十分希望">即希</span>核复，以便会同兴工。<span class="tk" title="咨的结尾收束语">此咨</span>某县县政府。
+    </div></details>
+
+    <details><summary>九 · 公函（不相隶属机关）</summary><div class="exbody">
+      <span class="tk" title="公函起首，径＝直接说事">径启者</span>：兹有本县水利委员前往贵县接洽河工事宜，<span class="tk" title="平行祈请，十分希望">即希</span><span class="tk" title="查明照办">查照</span><span class="tk" title="请回复">赐复</span><span class="tk" title="结尾客气套语，承情之至">为荷</span>。<span class="tk" title="公函的结尾收束语">此致</span>某机关。
+    </div></details>
+
+    <details><summary>十 · 笺函（常函，同级平常事）</summary><div class="exbody">
+      <span class="tk" title="公函起首，迳＝直接说事">迳启者</span>：本月某日敝县召开水利会议，拟请贵县派员出席，藉资讨论。<span class="tk" title="平行祈请，十分希望">即希</span>查照<span class="tk" title="结尾客气套语">为荷</span>。<span class="tk" title="公函的结尾收束语">此致</span>某县政府。
+      <div class="divider"></div>
+      <span style="color:#948b7b;font-size:12.5px">注：笺函（常函）为同级机关平常事件往来的非正式公函，格式从简。</span>
+    </div></details>
+
+    <details><summary>十一 · 批（对人民陈情之准驳）</summary><div class="exbody">
+      <span class="tk" title="来呈已阅">呈悉</span>。据该民呈请减免摊款<span class="tk" title="收束所引来文">等情</span>，查所请于法<span class="tk" title="不合规定">不合</span>，<span class="tk" title="不必再提，即不行">应毋庸议</span>。<span class="tk" title="批的结尾收束语">此批</span>。
+    </div></details>
+
+    <details><summary>十二 · 电 / 代电（快捷文书）</summary><div class="exbody">
+      某厅电：<span class="tk" title="电文开头，表示收到来电">电悉</span>。该县灾情已据呈报在案，赈款<span class="tk" title="立即批准">准即</span>拨发，<span class="tk" title="希望立即">仰即</span>具领散放<span class="tk" title="上报结果">具报</span>。厅长某某。某日。
+      <div class="divider"></div>
+      <span style="color:#948b7b;font-size:12.5px">注：电文为省字数，常以韵母代日、地支代月（如「十二日电悉」），电不通处用快邮代电、航空代电。</span>
+    </div></details>
   </div>
 
-  <div class="searchbar">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line>
-    </svg>
-    <input id="q" type="text" placeholder="输入套语、释义关键词或拼音，如：等因 / dengyin / 催办 / jun" autocomplete="off" spellcheck="false">
-    <span class="kbd">/ 聚焦</span>
-    <button id="clear">清空</button>
-  </div>
-
-  <div class="chips" id="chips"></div>
-  <div class="meta"><span>共 <b id="count">0</b> 条套语</span><span id="hint"></span></div>
-  <div class="grid" id="grid">
-    <article class="card c-A">
-      <div class="chead"><h3>案查</h3><span class="py">an cha</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>查考案卷、经查察。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>布告、令、呈的开头，交代据以行文的案由。</p></div>
-      <div class="eg"><span class="qm">例</span>案查本县河道淤塞多年，亟应疏浚……</div>
-      <div class="src">出处 · 例文丁</div>
-      <div class="note">辨析 · 「案查」偏公文，「照得」偏告示。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>为……事</h3><span class="py">wei shi</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>公文首句引端语，标明文种与事由。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>各类公文开头通用：令作「为令遵事」，呈作「呈为呈请事」，布告作「为布告事」。</p></div>
-      <div class="eg"><span class="qm">例</span>呈为呈请事；为令遵事；为布告事</div>
-      <div class="src">出处 · 例文甲·乙·丁</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>照得</h3><span class="py">zhao de</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>查察所知、查得。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>布告、告示的开头，直接向民众说明事由，带晓谕口吻。</p></div>
-      <div class="eg"><span class="qm">例</span>照得本县河道疏浚工程，定于本月十五日开工……</div>
-      <div class="src">出处 · 例文丁</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>案奉</h3><span class="py">an feng</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>案卷内奉到（上级来文）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述上级训令、指令，常接「……开」。</p></div>
-      <div class="eg"><span class="qm">例</span>案奉钧厅训令开……</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 「奉」为敬称指上级；平行用「案准」，下级用「案据」。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>案据</h3><span class="py">an ju</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>案卷内据有（下级或民众来文）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述下级官署呈文或民众状纸，常接「……等情」。</p></div>
-      <div class="eg"><span class="qm">例</span>案据该县呈报灾情清册到厅……</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>案准</h3><span class="py">an zhun</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>案卷内准到（平行机关来文）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述同级、不相隶属机关的咨、公函。</p></div>
-      <div class="eg"><span class="qm">例</span>案准贵县咨开……</div>
-      <div class="src">出处 · 例文丙</div>
-      <div class="note">辨析 · 案奉（上）／案据（下）／案准（平），一字见方向。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>据……等情</h3><span class="py">ju deng qing</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>「据」引出所据来文，「等情」收束其内容。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述下级官署或民众来文的起句。</p></div>
-      <div class="eg"><span class="qm">例</span>据该县呈称灾情奇重……等情到厅</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>窃</h3><span class="py">qie</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>私下、鄙人，自称谦词。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上行呈文开头自称：窃查、窃自、窃据。</p></div>
-      <div class="eg"><span class="qm">例</span>窃查职县仓谷无多……</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>开（令开/训令开）</h3><span class="py">kai</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>引述上级或平行公文时表示「下文开列」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>紧接「案奉……训令」「案准……咨」之后，引出原文。</p></div>
-      <div class="eg"><span class="qm">例</span>案奉钧厅训令开；案准贵县咨开</div>
-      <div class="src">出处 · 例文甲·丙</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>径启者 / 迳复者</h3><span class="py">jing qi zhe</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>公函起首语。「径」即直接说事；恭敬可作「谨启者」「敬复者」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>不相隶属机关之间以公函行文（函请、函复）。</p></div>
-      <div class="eg"><span class="qm">例</span>径启者：兹有本县水利委员前往贵县接洽……</div>
-      <div class="src">出处 · 例文丙</div>
-      <div class="note">辨析 · 公函专用起首，与「为……事」结构不同。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>为咨……事（咨请/咨领/咨商）</h3><span class="py">wei zi shi</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>平行文起首语。请人办事＝咨请，领款领物＝咨领，商量办法＝咨商。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>同级机关行文。</p></div>
-      <div class="eg"><span class="qm">例</span>为咨请事……</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>为令知事 / 为令遵事 / 为令饬事</h3><span class="py">wei ling zhi shi</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>训令起首三式：令知＝使其知道，令遵＝使其遵行，令饬＝责成办理。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上级主动向下级布置工作，三式对应「知道什么／做什么／怎么做」。</p></div>
-      <div class="eg"><span class="qm">例</span>为令遵事……</div>
-      <div class="src">出处 · 例文乙</div>
-      <div class="note">辨析 · 另有「为令委事」「为令催事」，属委办、催办一类。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>为通令事 / 为布告事</h3><span class="py">wei tong ling shi</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>通令、布告的起首语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>通令对下级，布告对民众。</p></div>
-      <div class="eg"><span class="qm">例</span>为布告事……</div>
-      <div class="src">出处 · 例文丁</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>特任 / 特派 / 任命</h3><span class="py">te ren</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>任命状的起首语，标明任命性质。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>专用于任命状：特任、简任、荐任、委任四级。</p></div>
-      <div class="eg"><span class="qm">例</span>特任某某为……（任命状例）</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>电悉 / 文电悉</h3><span class="py">dian xi</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>电文开头，表示收到来电（如「十二日电悉」）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>电报、代电的开头，相当于「来电已阅」。</p></div>
-      <div class="eg"><span class="qm">例</span>十二日电悉……</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 电文常用韵母代日、地支代月以省字数。</div>
-    </article>
-    <article class="card c-A">
-      <div class="chead"><h3>前据 / 现据 / 兹据</h3><span class="py">qian ju</span></div>
-      <div class="tag">① 起首与引述</div>
-      <div class="row"><span class="lab">释 义</span><p>「据」的时序变体：先前据／现在据／此时据。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>区分引述来文的先后，理清办案时序。</p></div>
-      <div class="eg"><span class="qm">例</span>前据该县呈称……；现据该县覆称……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>等因</h3><span class="py">deng yin</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>收束所引上级来文的结尾套语，意为「以上就是来文所说的」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>「引上接下」第一环：引完上级训令/指令，用它收口。</p></div>
-      <div class="eg"><span class="qm">例</span>……饬即查明灾情具报等因。</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 与「等情」（下级来文）、「等由」（平行来文）分工不同。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>奉此</h3><span class="py">feng ci</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>接到此（令）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>紧接「等因」之后，标志本机关开始叙述办理经过。</p></div>
-      <div class="eg"><span class="qm">例</span>……等因。奉此：查职县受灾田亩……</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 「等因」是别人的话，「奉此」之后才是自己的话，读长句的分水岭。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>等因奉此</h3><span class="py">deng yin feng ci</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>「等因」＋「奉此」连用，旧公文最典型的引据承接套语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述上级来文并接叙本机关办理；后引申指官样文章、照例敷衍。</p></div>
-      <div class="eg"><span class="qm">例</span>……等因。奉此：查职县……</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>等情</h3><span class="py">deng qing</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>收束所引下级官署呈文或民众状纸的结尾套语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>转述呈、状、禀之后收口，常作「等情到厅/到署/前来」。</p></div>
-      <div class="eg"><span class="qm">例</span>……等情到厅</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>等由</h3><span class="py">deng you</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>收束所引平行机关来文（咨、公函）的结尾套语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>同级机关往来文书的引述收口。</p></div>
-      <div class="eg"><span class="qm">例</span>……以两县交界河道淤塞，亟应疏浚等由。</div>
-      <div class="src">出处 · 例文丙</div>
-      <div class="note">辨析 · 三等收束语：等因（上下行）、等情（呈状）、等由（平行）。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>等语</h3><span class="py">deng yu</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>收束所引供词、口供、问答的结尾套语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>审讯、笔录类文书中引述当事人供述。</p></div>
-      <div class="eg"><span class="qm">例</span>……供称该款系经手人挪用等语</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>各在案 / 在案</h3><span class="py">ge zai an</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>此前已有公文存档可稽，援引作依据。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>叙述办理经过时，用「各在案」收束一系列旧有文书，坐实依据。</p></div>
-      <div class="eg"><span class="qm">例</span>……业经呈奉省政府核准拨发赈款各在案</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>有案</h3><span class="py">you an</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>已有旧案可查（强调先例存在）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>核定、援引前案时用。</p></div>
-      <div class="eg"><span class="qm">例</span>此案在卷有案</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 在案＝曾经存档；有案＝确有先例可援。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>当经 / 旋经</h3><span class="py">dang jing</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>当时已经／随即已经。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>叙述办案时序，交代某环节已做过。</p></div>
-      <div class="eg"><span class="qm">例</span>当经本厅复核属实</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>即经 / 业经 / 前经</h3><span class="py">ji jing</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>承转「经」字族：立即经／已经／先前经。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文叙述办理经过，与「当经、旋经」同族。</p></div>
-      <div class="eg"><span class="qm">例</span>业经呈奉省政府核准</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>嗣奉 / 嗣经 / 复经</h3><span class="py">si feng</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>后来奉到／后来经过／又经过。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>续叙办理时序，表示前事之后又发生的事。</p></div>
-      <div class="eg"><span class="qm">例</span>嗣奉钧厅训令开……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>兹奉 / 兹据</h3><span class="py">zi feng</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>现在奉到／现在据到。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引出当前这件来文，衔接往事。</p></div>
-      <div class="eg"><span class="qm">例</span>兹据该县覆称……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>合行 / 合再 / 合将</h3><span class="py">he xing</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>「合」＝理合、应当；合行＝理合行文，合再＝再次行文，合将＝将某文件发出。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引出本机关的行文动作，发文的标志词。</p></div>
-      <div class="eg"><span class="qm">例</span>合行令仰该县即便遵照；合行布告</div>
-      <div class="src">出处 · 例文乙·丁</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>除……外</h3><span class="py">chu wai</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>分叙剔除项，「除」与「外」之间为排除内容。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>主句之前先交代附带处理的事项。</p></div>
-      <div class="eg"><span class="qm">例</span>除分令各厅外，仰该县即便遵照……</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 有人单列为「除外语」，其实是关顾语的特例，功能是关联本文以外的行为。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>准此</h3><span class="py">zhun ci</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>接到此（平行来文）。对应「奉此」：上行敬称「奉」，平行用「准」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>平行文引叙来文之后转入自叙的承转语。</p></div>
-      <div class="eg"><span class="qm">例</span>……等由。准此：查此项工程……</div>
-      <div class="src">出处 · 例文丙</div>
-      <div class="note">辨析 · 奉此（对上级）／准此（对平行）／据此（据来文），一字见尊卑。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>据此</h3><span class="py">ju ci</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>根据此（来文）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>承转语，引据来文之后转入自叙，多用于下行文。</p></div>
-      <div class="eg"><span class="qm">例</span>……等情。据此：查该县所报……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>各等因 / 各等情</h3><span class="py">ge deng yin</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>来文所述不止一事时的总结语（「各」＝诸事）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引述内容含多项事项时用。</p></div>
-      <div class="eg"><span class="qm">例</span>……各等因。奉此……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>内开 / 咨开 / 节开 / 略开</h3><span class="py">nei kai</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>引叙来文四式：内开、咨开为照抄原文；节开、略开为节录、简述。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>长文引述时标明是全录还是摘录。</p></div>
-      <div class="eg"><span class="qm">例</span>……内开：……；……略开：……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>呈称 / 声称 / 查得</h3><span class="py">cheng cheng</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>引叙下级或第三方陈述的动词：呈文说／声称／查得。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>引出下级或第三方陈述的具体内容。</p></div>
-      <div class="eg"><span class="qm">例</span>据该县呈称灾情奇重……</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>据呈前情 / 兹据前情</h3><span class="py">ju cheng qian qing</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>关顾语，回指前文所述情由。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>文书后段回顾前文，避免重复叙述。</p></div>
-      <div class="eg"><span class="qm">例</span>兹据前情，查核尚属实在</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>理合</h3><span class="py">li he</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>结束语：按理应当。用于归结处引出呈请、呈复。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>公文末段收束全篇，转入正式呈请。</p></div>
-      <div class="eg"><span class="qm">例</span>理合具文呈请，仰祈鉴核示遵</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 常与「相应」「为此」并列，是全文「合」的部分。</div>
-    </article>
-    <article class="card c-B">
-      <div class="chead"><h3>相应 / 为此</h3><span class="py">xiang ying</span></div>
-      <div class="tag">② 引据与承接</div>
-      <div class="row"><span class="lab">释 义</span><p>结束语：相应（多用于平行、下行）／为此（引出结论）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>归结全篇、引出最后请求或结论。</p></div>
-      <div class="eg"><span class="qm">例</span>相应咨请贵县查照办理</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>仰</h3><span class="py">yang</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>上级对下级的祈使，「希望你（们）」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文核心套语，令、批、布告中指示下级或民众遵办。</p></div>
-      <div class="eg"><span class="qm">例</span>仰该县即便遵照</div>
-      <div class="src">出处 · 例文乙</div>
-      <div class="note">辨析 · 「仰」用于下行；上行用「仰祈」「请祈」，形近义异。</div>
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>仰即</h3><span class="py">yang ji</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>希望立即……</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文结尾，要求受文者即时照办。</p></div>
-      <div class="eg"><span class="qm">例</span>仰即遵照</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>仰祈</h3><span class="py">yang qi</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>上行祈请语，此处「仰」为仰望、企盼，非命令。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上行文结尾，如「仰祈鉴核」，与下行「仰」同形异义。</p></div>
-      <div class="eg"><span class="qm">例</span>仰祈鉴核示遵</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 实务中亦作「请祈」，如「请祈鉴核备案」。</div>
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>饬 / 令饬 / 应饬</h3><span class="py">chi</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>命令、责成办理。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上级对下级布置任务、责成查办。</p></div>
-      <div class="eg"><span class="qm">例</span>饬即查明灾情具报</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>切切</h3><span class="py">qie qie</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>谆谆告诫，语气最重的催促。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>多于令、布告结尾叠用，强调务必照办。</p></div>
-      <div class="eg"><span class="qm">例</span>切切此令；切切此布</div>
-      <div class="src">出处 · 例文乙·丁</div>
-      <div class="note">辨析 · 「切切此令」「切切此布」是固定收尾格式。</div>
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>切速勿延 / 毋得违延</h3><span class="py">qie su wu yan</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>务必迅速，不得拖延。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>催办类令文的收尾催促语。</p></div>
-      <div class="eg"><span class="qm">例</span>毋得违延，切速勿延</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>勿再宕延 / 勿再延宕</h3><span class="py">wu zai dang yan</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>不要再拖延。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>对多次催办未复的下级所用，带责备意味。</p></div>
-      <div class="eg"><span class="qm">例</span>勿再宕延，切切此令</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>勿延 / 毋稍 / 毋得</h3><span class="py">wu yan</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>督饬语：不要拖延／不要稍有（疏懈）／不得。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文结尾再加叮咛。</p></div>
-      <div class="eg"><span class="qm">例</span>毋得稍涉浮冒</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>即便 / 迅即 / 迅速 / 确速 / 详确</h3><span class="py">ji bian</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>催促性副词群：立即／迅速／确实迅速／详细确实。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>密集出现于催办令、批文，体现上级急于结案。</p></div>
-      <div class="eg"><span class="qm">例</span>即便遵照；迅将赈款具领；迅即查明</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>致于未便</h3><span class="py">zhi yu wei bian</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>否则将有所不便（隐含后果警告）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文警告拖延、违令的后果，语气较严厉。</p></div>
-      <div class="eg"><span class="qm">例</span>毋得稍涉浮冒，致干未便</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>有厚望焉 / 致干 / 定予</h3><span class="py">you hou wang yan</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>下行结尾督饬：寄予厚望／否则招致（处分）／一定给予（惩处）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>领导话讲完后的叮咛，等于「别把事情办坏了」。</p></div>
-      <div class="eg"><span class="qm">例</span>致干未便；定予惩处</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>悬案以待</h3><span class="py">xuan an yi dai</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>把案件悬置起来等待办理结果。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>催办令中说明案件已搁置待复，施加压力。</p></div>
-      <div class="eg"><span class="qm">例</span>悬案以待，勿再延宕</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>遵照 / 遵照办理</h3><span class="py">zun zhao</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>依照（命令）办理。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文结尾要求受文者依令执行。</p></div>
-      <div class="eg"><span class="qm">例</span>即便遵照；仰即遵照</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-C">
-      <div class="chead"><h3>姑 / 暂</h3><span class="py">gu zan</span></div>
-      <div class="tag">③ 命令与督促</div>
-      <div class="row"><span class="lab">释 义</span><p>准驳语中语气最弱者：姑且、暂时同意。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上级别无良法时勉强应允——「先这么办吧」，下级须体会其保留。</p></div>
-      <div class="eg"><span class="qm">例</span>姑准所请；暂如所议</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 准驳强弱：准＞可＞姑、暂＞未便＞碍难＞万难＞不准。</div>
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>状悉 / 呈悉 / 各呈均悉</h3><span class="py">zhuang xi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>阅悉来文（状＝状纸，呈＝呈文，各呈＝多件呈文）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文开头的第一句，表示来文已收到并看过。</p></div>
-      <div class="eg"><span class="qm">例</span>呈悉：查该县所请……</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>查 / 复查</h3><span class="py">cha</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>审查、复核。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文中引出调查、核实结论。</p></div>
-      <div class="eg"><span class="qm">例</span>当经本厅复核属实</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>应准</h3><span class="py">ying zhun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>应当批准。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文裁断用语，表示同意来请。</p></div>
-      <div class="eg"><span class="qm">例</span>应准如所请</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>可</h3><span class="py">ke</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>准驳语：同意。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文简断用语，一字表示许可。</p></div>
-      <div class="eg"><span class="qm">例</span>所请可也</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>如呈照准</h3><span class="py">ru cheng zhao zhun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>照来呈所请予以批准。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文表示依呈文请求办理。</p></div>
-      <div class="eg"><span class="qm">例</span>所请如呈照准</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>未便照准</h3><span class="py">wei bian zhao zhun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>不便批准（较委婉的否定）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文否定来请，语气比「应不准行」缓和。</p></div>
-      <div class="eg"><span class="qm">例</span>所请未便照准</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>未便</h3><span class="py">wei bian</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>介于同意与不同意之间：有所顾虑、不完全同意。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上级留有余地的表态，下级须掂量，不可当作已准。</p></div>
-      <div class="eg"><span class="qm">例</span>事属可行，惟于定章未便</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 字面是肯定，实际表达保留——民国公文最耐人寻味的一词。</div>
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>碍难照准</h3><span class="py">ai nan zhao zhun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>碍于情势难以批准（委婉否定）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文否决请求时的客气说法。</p></div>
-      <div class="eg"><span class="qm">例</span>所请碍难照准</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>万难照准</h3><span class="py">wan nan zhao zhun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>万难批准（比「碍难」更重的否定）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>语气强烈的否决。</p></div>
-      <div class="eg"><span class="qm">例</span>所请万难照准</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>应不准行</h3><span class="py">ying bu zhun xing</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>应当不予准行（明确否定）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文对无理请求的否定裁断，语气坚决。</p></div>
-      <div class="eg"><span class="qm">例</span>所呈显系误会，应不准行</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>不合 / 非是</h3><span class="py">bu he</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>否定评断：不合（规定）／非是（不对）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文驳斥来呈时的评断语。</p></div>
-      <div class="eg"><span class="qm">例</span>所请于法不合；所论非是</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>应毋庸议</h3><span class="py">ying wu yong yi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>不必再提，即「不行」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文常用否定语，比「不准」更断然。</p></div>
-      <div class="eg"><span class="qm">例</span>所请应毋庸议</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>殊涉含糊 / 殊属玩延</h3><span class="py">shu she han hu</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>实在涉于含糊／实在属于玩忽拖延。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>对下级来文或办理态度的批评定性。</p></div>
-      <div class="eg"><span class="qm">例</span>来呈声叙不清，殊涉含糊</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>显系……（饰词狡赖/误会）</h3><span class="py">xian xi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>显然属于……，给行为定性。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>批文驳斥来呈时的定性用语。</p></div>
-      <div class="eg"><span class="qm">例</span>所呈显系误会</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>各执一词 / 莫衷一是</h3><span class="py">ge zhi yi ci</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>双方各说各话、互相争执，无法得出一致结论。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>叙述两造争讼、供词不一时用。</p></div>
-      <div class="eg"><span class="qm">例</span>两造各执一词，莫衷一是</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>即希 / 查照</h3><span class="py">ji xi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>平行祈请：十分希望／查明照办。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>平行文结尾请求对方办理。</p></div>
-      <div class="eg"><span class="qm">例</span>即希查照</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>烦请 / 赐复 / 见复</h3><span class="py">fan qing</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>平行祈请：麻烦您／请回复（「赐复」敬，「见复」谦）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>平行文请求答复的客气说法。</p></div>
-      <div class="eg"><span class="qm">例</span>即希查照赐复</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>为盼 / 为荷 / 实纫公谊 / 是所至盼</h3><span class="py">wei pan</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>平行结尾客气套语：是所盼望／承情之至／深感厚谊／最为盼望。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>平行文收尾的客套，属「补助语」性质。</p></div>
-      <div class="eg"><span class="qm">例</span>即希查照赐复为荷</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>仰祈鉴核（施行/示遵/备案）</h3><span class="py">yang qi jian he</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>上行结尾祈请：请审察核定；接施行（请核准实施）／示遵（请给指示）／备案（备查）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>呈文末尾，按请示内容选用不同尾缀。</p></div>
-      <div class="eg"><span class="qm">例</span>仰祈鉴核示遵</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>批示祗遵 / 指令示遵</h3><span class="py">pi shi zhi zun</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>请求给予指示以便遵行（祗遵＝敬谨遵守）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上行文结尾，把决定权交回上级。</p></div>
-      <div class="eg"><span class="qm">例</span>仰祈鉴核示遵；请祈指令示遵</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>此令 / 此批 / 此布</h3><span class="py">ci ling</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>令／批／布告的结尾收束语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>必须与文种严格对应，不能混用。</p></div>
-      <div class="eg"><span class="qm">例</span>此令（令）；此批（批）；此布（布告）</div>
-      <div class="src">出处 · 例文乙·丁</div>
-      <div class="note">辨析 · 判断文种最直接的标志：见此令即令，见此批即批。</div>
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>此咨 / 此致</h3><span class="py">ci zi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>咨的结尾作「此咨」，公函的结尾作「此致」。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>平行文的收束语，与下行「此令」、上行「谨呈」相对。</p></div>
-      <div class="eg"><span class="qm">例</span>……以便会同兴工。此咨。；……为荷。此致。</div>
-      <div class="src">出处 · 例文丙</div>
-      <div class="note">辨析 · 今书信「此致」即源于公函结尾。</div>
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>谨呈</h3><span class="py">jin cheng</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>恭谨地呈上，上行文结尾敬语。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>呈文的最后两字，与下行「此令」相对。</p></div>
-      <div class="eg"><span class="qm">例</span>仰祈鉴核示遵。谨呈。</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>请祈 / 鉴核 / 备案 / 指令示遵</h3><span class="py">qing qi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>上行结尾祈请语群：请求审察核定、备案、给予指示以便遵行。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>呈文末尾，体现上下尊卑与请示关系。</p></div>
-      <div class="eg"><span class="qm">例</span>请祈鉴核备案，并祈指令示遵</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>计发 / 计抄发</h3><span class="py">ji fa</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>附件说明：随文附发／抄发若干。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>公文末尾交代随文所附文件、清单、图册。</p></div>
-      <div class="eg"><span class="qm">例</span>计抄发赈款分配清册一件</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>具报 / 具复</h3><span class="py">ju bao</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>上报／回复上级。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下行文中要求下级回报办理结果。</p></div>
-      <div class="eg"><span class="qm">例</span>造册具报；仰即具复</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>是否有当</h3><span class="py">shi fou you dang</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>是否妥当（谦辞，征求上级裁酌）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上行文提出方案后的客套，把决定权留给上级。</p></div>
-      <div class="eg"><span class="qm">例</span>是否有当，理合具文呈请</div>
-      <div class="src">出处 · 例文甲</div>
-      
-    </article>
-    <article class="card c-D">
-      <div class="chead"><h3>伏乞 / 伏祈</h3><span class="py">fu qi</span></div>
-      <div class="tag">④ 裁断与结尾</div>
-      <div class="row"><span class="lab">释 义</span><p>俯伏乞求，旧式上行极谦之辞。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>清代至民初上行文中的旧套语，民国后渐被弃用，档案中仍有残留。</p></div>
-      <div class="eg"><span class="qm">例</span>伏乞恩准（旧式残留）</div>
-      <div class="src">出处 · 通用</div>
-      <div class="note">辨析 · 孙中山主张废除「伏乞恩准」「实为恩便」等官僚口吻，但惯性难尽除。</div>
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>钧（钧部/钧府/钧座）</h3><span class="py">jun</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>上行对上级的尊称。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>下级对上级行文时称对方，如「钧厅」「钧部」「钧座」。</p></div>
-      <div class="eg"><span class="qm">例</span>案奉钧厅训令开</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 「钧」表尊重，只用于上行；下行称「该」，平行称「贵」。</div>
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>大（大署）</h3><span class="py">da</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>对非直辖上级机关的尊称。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>向非本系统直辖的上级机关行文。</p></div>
-      <div class="eg"><span class="qm">例</span>呈大署</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>职（职部/职县/职○○）</h3><span class="py">zhi</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>下级自称。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上行文自称本机关或本人，如「职县」「职所」「职○○」。</p></div>
-      <div class="eg"><span class="qm">例</span>查职县受灾田亩共三千余亩</div>
-      <div class="src">出处 · 例文甲</div>
-      <div class="note">辨析 · 属下对上自称，与下行「本」、平行「敝」相对。</div>
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>敝</h3><span class="py">bi</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>平行文自称（谦称己方）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>同级、不相隶属机关称自己一方，如「敝署」「敝会」。</p></div>
-      <div class="eg"><span class="qm">例</span>敝会</div>
-      <div class="src">出处 · 通用</div>
-      
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>本</h3><span class="py">ben</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>下行、平行的自称。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>称本机关，如「本厅」「本部」「本县」。</p></div>
-      <div class="eg"><span class="qm">例</span>当经本厅复核属实</div>
-      <div class="src">出处 · 例文乙</div>
-      
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>该</h3><span class="py">gai</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>下行文称对方（受文的下级机关）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>上级对下级行文时指称对方，如「该县」「该部」。</p></div>
-      <div class="eg"><span class="qm">例</span>仰该县即便遵照</div>
-      <div class="src">出处 · 例文乙</div>
-      <div class="note">辨析 · 「该」带上下尊卑色彩，只用于下行。</div>
-    </article>
-    <article class="card c-E">
-      <div class="chead"><h3>贵</h3><span class="py">gui</span></div>
-      <div class="tag">⑤ 称谓与自称</div>
-      <div class="row"><span class="lab">释 义</span><p>平行文称对方（敬称）。</p></div>
-      <div class="row"><span class="lab">用 在 哪</span><p>同级、不相隶属机关称对方，如「贵县」「贵署」。</p></div>
-      <div class="eg"><span class="qm">例</span>案准贵县咨开</div>
-      <div class="src">出处 · 例文丙</div>
-      
-    </article>
-  </div>
-  <div class="empty" id="empty"><span>🔍</span>没有找到匹配的套语，试试更短的关键词或换个说法</div>
-
-  <section class="sec">
-    <h2>四篇通用例文</h2>
+  <div id="tpl-lifa" style="display:none">
     <p class="hint">以下为示例性虚拟公文（非真实档案），覆盖上行、下行、平行、布告四种方向。速查表的例句均取自这四篇。<br>
-    <span class="tk">红色带下划线</span>为套语，鼠标悬停可看释义。</p>
+    <span class="tk">红色带下划线</span>为套语，电脑端悬停、手机端点按，均可查看释义。</p>
 
-    <details open>
+    <details>
       <summary>例文甲 · 上行：某县县长呈省民政厅（呈请拨发赈款）</summary>
       <div class="exbody">
         <span class="tk" title="公文首句引端语，标明文种与事由">呈为呈请事</span>：
@@ -1100,13 +423,11 @@
         <span class="tk" title="布告起首语">为布告事</span>：<span class="tk" title="查察所知，告示体开首">照得</span>本县河道疏浚工程，定于本月十五日开工，所有沿河住户应即迁让，毋得阻碍。<span class="tk" title="理合行文，引出本机关发文动作">合行</span>布告，<span class="tk" title="上级对下级／对民众祈使">仰</span>一体知照，<span class="tk" title="谆谆告诫">切切</span><span class="tk" title="布告的结尾收束语">此布</span>。
       </div>
     </details>
-  </section>
-
-  <section class="sec legal">
-    <h2>《公文程式》历次规则原文</h2>
+  </div>
+  <div id="tpl-fagui" style="display:none">
     <p class="hint">民国公文程式并非一纸定于始终。以下按时间列出五版规则，附法规原文（据《临时政府公报》《政府公报》及维基文库校录）。</p>
 
-    <details open>
+    <details>
       <summary>一 · 1912 年 1 月　《临时政府公文程式》（南京临时政府，5 条）</summary>
       <div class="exbody">
         <p class="ver-note">法制院拟定、呈临时大总统，内务部颁行，载《临时政府公报》第 2 号。中国第一个规范公文文种的现代规章，废除「制、诏、敕、奏、表、笺」等帝制文种。</p>
@@ -1196,197 +517,423 @@
 第五条　政府发布之公文，除密件外，应于国民政府公报公布之。
 第六条　本条例自公布日施行。</div>
         <p class="ver-note"><span class="hl">要点</span>：<b>九类文种</b>（令、训令、指令、布告、任命状、呈、咨、公函、批），行文方向三分——下行（令、训令、指令、布告、任命状、批）、上行（呈）、平行（咨、公函）。1942 年再修，咨与公函合并为「函」。</p>
-        <p class="ver-note" style="color:#a8322d">※ 常见讹传：有文章称「1927 年 11 月 15 日公布」，实为「民国 17 年（1928）11 月 15 日」。1927 年 8 月另有首颁版本，勿混。</p>
       </div>
     </details>
-  </section>
+  </div>
 
   <footer>
-    通用版 · 例句为示例性虚拟公文，非真实档案<br>
-    法规原文据《临时政府公报》《政府公报（北洋政府）》及维基文库校录<br>
-    套语体系参照汪海涛《如何识读民国公文档案？》十二类用语分类法 · 供学习检索<br>
-    <span style="opacity:.75">v1.2 · 87 条套语 · 13 个折叠区 · 内容已静态写入，无脚本亦可阅读</span>
+    <div class="ft-line">民国公文速查</div>
+    <div class="ft-meta">
+      <span>文种 12</span><span>用语 12 类</span><span>惯用辞令 87 条</span><span>例文 16 篇</span><span>法规 5 版</span>
+    </div>
+    <div class="ft-note">
+      <div class="ft-ref-t">参考资料</div>
+      <ul class="ft-refs">
+        <li>汪海涛《如何识读民国公文档案？》</li>
+        <li>《临时政府公文程式》（1912）</li>
+        <li>《公文书程式》（1912）</li>
+        <li>《公文程式》（1916）</li>
+        <li>《公文程式条例》（1928）</li>
+      </ul>
+      <div class="ft-disc">例文均为虚构示例，非真实档案，仅供学习查阅。</div>
+    </div>
   </footer>
 </div>
 
 <script>
-const CATS = {A:"起首与引述", B:"引据与承接", C:"命令与督促", D:"裁断与结尾", E:"称谓与自称"};
+const ITEMS = [{"t":"案查","p":"an cha","ab":"ac","d":"查考案卷、经查察，用以交代据以行文的案由。","u":"布告、令、呈的开头，交代据以行文的案由。","e":"案查本县河道淤塞多年，亟应疏浚……","s":"例文丁","n":"「案查」偏公文，「照得」偏告示。","f":"引叙语","dir":"通用","py":"àn chá"},{"t":"为……事","p":"wei shi","ab":"ws","d":"公文起首语，标明文种与事由，如「为令遵事」「呈为呈请事」「为布告事」。","u":"各类公文开头通用：令作「为令遵事」，呈作「呈为呈请事」，布告作「为布告事」。","e":"呈为呈请事；为令遵事；为布告事","s":"例文甲·乙·丁","n":"","f":"起首语","dir":"通用","py":"wèi……shì"},{"t":"照得","p":"zhao de","ab":"zd","d":"查察所知、查得；多用于布告开首，直接向民众说明事由。","u":"布告、告示的开头，直接向民众说明事由，带晓谕口吻。","e":"照得本县河道疏浚工程，定于本月十五日开工……","s":"例文丁","n":"","f":"起首语","dir":"下行","py":"zhào dé"},{"t":"案奉","p":"an feng","ab":"af","d":"案卷内奉到上级来文；「奉」为敬称，指上级。","u":"引述上级训令、指令，常接「……开」。","e":"案奉钧厅训令开……","s":"例文甲","n":"「奉」为敬称指上级；平行用「案准」，下级用「案据」。","f":"引叙语","dir":"上行","py":"àn fèng"},{"t":"案据","p":"an ju","ab":"aj","d":"案卷内据有（下级或民众来文）。","u":"引述下级官署呈文或民众状纸，常接「……等情」。","e":"案据该县呈报灾情清册到厅……","s":"例文乙","n":"","f":"引叙语","dir":"下行","py":"àn jù"},{"t":"案准","p":"an zhun","ab":"az","d":"案卷内准到（平行机关来文）。","u":"引述同级、不相隶属机关的咨、公函。","e":"案准贵县咨开……","s":"例文丙","n":"案奉（上）／案据（下）／案准（平），一字见方向。","f":"引叙语","dir":"平行","py":"àn zhǔn"},{"t":"据……等情","p":"ju deng qing","ab":"jdq","d":"「据」引出所据来文，「等情」收束其内容。","u":"引述下级官署或民众来文的起句。","e":"据该县呈称灾情奇重……等情到厅","s":"例文乙","n":"","f":"引叙语","dir":"下行","py":"jù……děng qíng"},{"t":"窃","p":"qie","ab":"q","d":"自谦之词；上行文自陈意见时用以发端，如「窃查」「窃据」。","u":"上行呈文开头自称：窃查、窃自、窃据。","e":"窃查职县仓谷无多……","s":"例文甲","n":"","f":"起首语","dir":"上行","py":"qiè"},{"t":"开（令开/训令开）","p":"kai","ab":"k","d":"引述上级或平行公文时表示「下文开列」。","u":"紧接「案奉……训令」「案准……咨」之后，引出原文。","e":"案奉钧厅训令开；案准贵县咨开","s":"例文甲·丙","n":"","f":"引叙语","dir":"通用","py":"kāi（lìng kāi/xùn lìng kāi）"},{"t":"径启者 / 迳复者","p":"jing qi zhe","ab":"jqz","d":"公函起首语。「径」即直接说事；恭敬可作「谨启者」「敬复者」。","u":"不相隶属机关之间以公函行文（函请、函复）。","e":"径启者：兹有本县水利委员前往贵县接洽……","s":"例文丙","n":"公函专用起首，与「为……事」结构不同。","f":"起首语","dir":"平行","py":"jìng qǐ zhě / jìng fù zhě"},{"t":"为咨……事（咨请/咨领/咨商）","p":"wei zi shi","ab":"wzs","d":"平行文起首语。请人办事＝咨请，领款领物＝咨领，商量办法＝咨商。","u":"同级机关行文。","e":"为咨请事……","s":"例文丙","n":"","f":"起首语","dir":"平行","py":"wèi zī……shì（zī qǐng/zī lǐng/zī shāng）"},{"t":"为令知事 / 为令遵事 / 为令饬事","p":"wei ling zhi shi","ab":"wlzs","d":"训令起首三式：令知＝使其知道，令遵＝使其遵行，令饬＝责成办理。","u":"上级主动向下级布置工作，三式对应「知道什么／做什么／怎么做」。","e":"为令遵事……","s":"例文乙","n":"另有「为令委事」「为令催事」，属委办、催办一类。","f":"起首语","dir":"下行","py":"wèi lìng zhī shì / wèi lìng zūn shì / wèi lìng chì shì"},{"t":"为通令事 / 为布告事","p":"wei tong ling shi","ab":"wtls","d":"通令、布告的起首语。","u":"通令对下级，布告对民众。","e":"为布告事……","s":"例文丁","n":"","f":"起首语","dir":"下行","py":"wèi tōng lìng shì / wèi bù gào shì"},{"t":"特任 / 特派 / 任命","p":"te ren","ab":"tr","d":"任命状的起首语，标明任命性质。","u":"专用于任命状：特任、简任、荐任、委任四级。","e":"特任某某为……（任命状例）","s":"通用","n":"","f":"起首语","dir":"下行","py":"tè rèn / tè pài / rèn mìng"},{"t":"电悉 / 文电悉","p":"dian xi","ab":"dx","d":"电文开头，表示收到来电（如「十二日电悉」）。","u":"电报、代电的开头，相当于「来电已阅」。","e":"十二日电悉……","s":"通用","n":"电文常用韵母代日、地支代月以省字数。","f":"起首语","dir":"下行","py":"diàn xī / wén diàn xī"},{"t":"前据 / 现据 / 兹据","p":"qian ju","ab":"qj","d":"「据」的时序变体：先前据／现在据／此时据。","u":"区分引述来文的先后，理清办案时序。","e":"前据该县呈称……；现据该县覆称……","s":"通用","n":"","f":"引叙语","dir":"下行","py":"qián jù / xiàn jù / zī jù"},{"t":"等因","p":"deng yin","ab":"dy","d":"收束所引上级来文的结尾套语，意为「以上就是来文所说的」。","u":"「引上接下」第一环：引完上级训令/指令，用它收口。","e":"……饬即查明灾情具报等因。","s":"例文甲","n":"与「等情」（下级来文）、「等由」（平行来文）分工不同。","f":"关界语","dir":"上行","py":"děng yīn"},{"t":"奉此","p":"feng ci","ab":"fc","d":"接到此（令）。","u":"紧接「等因」之后，标志本机关开始叙述办理经过。","e":"……等因。奉此：查职县受灾田亩……","s":"例文甲","n":"「等因」是别人的话，「奉此」之后才是自己的话，读长句的分水岭。","f":"承转语","dir":"上行","py":"fèng cǐ"},{"t":"等因奉此","p":"deng yin feng ci","ab":"dyfc","d":"「等因」＋「奉此」连用，旧公文最典型的引据承接套语。","u":"引述上级来文并接叙本机关办理；后引申指官样文章、照例敷衍。","e":"……等因。奉此：查职县……","s":"例文甲","n":"","f":"承转语","dir":"上行","py":"děng yīn fèng cǐ"},{"t":"等情","p":"deng qing","ab":"dq","d":"收束所引下级官署呈文或民众状纸的结尾套语。","u":"转述呈、状、禀之后收口，常作「等情到厅/到署/前来」。","e":"……等情到厅","s":"例文乙","n":"","f":"关界语","dir":"下行","py":"děng qíng"},{"t":"等由","p":"deng you","ab":"dyou","d":"收束所引平行机关来文（咨、公函）的结尾套语。","u":"同级机关往来文书的引述收口。","e":"……以两县交界河道淤塞，亟应疏浚等由。","s":"例文丙","n":"三等收束语：等因（上下行）、等情（呈状）、等由（平行）。","f":"关界语","dir":"平行","py":"děng yóu"},{"t":"等语","p":"deng yu","ab":"dyu","d":"收束所引供词、口供、问答的结尾套语。","u":"审讯、笔录类文书中引述当事人供述。","e":"……供称该款系经手人挪用等语","s":"通用","n":"","f":"关界语","dir":"通用","py":"děng yǔ"},{"t":"各在案 / 在案","p":"ge zai an","ab":"gza","d":"此前已有公文存档可稽，援引作依据。","u":"叙述办理经过时，用「各在案」收束一系列旧有文书，坐实依据。","e":"……业经呈奉省政府核准拨发赈款各在案","s":"例文乙","n":"","f":"到达语","dir":"通用","py":"gè zài àn / zài àn"},{"t":"有案","p":"you an","ab":"ya","d":"已有旧案可查（强调先例存在）。","u":"核定、援引前案时用。","e":"此案在卷有案","s":"通用","n":"在案＝曾经存档；有案＝确有先例可援。","f":"到达语","dir":"通用","py":"yǒu àn"},{"t":"当经 / 旋经","p":"dang jing","ab":"dj","d":"当时已经／随即已经。","u":"叙述办案时序，交代某环节已做过。","e":"当经本厅复核属实","s":"例文乙","n":"","f":"承转语","dir":"下行","py":"dāng jīng / xuán jīng"},{"t":"即经 / 业经 / 前经","p":"ji jing","ab":"jj","d":"承转「经」字族：立即经／已经／先前经。","u":"下行文叙述办理经过，与「当经、旋经」同族。","e":"业经呈奉省政府核准","s":"例文乙","n":"","f":"承转语","dir":"下行","py":"jí jīng / yè jīng / qián jīng"},{"t":"嗣奉 / 嗣经 / 复经","p":"si feng","ab":"sf","d":"后来奉到／后来经过／又经过。","u":"续叙办理时序，表示前事之后又发生的事。","e":"嗣奉钧厅训令开……","s":"通用","n":"","f":"承转语","dir":"通用","py":"sì fèng / sì jīng / fù jīng"},{"t":"兹奉 / 兹据","p":"zi feng","ab":"zf","d":"现在奉到／现在据到。","u":"引出当前这件来文，衔接往事。","e":"兹据该县覆称……","s":"通用","n":"","f":"引叙语","dir":"通用","py":"zī fèng / zī jù"},{"t":"合行 / 合再 / 合将","p":"he xing","ab":"hx","d":"「合」＝理合、应当；合行＝理合行文，合再＝再次行文，合将＝将某文件发出。","u":"引出本机关的行文动作，发文的标志词。","e":"合行令仰该县即便遵照；合行布告","s":"例文乙·丁","n":"","f":"结束语","dir":"下行","py":"hé xíng / hé zài / hé jiāng"},{"t":"除……外","p":"chu wai","ab":"cw","d":"关顾语的特例：关联本文以外的行为，先交代附带处理的事项。","u":"主句之前先交代附带处理的事项。","e":"除分令各厅外，仰该县即便遵照……","s":"通用","n":"有人单列为「除外语」，其实是关顾语的特例，功能是关联本文以外的行为。","f":"关顾语","dir":"通用","py":"chú……wài"},{"t":"准此","p":"zhun ci","ab":"zc","d":"接到此（平行来文）。对应「奉此」：上行敬称「奉」，平行用「准」。","u":"平行文引叙来文之后转入自叙的承转语。","e":"……等由。准此：查此项工程……","s":"例文丙","n":"奉此（对上级）／准此（对平行）／据此（据来文），一字见尊卑。","f":"承转语","dir":"平行","py":"zhǔn cǐ"},{"t":"据此","p":"ju ci","ab":"jc2","d":"根据此（来文）。","u":"承转语，引据来文之后转入自叙，多用于下行文。","e":"……等情。据此：查该县所报……","s":"通用","n":"","f":"承转语","dir":"下行","py":"jù cǐ"},{"t":"各等因 / 各等情","p":"ge deng yin","ab":"gdy","d":"来文所述不止一事时的总结语（「各」＝诸事）。","u":"引述内容含多项事项时用。","e":"……各等因。奉此……","s":"通用","n":"","f":"关界语","dir":"通用","py":"gè děng yīn / gè děng qíng"},{"t":"内开 / 咨开 / 节开 / 略开","p":"nei kai","ab":"nk","d":"引叙来文四式：内开、咨开为照抄原文；节开、略开为节录、简述。","u":"长文引述时标明是全录还是摘录。","e":"……内开：……；……略开：……","s":"通用","n":"","f":"引叙语","dir":"通用","py":"nèi kāi / zī kāi / jié kāi / lüè kāi"},{"t":"呈称 / 声称 / 查得","p":"cheng cheng","ab":"cc","d":"引叙下级或第三方陈述的动词：呈文说／声称／查得。","u":"引出下级或第三方陈述的具体内容。","e":"据该县呈称灾情奇重……","s":"例文乙","n":"","f":"引叙语","dir":"下行","py":"chéng chēng / shēng chēng / chá dé"},{"t":"据呈前情 / 兹据前情","p":"ju cheng qian qing","ab":"jcqq","d":"关顾语，回指前文所述情由。","u":"文书后段回顾前文，避免重复叙述。","e":"兹据前情，查核尚属实在","s":"通用","n":"","f":"关顾语","dir":"通用","py":"jù chéng qián qíng / zī jù qián qíng"},{"t":"理合","p":"li he","ab":"lh","d":"结束语：按理应当。用于归结处引出呈请、呈复。","u":"公文末段收束全篇，转入正式呈请。","e":"理合具文呈请，仰祈鉴核示遵","s":"例文甲","n":"常与「相应」「为此」并列，是全文「合」的部分。","f":"结束语","dir":"上行","py":"lǐ hé"},{"t":"相应 / 为此","p":"xiang ying","ab":"xy","d":"结束语：相应（多用于平行、下行）／为此（引出结论）。","u":"归结全篇、引出最后请求或结论。","e":"相应咨请贵县查照办理","s":"例文丙","n":"","f":"结束语","dir":"通用","py":"xiāng yìng / wèi cǐ"},{"t":"仰","p":"yang","ab":"y","d":"上级对下级的祈使，「希望你（们）」。","u":"下行文核心套语，令、批、布告中指示下级或民众遵办。","e":"仰该县即便遵照","s":"例文乙","n":"「仰」用于下行；上行用「仰祈」「请祈」，形近义异。","f":"祈请语 / 督饬语","dir":"下行","py":"yǎng"},{"t":"仰即","p":"yang ji","ab":"yj","d":"希望立即……","u":"下行文结尾，要求受文者即时照办。","e":"仰即遵照","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"yǎng jí"},{"t":"仰祈","p":"yang qi","ab":"yq","d":"上行祈请语，「仰」为仰望、企盼，与下行命令之「仰」同形异义。","u":"上行文结尾，如「仰祈鉴核」，与下行「仰」同形异义。","e":"仰祈鉴核示遵","s":"例文甲","n":"实务中亦作「请祈」，如「请祈鉴核备案」。","f":"祈请语 / 督饬语","dir":"上行","py":"yǎng qí"},{"t":"饬 / 令饬 / 应饬","p":"chi","ab":"c2","d":"命令、责成办理。","u":"上级对下级布置任务、责成查办。","e":"饬即查明灾情具报","s":"例文甲","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"chì / lìng chì / yīng chì"},{"t":"切切","p":"qie qie","ab":"qq","d":"谆谆告诫，语气最重的催促。","u":"多于令、布告结尾叠用，强调务必照办。","e":"切切此令；切切此布","s":"例文乙·丁","n":"「切切此令」「切切此布」是固定收尾格式。","f":"祈请语 / 督饬语","dir":"下行","py":"qiè qiè"},{"t":"切速勿延 / 毋得违延","p":"qie su wu yan","ab":"qswy","d":"务必迅速，不得拖延。","u":"催办类令文的收尾催促语。","e":"毋得违延，切速勿延","s":"通用","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"qiè sù wù yán / wú dé wéi yán"},{"t":"勿再宕延 / 勿再延宕","p":"wu zai dang yan","ab":"wzdy","d":"不要再拖延。","u":"对多次催办未复的下级所用，带责备意味。","e":"勿再宕延，切切此令","s":"通用","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"wù zài dàng yán / wù zài yán dàng"},{"t":"勿延 / 毋稍 / 毋得","p":"wu yan","ab":"wy","d":"督饬语：不要拖延／不要稍有（疏懈）／不得。","u":"下行文结尾再加叮咛。","e":"毋得稍涉浮冒","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"wù yán / wú shāo / wú dé"},{"t":"即便 / 迅即 / 迅速 / 确速 / 详确","p":"ji bian","ab":"jb","d":"催促性副词群：立即／迅速／确实迅速／详细确实。","u":"密集出现于催办令、批文，体现上级急于结案。","e":"即便遵照；迅将赈款具领；迅即查明","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"jí biàn / xùn jí / xùn sù / què sù / xiáng què"},{"t":"致于未便","p":"zhi yu wei bian","ab":"zywb","d":"否则将有所不便（隐含后果警告）。","u":"下行文警告拖延、违令的后果，语气较严厉。","e":"毋得稍涉浮冒，致干未便","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"zhì yú wèi biàn"},{"t":"有厚望焉 / 致干 / 定予","p":"you hou wang yan","ab":"yhw","d":"下行结尾督饬：寄予厚望／否则招致（处分）／一定给予（惩处）。","u":"领导话讲完后的叮咛，等于「别把事情办坏了」。","e":"致干未便；定予惩处","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"yǒu hòu wàng yān / zhì gàn / dìng yǔ"},{"t":"悬案以待","p":"xuan an yi dai","ab":"xayd","d":"把案件悬置起来等待办理结果。","u":"催办令中说明案件已搁置待复，施加压力。","e":"悬案以待，勿再延宕","s":"通用","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"xuán àn yǐ dài"},{"t":"遵照 / 遵照办理","p":"zun zhao","ab":"zz","d":"依照（命令）办理。","u":"下行文结尾要求受文者依令执行。","e":"即便遵照；仰即遵照","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"zūn zhào / zūn zhào bàn lǐ"},{"t":"姑 / 暂","p":"gu zan","ab":"gz","d":"准驳语中语气最弱者：姑且、暂时同意。","u":"上级别无良法时勉强应允——「先这么办吧」，下级须体会其保留。","e":"姑准所请；暂如所议","s":"通用","n":"准驳强弱：准＞可＞姑、暂＞未便＞碍难＞万难＞不准。","f":"准驳语","dir":"下行","py":"gū / zàn"},{"t":"状悉 / 呈悉 / 各呈均悉","p":"zhuang xi","ab":"zx","d":"阅悉来文（状＝状纸，呈＝呈文，各呈＝多件呈文）。","u":"批文开头的第一句，表示来文已收到并看过。","e":"呈悉：查该县所请……","s":"通用","n":"","f":"起首语","dir":"下行","py":"zhuàng xī / chéng xī / gè chéng jūn xī"},{"t":"查 / 复查","p":"cha","ab":"ch","d":"审查、复核。","u":"批文中引出调查、核实结论。","e":"当经本厅复核属实","s":"例文乙","n":"","f":"引叙语","dir":"下行","py":"chá / fù chá"},{"t":"应准","p":"ying zhun","ab":"yz","d":"应当批准。","u":"批文裁断用语，表示同意来请。","e":"应准如所请","s":"通用","n":"","f":"准驳语","dir":"下行","py":"yīng zhǔn"},{"t":"可","p":"ke","ab":"k2","d":"准驳语：同意。","u":"批文简断用语，一字表示许可。","e":"所请可也","s":"通用","n":"","f":"准驳语","dir":"下行","py":"kě"},{"t":"如呈照准","p":"ru cheng zhao zhun","ab":"rczz","d":"照来呈所请予以批准。","u":"批文表示依呈文请求办理。","e":"所请如呈照准","s":"通用","n":"","f":"准驳语","dir":"下行","py":"rú chéng zhào zhǔn"},{"t":"未便照准","p":"wei bian zhao zhun","ab":"wbzz","d":"不便批准（较委婉的否定）。","u":"批文否定来请，语气比「应不准行」缓和。","e":"所请未便照准","s":"通用","n":"","f":"准驳语","dir":"下行","py":"wèi biàn zhào zhǔn"},{"t":"未便","p":"wei bian","ab":"wb","d":"介于同意与不同意之间：有所顾虑、不完全同意。","u":"上级留有余地的表态，下级须掂量，不可当作已准。","e":"事属可行，惟于定章未便","s":"通用","n":"字面是肯定，实际表达保留——民国公文最耐人寻味的一词。","f":"准驳语","dir":"下行","py":"wèi biàn"},{"t":"碍难照准","p":"ai nan zhao zhun","ab":"anzz","d":"碍于情势难以批准（委婉否定）。","u":"批文否决请求时的客气说法。","e":"所请碍难照准","s":"通用","n":"","f":"准驳语","dir":"下行","py":"ài nán zhào zhǔn"},{"t":"万难照准","p":"wan nan zhao zhun","ab":"wnzz","d":"万难批准（比「碍难」更重的否定）。","u":"语气强烈的否决。","e":"所请万难照准","s":"通用","n":"","f":"准驳语","dir":"下行","py":"wàn nán zhào zhǔn"},{"t":"应不准行","p":"ying bu zhun xing","ab":"ybzx","d":"应当不予准行（明确否定）。","u":"批文对无理请求的否定裁断，语气坚决。","e":"所呈显系误会，应不准行","s":"通用","n":"","f":"准驳语","dir":"下行","py":"yīng bù zhǔn xíng"},{"t":"不合 / 非是","p":"bu he","ab":"bh","d":"否定评断：不合（规定）／非是（不对）。","u":"批文驳斥来呈时的评断语。","e":"所请于法不合；所论非是","s":"通用","n":"","f":"准驳语","dir":"下行","py":"bù hé / fēi shì"},{"t":"应毋庸议","p":"ying wu yong yi","ab":"ywyy","d":"不必再提，即「不行」。","u":"批文常用否定语，比「不准」更断然。","e":"所请应毋庸议","s":"通用","n":"","f":"准驳语","dir":"下行","py":"yīng wú yōng yì"},{"t":"殊涉含糊 / 殊属玩延","p":"shu she han hu","ab":"sshh","d":"实在涉于含糊／实在属于玩忽拖延。","u":"对下级来文或办理态度的批评定性。","e":"来呈声叙不清，殊涉含糊","s":"通用","n":"","f":"准驳语","dir":"下行","py":"shū shè hán hú / shū shǔ wán yán"},{"t":"显系……（饰词狡赖/误会）","p":"xian xi","ab":"xx","d":"显然属于……，给行为定性。","u":"批文驳斥来呈时的定性用语。","e":"所呈显系误会","s":"通用","n":"","f":"准驳语","dir":"下行","py":"xiǎn xì……（shì cí jiǎo lài/wù huì）"},{"t":"各执一词 / 莫衷一是","p":"ge zhi yi ci","ab":"gzyc","d":"双方各说各话、互相争执，无法得出一致结论。","u":"叙述两造争讼、供词不一时用。","e":"两造各执一词，莫衷一是","s":"通用","n":"","f":"引叙语","dir":"通用","py":"gè zhí yī cí / mò zhōng yī shì"},{"t":"即希 / 查照","p":"ji xi","ab":"jx","d":"平行祈请：十分希望／查明照办。","u":"平行文结尾请求对方办理。","e":"即希查照","s":"例文丙","n":"","f":"祈请语 / 督饬语","dir":"平行","py":"jí xī / chá zhào"},{"t":"烦请 / 赐复 / 见复","p":"fan qing","ab":"fq","d":"平行祈请：麻烦您／请回复（「赐复」敬，「见复」谦）。","u":"平行文请求答复的客气说法。","e":"即希查照赐复","s":"例文丙","n":"","f":"祈请语 / 督饬语","dir":"平行","py":"fán qǐng / cì fù / jiàn fù"},{"t":"为盼 / 为荷 / 实纫公谊 / 是所至盼","p":"wei pan","ab":"wp","d":"平行结尾客气套语：是所盼望／承情之至／深感厚谊／最为盼望。","u":"平行文收尾的客套，属「补助语」性质。","e":"即希查照赐复为荷","s":"例文丙","n":"","f":"补助语","dir":"平行","py":"wèi pàn / wèi hè / shí rèn gōng yì / shì suǒ zhì pàn"},{"t":"仰祈鉴核（施行/示遵/备案）","p":"yang qi jian he","ab":"yqjh","d":"上行结尾祈请：请审察核定；接施行（请核准实施）／示遵（请给指示）／备案（备查）。","u":"呈文末尾，按请示内容选用不同尾缀。","e":"仰祈鉴核示遵","s":"例文甲","n":"","f":"祈请语 / 督饬语","dir":"上行","py":"yǎng qí jiàn hé（shī xíng/shì zūn/bèi àn）"},{"t":"批示祗遵 / 指令示遵","p":"pi shi zhi zun","ab":"pszz","d":"请求给予指示以便遵行（祗遵＝敬谨遵守）。","u":"上行文结尾，把决定权交回上级。","e":"仰祈鉴核示遵；请祈指令示遵","s":"例文甲","n":"","f":"祈请语 / 督饬语","dir":"上行","py":"pī shì zhī zūn / zhǐ lìng shì zūn"},{"t":"此令 / 此批 / 此布","p":"ci ling","ab":"cl","d":"令／批／布告的结尾收束语。","u":"必须与文种严格对应，不能混用。","e":"此令（令）；此批（批）；此布（布告）","s":"例文乙·丁","n":"判断文种最直接的标志：见此令即令，见此批即批。","f":"结束语","dir":"下行","py":"cǐ lìng / cǐ pī / cǐ bù"},{"t":"此咨 / 此致","p":"ci zi","ab":"cz","d":"咨的结尾作「此咨」，公函的结尾作「此致」。","u":"平行文的收束语，与下行「此令」、上行「谨呈」相对。","e":"……以便会同兴工。此咨。；……为荷。此致。","s":"例文丙","n":"今书信「此致」即源于公函结尾。","f":"结束语","dir":"平行","py":"cǐ zī / cǐ zhì"},{"t":"谨呈","p":"jin cheng","ab":"jc","d":"恭谨地呈上，上行文结尾敬语。","u":"呈文的最后两字，与下行「此令」相对。","e":"仰祈鉴核示遵。谨呈。","s":"例文甲","n":"","f":"结束语","dir":"上行","py":"jǐn chéng"},{"t":"请祈 / 鉴核 / 备案 / 指令示遵","p":"qing qi","ab":"qq2","d":"上行结尾祈请语群：请求审察核定、备案、给予指示以便遵行。","u":"呈文末尾，体现上下尊卑与请示关系。","e":"请祈鉴核备案，并祈指令示遵","s":"通用","n":"","f":"祈请语 / 督饬语","dir":"上行","py":"qǐng qí / jiàn hé / bèi àn / zhǐ lìng shì zūn"},{"t":"计发 / 计抄发","p":"ji fa","ab":"jf","d":"附件说明：随文附发／抄发若干。","u":"公文末尾交代随文所附文件、清单、图册。","e":"计抄发赈款分配清册一件","s":"例文乙","n":"","f":"补助语","dir":"下行","py":"jì fā / jì chāo fā"},{"t":"具报 / 具复","p":"ju bao","ab":"jb2","d":"上报／回复上级。","u":"下行文中要求下级回报办理结果。","e":"造册具报；仰即具复","s":"例文乙","n":"","f":"祈请语 / 督饬语","dir":"下行","py":"jù bào / jù fù"},{"t":"是否有当","p":"shi fou you dang","ab":"sfyd","d":"是否妥当（谦辞，征求上级裁酌）。","u":"上行文提出方案后的客套，把决定权留给上级。","e":"是否有当，理合具文呈请","s":"例文甲","n":"","f":"补助语","dir":"上行","py":"shì fǒu yǒu dàng"},{"t":"伏乞 / 伏祈","p":"fu qi","ab":"fq2","d":"俯伏乞求，旧式上行极谦之辞。","u":"清代至民初上行文中的旧套语，民国后渐被弃用，档案中仍有残留。","e":"伏乞恩准（旧式残留）","s":"通用","n":"孙中山主张废除「伏乞恩准」「实为恩便」等官僚口吻，但惯性难尽除。","f":"祈请语 / 督饬语","dir":"上行","py":"fú qǐ / fú qí"},{"t":"钧（钧部/钧府/钧座）","p":"jun","ab":"j","d":"下级对上级的尊称，用于称呼对方，如「钧部」「钧府」「钧座」。","u":"下级对上级行文时称对方，如「钧厅」「钧部」「钧座」。","e":"案奉钧厅训令开","s":"例文甲","n":"「钧」表尊重，只用于上行；下行称「该」，平行称「贵」。","f":"称谓语","dir":"上行","py":"jūn（jūn bù/jūn fǔ/jūn zuò）"},{"t":"大（大署）","p":"da","ab":"d2","d":"对非直辖上级机关的尊称，如「大署」。","u":"向非本系统直辖的上级机关行文。","e":"呈大署","s":"通用","n":"","f":"称谓语","dir":"上行","py":"dà（dà shǔ）"},{"t":"职（职部/职县/职○○）","p":"zhi","ab":"z2","d":"下级自称，后接机构或人名，如「职部」「职县」。","u":"上行文自称本机关或本人，如「职县」「职所」「职○○」。","e":"查职县受灾田亩共三千余亩","s":"例文甲","n":"属下对上自称，与下行「本」、平行「敝」相对。","f":"称谓语","dir":"上行","py":"zhí（zhí bù/zhí xiàn/zhí○○）"},{"t":"敝","p":"bi","ab":"b","d":"平行文谦称己方，如「敝署」「敝会」。","u":"同级、不相隶属机关称自己一方，如「敝署」「敝会」。","e":"敝会","s":"通用","n":"","f":"称谓语","dir":"平行","py":"bì"},{"t":"本","p":"ben","ab":"b2","d":"下行、平行文自称本机关，如「本厅」「本县」。","u":"称本机关，如「本厅」「本部」「本县」。","e":"当经本厅复核属实","s":"例文乙","n":"","f":"称谓语","dir":"通用","py":"běn"},{"t":"该","p":"gai","ab":"g","d":"下行文称收文的下级机关，如「该县」「该部」。","u":"上级对下级行文时指称对方，如「该县」「该部」。","e":"仰该县即便遵照","s":"例文乙","n":"「该」带上下尊卑色彩，只用于下行。","f":"称谓语","dir":"下行","py":"gāi"},{"t":"贵","p":"gui","ab":"g2","d":"平行文敬称对方，如「贵县」「贵署」。","u":"同级、不相隶属机关称对方，如「贵县」「贵署」。","e":"案准贵县咨开","s":"例文丙","n":"","f":"称谓语","dir":"平行","py":"guì"}];
 
-/* t=套语 p=拼音(无声调) ab=首字母 c=分类 d=释义 u=用在哪 e=例句 s=出处(例文) n=辨析 */
-const DATA = [
-/* ===== A 起首与引述 ===== */
-{t:"案查",p:"an cha",ab:"ac",c:"A",d:"查考案卷、经查察。",u:"布告、令、呈的开头，交代据以行文的案由。",e:"案查本县河道淤塞多年，亟应疏浚……",s:"例文丁",n:"「案查」偏公文，「照得」偏告示。"},
-{t:"为……事",p:"wei shi",ab:"ws",c:"A",d:"公文首句引端语，标明文种与事由。",u:"各类公文开头通用：令作「为令遵事」，呈作「呈为呈请事」，布告作「为布告事」。",e:"呈为呈请事；为令遵事；为布告事",s:"例文甲·乙·丁"},
-{t:"照得",p:"zhao de",ab:"zd",c:"A",d:"查察所知、查得。",u:"布告、告示的开头，直接向民众说明事由，带晓谕口吻。",e:"照得本县河道疏浚工程，定于本月十五日开工……",s:"例文丁"},
-{t:"案奉",p:"an feng",ab:"af",c:"A",d:"案卷内奉到（上级来文）。",u:"引述上级训令、指令，常接「……开」。",e:"案奉钧厅训令开……",s:"例文甲",n:"「奉」为敬称指上级；平行用「案准」，下级用「案据」。"},
-{t:"案据",p:"an ju",ab:"aj",c:"A",d:"案卷内据有（下级或民众来文）。",u:"引述下级官署呈文或民众状纸，常接「……等情」。",e:"案据该县呈报灾情清册到厅……",s:"例文乙"},
-{t:"案准",p:"an zhun",ab:"az",c:"A",d:"案卷内准到（平行机关来文）。",u:"引述同级、不相隶属机关的咨、公函。",e:"案准贵县咨开……",s:"例文丙",n:"案奉（上）／案据（下）／案准（平），一字见方向。"},
-{t:"据……等情",p:"ju deng qing",ab:"jdq",c:"A",d:"「据」引出所据来文，「等情」收束其内容。",u:"引述下级官署或民众来文的起句。",e:"据该县呈称灾情奇重……等情到厅",s:"例文乙"},
-{t:"窃",p:"qie",ab:"q",c:"A",d:"私下、鄙人，自称谦词。",u:"上行呈文开头自称：窃查、窃自、窃据。",e:"窃查职县仓谷无多……",s:"例文甲"},
-{t:"开（令开/训令开）",p:"kai",ab:"k",c:"A",d:"引述上级或平行公文时表示「下文开列」。",u:"紧接「案奉……训令」「案准……咨」之后，引出原文。",e:"案奉钧厅训令开；案准贵县咨开",s:"例文甲·丙"},
-{t:"径启者 / 迳复者",p:"jing qi zhe",ab:"jqz",c:"A",d:"公函起首语。「径」即直接说事；恭敬可作「谨启者」「敬复者」。",u:"不相隶属机关之间以公函行文（函请、函复）。",e:"径启者：兹有本县水利委员前往贵县接洽……",s:"例文丙",n:"公函专用起首，与「为……事」结构不同。"},
-{t:"为咨……事（咨请/咨领/咨商）",p:"wei zi shi",ab:"wzs",c:"A",d:"平行文起首语。请人办事＝咨请，领款领物＝咨领，商量办法＝咨商。",u:"同级机关行文。",e:"为咨请事……",s:"例文丙"},
-{t:"为令知事 / 为令遵事 / 为令饬事",p:"wei ling zhi shi",ab:"wlzs",c:"A",d:"训令起首三式：令知＝使其知道，令遵＝使其遵行，令饬＝责成办理。",u:"上级主动向下级布置工作，三式对应「知道什么／做什么／怎么做」。",e:"为令遵事……",s:"例文乙",n:"另有「为令委事」「为令催事」，属委办、催办一类。"},
-{t:"为通令事 / 为布告事",p:"wei tong ling shi",ab:"wtls",c:"A",d:"通令、布告的起首语。",u:"通令对下级，布告对民众。",e:"为布告事……",s:"例文丁"},
-{t:"特任 / 特派 / 任命",p:"te ren",ab:"tr",c:"A",d:"任命状的起首语，标明任命性质。",u:"专用于任命状：特任、简任、荐任、委任四级。",e:"特任某某为……（任命状例）",s:"通用"},
-{t:"电悉 / 文电悉",p:"dian xi",ab:"dx",c:"A",d:"电文开头，表示收到来电（如「十二日电悉」）。",u:"电报、代电的开头，相当于「来电已阅」。",e:"十二日电悉……",s:"通用",n:"电文常用韵母代日、地支代月以省字数。"},
-{t:"前据 / 现据 / 兹据",p:"qian ju",ab:"qj",c:"A",d:"「据」的时序变体：先前据／现在据／此时据。",u:"区分引述来文的先后，理清办案时序。",e:"前据该县呈称……；现据该县覆称……",s:"通用"},
-
-/* ===== B 引据与承接 ===== */
-{t:"等因",p:"deng yin",ab:"dy",c:"B",d:"收束所引上级来文的结尾套语，意为「以上就是来文所说的」。",u:"「引上接下」第一环：引完上级训令/指令，用它收口。",e:"……饬即查明灾情具报等因。",s:"例文甲",n:"与「等情」（下级来文）、「等由」（平行来文）分工不同。"},
-{t:"奉此",p:"feng ci",ab:"fc",c:"B",d:"接到此（令）。",u:"紧接「等因」之后，标志本机关开始叙述办理经过。",e:"……等因。奉此：查职县受灾田亩……",s:"例文甲",n:"「等因」是别人的话，「奉此」之后才是自己的话，读长句的分水岭。"},
-{t:"等因奉此",p:"deng yin feng ci",ab:"dyfc",c:"B",d:"「等因」＋「奉此」连用，旧公文最典型的引据承接套语。",u:"引述上级来文并接叙本机关办理；后引申指官样文章、照例敷衍。",e:"……等因。奉此：查职县……",s:"例文甲"},
-{t:"等情",p:"deng qing",ab:"dq",c:"B",d:"收束所引下级官署呈文或民众状纸的结尾套语。",u:"转述呈、状、禀之后收口，常作「等情到厅/到署/前来」。",e:"……等情到厅",s:"例文乙"},
-{t:"等由",p:"deng you",ab:"dyou",c:"B",d:"收束所引平行机关来文（咨、公函）的结尾套语。",u:"同级机关往来文书的引述收口。",e:"……以两县交界河道淤塞，亟应疏浚等由。",s:"例文丙",n:"三等收束语：等因（上下行）、等情（呈状）、等由（平行）。"},
-{t:"等语",p:"deng yu",ab:"dyu",c:"B",d:"收束所引供词、口供、问答的结尾套语。",u:"审讯、笔录类文书中引述当事人供述。",e:"……供称该款系经手人挪用等语",s:"通用"},
-{t:"各在案 / 在案",p:"ge zai an",ab:"gza",c:"B",d:"此前已有公文存档可稽，援引作依据。",u:"叙述办理经过时，用「各在案」收束一系列旧有文书，坐实依据。",e:"……业经呈奉省政府核准拨发赈款各在案",s:"例文乙"},
-{t:"有案",p:"you an",ab:"ya",c:"B",d:"已有旧案可查（强调先例存在）。",u:"核定、援引前案时用。",e:"此案在卷有案",s:"通用",n:"在案＝曾经存档；有案＝确有先例可援。"},
-{t:"当经 / 旋经",p:"dang jing",ab:"dj",c:"B",d:"当时已经／随即已经。",u:"叙述办案时序，交代某环节已做过。",e:"当经本厅复核属实",s:"例文乙"},
-{t:"即经 / 业经 / 前经",p:"ji jing",ab:"jj",c:"B",d:"承转「经」字族：立即经／已经／先前经。",u:"下行文叙述办理经过，与「当经、旋经」同族。",e:"业经呈奉省政府核准",s:"例文乙"},
-{t:"嗣奉 / 嗣经 / 复经",p:"si feng",ab:"sf",c:"B",d:"后来奉到／后来经过／又经过。",u:"续叙办理时序，表示前事之后又发生的事。",e:"嗣奉钧厅训令开……",s:"通用"},
-{t:"兹奉 / 兹据",p:"zi feng",ab:"zf",c:"B",d:"现在奉到／现在据到。",u:"引出当前这件来文，衔接往事。",e:"兹据该县覆称……",s:"通用"},
-{t:"合行 / 合再 / 合将",p:"he xing",ab:"hx",c:"B",d:"「合」＝理合、应当；合行＝理合行文，合再＝再次行文，合将＝将某文件发出。",u:"引出本机关的行文动作，发文的标志词。",e:"合行令仰该县即便遵照；合行布告",s:"例文乙·丁"},
-{t:"除……外",p:"chu wai",ab:"cw",c:"B",d:"分叙剔除项，「除」与「外」之间为排除内容。",u:"主句之前先交代附带处理的事项。",e:"除分令各厅外，仰该县即便遵照……",s:"通用",n:"有人单列为「除外语」，其实是关顾语的特例，功能是关联本文以外的行为。"},
-{t:"准此",p:"zhun ci",ab:"zc",c:"B",d:"接到此（平行来文）。对应「奉此」：上行敬称「奉」，平行用「准」。",u:"平行文引叙来文之后转入自叙的承转语。",e:"……等由。准此：查此项工程……",s:"例文丙",n:"奉此（对上级）／准此（对平行）／据此（据来文），一字见尊卑。"},
-{t:"据此",p:"ju ci",ab:"jc2",c:"B",d:"根据此（来文）。",u:"承转语，引据来文之后转入自叙，多用于下行文。",e:"……等情。据此：查该县所报……",s:"通用"},
-{t:"各等因 / 各等情",p:"ge deng yin",ab:"gdy",c:"B",d:"来文所述不止一事时的总结语（「各」＝诸事）。",u:"引述内容含多项事项时用。",e:"……各等因。奉此……",s:"通用"},
-{t:"内开 / 咨开 / 节开 / 略开",p:"nei kai",ab:"nk",c:"B",d:"引叙来文四式：内开、咨开为照抄原文；节开、略开为节录、简述。",u:"长文引述时标明是全录还是摘录。",e:"……内开：……；……略开：……",s:"通用"},
-{t:"呈称 / 声称 / 查得",p:"cheng cheng",ab:"cc",c:"B",d:"引叙下级或第三方陈述的动词：呈文说／声称／查得。",u:"引出下级或第三方陈述的具体内容。",e:"据该县呈称灾情奇重……",s:"例文乙"},
-{t:"据呈前情 / 兹据前情",p:"ju cheng qian qing",ab:"jcqq",c:"B",d:"关顾语，回指前文所述情由。",u:"文书后段回顾前文，避免重复叙述。",e:"兹据前情，查核尚属实在",s:"通用"},
-{t:"理合",p:"li he",ab:"lh",c:"B",d:"结束语：按理应当。用于归结处引出呈请、呈复。",u:"公文末段收束全篇，转入正式呈请。",e:"理合具文呈请，仰祈鉴核示遵",s:"例文甲",n:"常与「相应」「为此」并列，是全文「合」的部分。"},
-{t:"相应 / 为此",p:"xiang ying",ab:"xy",c:"B",d:"结束语：相应（多用于平行、下行）／为此（引出结论）。",u:"归结全篇、引出最后请求或结论。",e:"相应咨请贵县查照办理",s:"例文丙"},
-
-/* ===== C 命令与督促 ===== */
-{t:"仰",p:"yang",ab:"y",c:"C",d:"上级对下级的祈使，「希望你（们）」。",u:"下行文核心套语，令、批、布告中指示下级或民众遵办。",e:"仰该县即便遵照",s:"例文乙",n:"「仰」用于下行；上行用「仰祈」「请祈」，形近义异。"},
-{t:"仰即",p:"yang ji",ab:"yj",c:"C",d:"希望立即……",u:"下行文结尾，要求受文者即时照办。",e:"仰即遵照",s:"例文乙"},
-{t:"仰祈",p:"yang qi",ab:"yq",c:"C",d:"上行祈请语，此处「仰」为仰望、企盼，非命令。",u:"上行文结尾，如「仰祈鉴核」，与下行「仰」同形异义。",e:"仰祈鉴核示遵",s:"例文甲",n:"实务中亦作「请祈」，如「请祈鉴核备案」。"},
-{t:"饬 / 令饬 / 应饬",p:"chi",ab:"c2",c:"C",d:"命令、责成办理。",u:"上级对下级布置任务、责成查办。",e:"饬即查明灾情具报",s:"例文甲"},
-{t:"切切",p:"qie qie",ab:"qq",c:"C",d:"谆谆告诫，语气最重的催促。",u:"多于令、布告结尾叠用，强调务必照办。",e:"切切此令；切切此布",s:"例文乙·丁",n:"「切切此令」「切切此布」是固定收尾格式。"},
-{t:"切速勿延 / 毋得违延",p:"qie su wu yan",ab:"qswy",c:"C",d:"务必迅速，不得拖延。",u:"催办类令文的收尾催促语。",e:"毋得违延，切速勿延",s:"通用"},
-{t:"勿再宕延 / 勿再延宕",p:"wu zai dang yan",ab:"wzdy",c:"C",d:"不要再拖延。",u:"对多次催办未复的下级所用，带责备意味。",e:"勿再宕延，切切此令",s:"通用"},
-{t:"勿延 / 毋稍 / 毋得",p:"wu yan",ab:"wy",c:"C",d:"督饬语：不要拖延／不要稍有（疏懈）／不得。",u:"下行文结尾再加叮咛。",e:"毋得稍涉浮冒",s:"例文乙"},
-{t:"即便 / 迅即 / 迅速 / 确速 / 详确",p:"ji bian",ab:"jb",c:"C",d:"催促性副词群：立即／迅速／确实迅速／详细确实。",u:"密集出现于催办令、批文，体现上级急于结案。",e:"即便遵照；迅将赈款具领；迅即查明",s:"例文乙"},
-{t:"致于未便",p:"zhi yu wei bian",ab:"zywb",c:"C",d:"否则将有所不便（隐含后果警告）。",u:"下行文警告拖延、违令的后果，语气较严厉。",e:"毋得稍涉浮冒，致干未便",s:"例文乙"},
-{t:"有厚望焉 / 致干 / 定予",p:"you hou wang yan",ab:"yhw",c:"C",d:"下行结尾督饬：寄予厚望／否则招致（处分）／一定给予（惩处）。",u:"领导话讲完后的叮咛，等于「别把事情办坏了」。",e:"致干未便；定予惩处",s:"例文乙"},
-{t:"悬案以待",p:"xuan an yi dai",ab:"xayd",c:"C",d:"把案件悬置起来等待办理结果。",u:"催办令中说明案件已搁置待复，施加压力。",e:"悬案以待，勿再延宕",s:"通用"},
-{t:"遵照 / 遵照办理",p:"zun zhao",ab:"zz",c:"C",d:"依照（命令）办理。",u:"下行文结尾要求受文者依令执行。",e:"即便遵照；仰即遵照",s:"例文乙"},
-{t:"姑 / 暂",p:"gu zan",ab:"gz",c:"C",d:"准驳语中语气最弱者：姑且、暂时同意。",u:"上级别无良法时勉强应允——「先这么办吧」，下级须体会其保留。",e:"姑准所请；暂如所议",s:"通用",n:"准驳强弱：准＞可＞姑、暂＞未便＞碍难＞万难＞不准。"},
-
-/* ===== D 裁断与结尾 ===== */
-{t:"状悉 / 呈悉 / 各呈均悉",p:"zhuang xi",ab:"zx",c:"D",d:"阅悉来文（状＝状纸，呈＝呈文，各呈＝多件呈文）。",u:"批文开头的第一句，表示来文已收到并看过。",e:"呈悉：查该县所请……",s:"通用"},
-{t:"查 / 复查",p:"cha",ab:"ch",c:"D",d:"审查、复核。",u:"批文中引出调查、核实结论。",e:"当经本厅复核属实",s:"例文乙"},
-{t:"应准",p:"ying zhun",ab:"yz",c:"D",d:"应当批准。",u:"批文裁断用语，表示同意来请。",e:"应准如所请",s:"通用"},
-{t:"可",p:"ke",ab:"k2",c:"D",d:"准驳语：同意。",u:"批文简断用语，一字表示许可。",e:"所请可也",s:"通用"},
-{t:"如呈照准",p:"ru cheng zhao zhun",ab:"rczz",c:"D",d:"照来呈所请予以批准。",u:"批文表示依呈文请求办理。",e:"所请如呈照准",s:"通用"},
-{t:"未便照准",p:"wei bian zhao zhun",ab:"wbzz",c:"D",d:"不便批准（较委婉的否定）。",u:"批文否定来请，语气比「应不准行」缓和。",e:"所请未便照准",s:"通用"},
-{t:"未便",p:"wei bian",ab:"wb",c:"D",d:"介于同意与不同意之间：有所顾虑、不完全同意。",u:"上级留有余地的表态，下级须掂量，不可当作已准。",e:"事属可行，惟于定章未便",s:"通用",n:"字面是肯定，实际表达保留——民国公文最耐人寻味的一词。"},
-{t:"碍难照准",p:"ai nan zhao zhun",ab:"anzz",c:"D",d:"碍于情势难以批准（委婉否定）。",u:"批文否决请求时的客气说法。",e:"所请碍难照准",s:"通用"},
-{t:"万难照准",p:"wan nan zhao zhun",ab:"wnzz",c:"D",d:"万难批准（比「碍难」更重的否定）。",u:"语气强烈的否决。",e:"所请万难照准",s:"通用"},
-{t:"应不准行",p:"ying bu zhun xing",ab:"ybzx",c:"D",d:"应当不予准行（明确否定）。",u:"批文对无理请求的否定裁断，语气坚决。",e:"所呈显系误会，应不准行",s:"通用"},
-{t:"不合 / 非是",p:"bu he",ab:"bh",c:"D",d:"否定评断：不合（规定）／非是（不对）。",u:"批文驳斥来呈时的评断语。",e:"所请于法不合；所论非是",s:"通用"},
-{t:"应毋庸议",p:"ying wu yong yi",ab:"ywyy",c:"D",d:"不必再提，即「不行」。",u:"批文常用否定语，比「不准」更断然。",e:"所请应毋庸议",s:"通用"},
-{t:"殊涉含糊 / 殊属玩延",p:"shu she han hu",ab:"sshh",c:"D",d:"实在涉于含糊／实在属于玩忽拖延。",u:"对下级来文或办理态度的批评定性。",e:"来呈声叙不清，殊涉含糊",s:"通用"},
-{t:"显系……（饰词狡赖/误会）",p:"xian xi",ab:"xx",c:"D",d:"显然属于……，给行为定性。",u:"批文驳斥来呈时的定性用语。",e:"所呈显系误会",s:"通用"},
-{t:"各执一词 / 莫衷一是",p:"ge zhi yi ci",ab:"gzyc",c:"D",d:"双方各说各话、互相争执，无法得出一致结论。",u:"叙述两造争讼、供词不一时用。",e:"两造各执一词，莫衷一是",s:"通用"},
-{t:"即希 / 查照",p:"ji xi",ab:"jx",c:"D",d:"平行祈请：十分希望／查明照办。",u:"平行文结尾请求对方办理。",e:"即希查照",s:"例文丙"},
-{t:"烦请 / 赐复 / 见复",p:"fan qing",ab:"fq",c:"D",d:"平行祈请：麻烦您／请回复（「赐复」敬，「见复」谦）。",u:"平行文请求答复的客气说法。",e:"即希查照赐复",s:"例文丙"},
-{t:"为盼 / 为荷 / 实纫公谊 / 是所至盼",p:"wei pan",ab:"wp",c:"D",d:"平行结尾客气套语：是所盼望／承情之至／深感厚谊／最为盼望。",u:"平行文收尾的客套，属「补助语」性质。",e:"即希查照赐复为荷",s:"例文丙"},
-{t:"仰祈鉴核（施行/示遵/备案）",p:"yang qi jian he",ab:"yqjh",c:"D",d:"上行结尾祈请：请审察核定；接施行（请核准实施）／示遵（请给指示）／备案（备查）。",u:"呈文末尾，按请示内容选用不同尾缀。",e:"仰祈鉴核示遵",s:"例文甲"},
-{t:"批示祗遵 / 指令示遵",p:"pi shi zhi zun",ab:"pszz",c:"D",d:"请求给予指示以便遵行（祗遵＝敬谨遵守）。",u:"上行文结尾，把决定权交回上级。",e:"仰祈鉴核示遵；请祈指令示遵",s:"例文甲"},
-{t:"此令 / 此批 / 此布",p:"ci ling",ab:"cl",c:"D",d:"令／批／布告的结尾收束语。",u:"必须与文种严格对应，不能混用。",e:"此令（令）；此批（批）；此布（布告）",s:"例文乙·丁",n:"判断文种最直接的标志：见此令即令，见此批即批。"},
-{t:"此咨 / 此致",p:"ci zi",ab:"cz",c:"D",d:"咨的结尾作「此咨」，公函的结尾作「此致」。",u:"平行文的收束语，与下行「此令」、上行「谨呈」相对。",e:"……以便会同兴工。此咨。；……为荷。此致。",s:"例文丙",n:"今书信「此致」即源于公函结尾。"},
-{t:"谨呈",p:"jin cheng",ab:"jc",c:"D",d:"恭谨地呈上，上行文结尾敬语。",u:"呈文的最后两字，与下行「此令」相对。",e:"仰祈鉴核示遵。谨呈。",s:"例文甲"},
-{t:"请祈 / 鉴核 / 备案 / 指令示遵",p:"qing qi",ab:"qq2",c:"D",d:"上行结尾祈请语群：请求审察核定、备案、给予指示以便遵行。",u:"呈文末尾，体现上下尊卑与请示关系。",e:"请祈鉴核备案，并祈指令示遵",s:"通用"},
-{t:"计发 / 计抄发",p:"ji fa",ab:"jf",c:"D",d:"附件说明：随文附发／抄发若干。",u:"公文末尾交代随文所附文件、清单、图册。",e:"计抄发赈款分配清册一件",s:"例文乙"},
-{t:"具报 / 具复",p:"ju bao",ab:"jb2",c:"D",d:"上报／回复上级。",u:"下行文中要求下级回报办理结果。",e:"造册具报；仰即具复",s:"例文乙"},
-{t:"是否有当",p:"shi fou you dang",ab:"sfyd",c:"D",d:"是否妥当（谦辞，征求上级裁酌）。",u:"上行文提出方案后的客套，把决定权留给上级。",e:"是否有当，理合具文呈请",s:"例文甲"},
-{t:"伏乞 / 伏祈",p:"fu qi",ab:"fq2",c:"D",d:"俯伏乞求，旧式上行极谦之辞。",u:"清代至民初上行文中的旧套语，民国后渐被弃用，档案中仍有残留。",e:"伏乞恩准（旧式残留）",s:"通用",n:"孙中山主张废除「伏乞恩准」「实为恩便」等官僚口吻，但惯性难尽除。"},
-
-/* ===== E 称谓与自称 ===== */
-{t:"钧（钧部/钧府/钧座）",p:"jun",ab:"j",c:"E",d:"上行对上级的尊称。",u:"下级对上级行文时称对方，如「钧厅」「钧部」「钧座」。",e:"案奉钧厅训令开",s:"例文甲",n:"「钧」表尊重，只用于上行；下行称「该」，平行称「贵」。"},
-{t:"大（大署）",p:"da",ab:"d2",c:"E",d:"对非直辖上级机关的尊称。",u:"向非本系统直辖的上级机关行文。",e:"呈大署",s:"通用"},
-{t:"职（职部/职县/职○○）",p:"zhi",ab:"z2",c:"E",d:"下级自称。",u:"上行文自称本机关或本人，如「职县」「职所」「职○○」。",e:"查职县受灾田亩共三千余亩",s:"例文甲",n:"属下对上自称，与下行「本」、平行「敝」相对。"},
-{t:"敝",p:"bi",ab:"b",c:"E",d:"平行文自称（谦称己方）。",u:"同级、不相隶属机关称自己一方，如「敝署」「敝会」。",e:"敝会",s:"通用"},
-{t:"本",p:"ben",ab:"b2",c:"E",d:"下行、平行的自称。",u:"称本机关，如「本厅」「本部」「本县」。",e:"当经本厅复核属实",s:"例文乙"},
-{t:"该",p:"gai",ab:"g",c:"E",d:"下行文称对方（受文的下级机关）。",u:"上级对下级行文时指称对方，如「该县」「该部」。",e:"仰该县即便遵照",s:"例文乙",n:"「该」带上下尊卑色彩，只用于下行。"},
-{t:"贵",p:"gui",ab:"g2",c:"E",d:"平行文称对方（敬称）。",u:"同级、不相隶属机关称对方，如「贵县」「贵署」。",e:"案准贵县咨开",s:"例文丙"}
+const DIRCLS = {"上行":"up","平行":"par","下行":"down","通用":"allc"};
+const FUNC_ORDER = ["称谓语","起首语","引叙语","关界语","到达语","承转语","经过语","关顾语","准驳语","祈请语 / 督饬语","结束语","补助语"];
+const SECS = [
+  {k:"fangfa", n:"识读方法", d:"三大类 · 四步判读", n2:4},
+  {k:"wenlei", n:"公文类别", d:"民国常用文种与行文方向", n2:12},
+  {k:"yongyu", n:"公文用语", d:"十二类功能用语及其用法", n2:ITEMS.length},
+  {k:"dirs",   n:"上行 · 平行 · 下行惯用辞令", d:"按行文方向对照查阅（含通用）", n2:ITEMS.length},
+  {k:"lifa",   n:"通用例文", d:"四篇综合范例 + 十二文种示例", n2:16},
+  {k:"fagui",  n:"《公文程式》历次规则原文", d:"1912—1928 五版法规原文", n2:5}
 ];
 
-const grid = document.getElementById("grid");
-const qEl = document.getElementById("q");
-const countEl = document.getElementById("count");
-const emptyEl = document.getElementById("empty");
-const hintEl = document.getElementById("hint");
-const chipsEl = document.getElementById("chips");
-let state = {q:"", cat:"all"};
+const WENLEI = [
+  ["令","任免官吏、公布法规，或有所指挥时用。","下行"],
+  ["训令","上级主动向下级机关布置工作。","下行"],
+  ["指令","因下级机关呈请而发令，对呈请事项作指示，相当于批复。","下行"],
+  ["布告","对公众宣布事项、告知政府决议，客体为广大民众。","下行"],
+  ["任命状","任命官吏。分特任、简任、荐任、委任，官等、选任资格与程序各异；简任以下多须考试或资历。","下行"],
+  ["呈","上行主文种，兼请示与报告；分呈请、呈报、呈复，略如请求建议、申报事项、回复上级。","上行"],
+  ["签呈","内部使用，属员签拟意见，由长官核夺。","上行"],
+  ["咨","同一系统内平级机关往来；分咨请、咨复、咨行。","平行"],
+  ["公函","不相隶属机关之间往来；分函请、函复。1942 年与咨合并，统称「函」。","平行"],
+  ["笺函","又称常函，同级机关平常事件往来的非正式公函。","平行"],
+  ["批","各机关对民众陈情事项的回复。","下行"],
+  ["电 / 代电","电报传递迅速，战时或突发常用；电不通处以快邮代电、航空代电代之。电文以韵母代日、地支代月省字。","通用"]
+];
 
-const norm = s => (s||"").toString().toLowerCase().replace(/[\s·．]/g,"");
-function hay(t){ return [t.t,t.p,t.ab,t.d,t.u,t.e,t.s].map(norm).join("|"); }
-function hl(text, raw){
-  const q = norm(raw);
-  if(!q) return text;
-  const low = text.toLowerCase(); const i = low.indexOf(q);
-  if(i < 0) return text;
-  return text.slice(0,i) + "<mark>" + text.slice(i,i+q.length) + "</mark>" + text.slice(i+q.length);
-}
-function cardHTML(t){
-  const num = {A:"①",B:"②",C:"③",D:"④",E:"⑤"}[t.c];
-  return `<article class="card c-${t.c}">
-    <div class="chead"><h3>${hl(t.t,state.q)}</h3><span class="py">${t.p}</span></div>
-    <div class="tag">${num} ${CATS[t.c]}</div>
-    <div class="row"><span class="lab">释 义</span><p>${hl(t.d,state.q)}</p></div>
-    <div class="row"><span class="lab">用 在 哪</span><p>${hl(t.u,state.q)}</p></div>
-    <div class="eg"><span class="qm">例</span>${hl(t.e,state.q)}</div>
-    <div class="src">出处 · ${t.s}</div>
-    ${t.n?`<div class="note">辨析 · ${t.n}</div>`:""}
-  </article>`;
-}
-function render(){
-  const q = norm(state.q);
-  let list = DATA.filter(t => state.cat==="all" || t.c===state.cat);
-  if(q){
-    list = q.length<2
-      ? list.filter(t => norm(t.t).startsWith(q) || norm(t.p).startsWith(q))
-      : list.filter(t => hay(t).includes(q));
-  }
-  countEl.textContent = list.length;
-  hintEl.textContent = q ? `关键词「${state.q.trim()}」` : "";
-  grid.innerHTML = list.map(cardHTML).join("");
-  emptyEl.classList.toggle("show", list.length===0);
-}
-const chipDefs = [{k:"all",n:"全部"},{k:"A",n:"① 起首引述"},{k:"B",n:"② 引据承接"},{k:"C",n:"③ 命令督促"},{k:"D",n:"④ 裁断结尾"},{k:"E",n:"⑤ 称谓自称"}];
-const colors = {A:"#3f5b8b",B:"#4a6b4f",C:"#a8322d",D:"#8a6a2f",E:"#6b4c7a"};
-chipsEl.innerHTML = chipDefs.map(d=>{
-  const dot = d.k==="all" ? "" : `<span class="dot" style="background:${colors[d.k]}"></span>`;
-  return `<button class="chip${d.k==="all"?" on":""}" data-k="${d.k}">${dot}${d.n}</button>`;
+const STEP_INTRO = "公文只有上行、下行、平行三大类；结构上分叙由、依据、申述、归结（即起、承、转、合）四段。读一篇档案，按下面四步走。";
+const STEPS = [
+ {no:"第一步",t:"判行文方向",items:[
+   ["看称谓",["钧、职 → 上行","贵、敝 → 平行","该、本 → 下行"]],
+   ["看引叙",["奉 → 上级来文","准 → 平行来文","据 → 下级来文"]],
+   ["看结尾",["谨呈、请祈 → 上行","此咨、此致、为荷 → 平行","此令、此批、此布 → 下行"]]
+ ]},
+ {no:"第二步",t:"拆四段结构",items:[
+   ["叙由（起）","为什么发这篇文"],
+   ["依据（承）","凭什么——法令、前案、来文"],
+   ["申述（转）","怎么办——意见与办法"],
+   ["归结（合）","请什么——请示、照办、备案"]
+ ]},
+ {no:"第三步",t:"认套语链条",items:[
+   ["等因","引上级来文到此为止"],
+   ["奉此","接到此令，转入自叙"],
+   ["等情","引下级呈状到此为止"],
+   ["各在案","旧卷可稽，坐实依据"]
+ ]},
+ {no:"第四步",t:"断文种",items:[
+   ["「为…事」＋「此令」","令"],
+   ["「呈为…事」＋「谨呈」","呈"],
+   ["「呈悉 / 状悉」＋「此批」","批"],
+   ["「为布告事 / 照得」＋「此布」","布告"],
+   ["「径启者」＋「此致」","公函"]
+ ]}
+];
+
+const cardsEl=document.getElementById("cards"), homeEl=document.getElementById("home"),
+      detailEl=document.getElementById("detail"), resultsEl=document.getElementById("results"),
+      qEl=document.getElementById("q");
+
+function dirTag(d){return d?`<span class="tag ${DIRCLS[d]||'allc'}">${d}</span>`:"";}
+
+cardsEl.innerHTML = SECS.map((s,i)=>{
+  const n = s.n2!=null ? s.n2 : (s.k==="yongyu" ? ITEMS.length : ITEMS.filter(x=>x.dir===({up:"上行",par:"平行",down:"下行"}[s.k])).length);
+  return `<button class="card" data-k="${s.k}">
+    <div class="no">0${i+1}</div><div class="t">${s.n}</div>
+    <div class="d">${s.d}</div><div class="n">${typeof s.n2==="string" ? s.n2 : n+" 条"}</div></button>`;
 }).join("");
-chipsEl.addEventListener("click", e=>{
-  const b = e.target.closest(".chip"); if(!b) return;
-  state.cat = b.dataset.k;
-  [...chipsEl.children].forEach(c=>c.classList.toggle("on", c===b));
-  render();
-});
-qEl.addEventListener("input", ()=>{ state.q = qEl.value; render(); });
-document.getElementById("clear").addEventListener("click", ()=>{ qEl.value=""; state.q=""; render(); qEl.focus(); });
-document.addEventListener("keydown", e=>{
-  if(e.key==="/" && document.activeElement!==qEl){ e.preventDefault(); qEl.focus(); }
-  if(e.key==="Escape"){ qEl.value=""; state.q=""; render(); }
-});
-render();
-</script>
-<button id="toTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
-<script>
-(function(){
-  var b=document.getElementById('toTop');
-  function t(){ b.classList.toggle('show', window.scrollY>600); }
-  window.addEventListener('scroll', t, {passive:true});
-  b.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-  // 打印前自动展开全部折叠区
-  window.addEventListener('beforeprint', function(){
-    document.querySelectorAll('details').forEach(function(d){ d.open = true; });
+
+function entry(it, showFunc){
+  const badge = showFunc ? `<span class="src-tag">${it.f}</span>` : dirTag(it.dir);
+  return `<div class="item">
+    <div class="it-h"><span class="it-t">${it.t}</span><span class="it-p">${it.py||it.p||""}</span>${badge}</div>
+    <div>
+      <div class="it-d">${it.d}</div>
+      <div class="meta"><span class="k">用在</span>${it.u}</div>
+      <div class="meta"><span class="k">例</span><span class="eg">${it.e}</span></div>
+      <div class="meta"><span class="k">出处</span>${it.s}${it.n?` · <span class="nu">辨析：${it.n}</span>`:""}</div>
+    </div>
+  </div>`;
+}
+function listByGroup(items, groupFn){
+  const groups=[...new Set(items.map(groupFn))];
+  return groups.map(g=>{
+    const rs=items.filter(x=>groupFn(x)===g);
+    return `<div class="sub">${g}<small>${rs.length}</small></div>`+rs.map(x=>entry(x)).join("");
+  }).join("");
+}
+
+function showHome(){homeEl.style.display="block";detailEl.classList.remove("show");resultsEl.classList.remove("show");document.getElementById("subtabs").style.display="none";}
+
+function staticHTML(k){
+  if(k==="wenlei"){
+    return `<table class="tb-wenlei"><tr><th>文种 / 方向</th><th>用途</th></tr>`+
+      WENLEI.map(r=>`<tr><td class="t">${r[0]}${dirTag(r[2])}</td><td class="use">${r[1]}</td></tr>`).join("")+`</table>`;
+  }
+  if(k==="fangfa"){
+    return `<div class="meth"><p>${STEP_INTRO}</p>
+      <div class="chain"><b>三大类：</b>上行（对上级）· 平行（同级 / 不相隶属）· 下行（对下级、对民众）</div>
+      <div class="steps">`+STEPS.map((s,i)=>`<details class="step">
+        <summary><span class="no">${s.no}</span><span class="st">${s.t}</span><span class="arw">›</span></summary>
+        <ul>`+s.items.map(function(it){
+          if(Array.isArray(it[1])){
+            return `<li><b>${it[0]}</b>`+it[1].map(function(x){return `<span class="sl">${x}</span>`;}).join("")+`</li>`;
+          }
+          return `<li><b>${it[0]}</b>：${it[1]}</li>`;
+        }).join("")+`</ul>
+      </details>`).join("")+`</div>
+      <div class="chain"><b>首尾呼应：</b>开头「呈为呈请事」，结尾常作「理合具文呈请，仰祈鉴核示遵」。</div>
+      <div class="chain"><b>电文省字：</b>电报、代电以韵母代日、地支代月，读前须先译出日期。</div></div>`;
+  }
+  if(k==="lifa"){ return document.getElementById("tpl-lifa").innerHTML+document.getElementById("tpl-li12").innerHTML; }
+  if(k==="fagui"){ return document.getElementById("tpl-fagui").innerHTML; }
+  if(k==="shidu"){
+    return `<div class="sd">
+      <p class="hint">粘贴一段公文，系统自动标出套语（红字），点按可看释义，并生成识读报告。全部在本地完成，不上传、不消耗流量。</p>
+      <textarea id="sdin" placeholder="在此粘贴公文全文……"></textarea>
+      <div class="sd-bar">
+        <button class="btn primary" id="sdrun">识读</button>
+        <button class="btn" id="sdclear">清空</button>
+        <button class="btn" id="sdsample">载入示例</button>
+        <label class="sd-opt"><input type="checkbox" id="sdone"> 含单字词</label>
+      </div>
+      <div id="sdout" class="sd-out"></div>
+      <div id="sdrep" class="report"></div>
+    </div>`;
+  }
+  return "";
+}
+
+function showDetail(k){
+  const s=SECS.find(x=>x.k===k) || {n:"公文识读", d:"粘贴一篇公文，自动标红套语、点按看释义，并生成识读报告。"};
+  document.getElementById("dh").textContent=s.n;
+  document.getElementById("dd").textContent=s.d;
+  const sub=document.getElementById("subtabs");
+  const body=document.getElementById("dbody");
+
+  if(k==="yongyu" || k==="dirs"){
+    sub.style.display="flex";
+    let chips, hint;
+    if(k==="yongyu"){
+      chips=FUNC_ORDER.map(f=>{
+        const n=ITEMS.filter(x=>x.f===f).length;
+        return `<button class="chip" data-f="${f}">${f}<b>${n}</b></button>`;
+      }).join("");
+      hint=`共 ${ITEMS.length} 条，按十二类用语分为 ${FUNC_ORDER.length} 小类。请选择上方小类查看（可随时切换）。`;
+    }else{
+      const ds=[["上行","上行文"],["平行","平行文"],["下行","下行文"],["通用","通用（各体）"]];
+      chips=ds.map(d=>`<button class="chip" data-dir="${d[0]}">${d[1]}<b>${ITEMS.filter(x=>x.dir===d[0]).length}</b></button>`).join("");
+      hint=`按行文方向分为上行 / 平行 / 下行 / 通用。请选择方向；方向内按用语类别折叠，点开看条目。`;
+    }
+    sub.innerHTML=chips;
+    body.innerHTML=`<p class="hint">${hint}</p>`;
+    bindSub(k);
+  }else{
+    sub.style.display="none"; sub.innerHTML="";
+    body.innerHTML=staticHTML(k);
+    if(k==="shidu") initShidu();
+  }
+  homeEl.style.display="none";resultsEl.classList.remove("show");detailEl.classList.add("show");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function bindSub(k){
+  const sub=document.getElementById("subtabs");
+  sub.querySelectorAll(".chip").forEach(function(c){
+    c.addEventListener("click",function(){
+      sub.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+      c.classList.add("on");
+      if(k==="yongyu"){ renderFunc(c.dataset.f); }
+      else{ renderDir(c.dataset.dir); }
+      window.scrollTo({top:0,behavior:"smooth"});
+    });
   });
-  t();
+}
+
+function renderFunc(f){
+  const rs=ITEMS.filter(x=>x.f===f);
+  document.getElementById("dbody").innerHTML =
+    `<div class="sub">${f}<small>${rs.length}</small></div>`+
+    (rs.length ? rs.map(x=>entry(x)).join("") : `<p class="hint">本表未单列；常见如「前来、过府、到县、下部」。</p>`);
+}
+
+function renderDir(d){
+  const rs=ITEMS.filter(x=>x.dir===d);
+  const label={上行:"上行文",平行:"平行文",下行:"下行文",通用:"通用（各体）"}[d]||d;
+  const html=FUNC_ORDER.map(function(f){
+    const g=rs.filter(x=>x.f===f);
+    if(!g.length) return "";
+    return `<details class="grp"><summary><span class="arw">›</span><span>${f}</span><span class="cnt">${g.length}</span></summary>`+g.map(x=>entry(x,true)).join("")+`</details>`;
+  }).join("");
+  document.getElementById("dbody").innerHTML=`<div class="sub dirh ${DIRCLS[d]}">${label}<small>${rs.length}</small></div>`+html;
+}
+
+function search(v){
+  const kw=v.trim();
+  if(!kw){showHome();return;}
+  const kn=kw.replace(/\s/g,"").toLowerCase();
+  const norm=s=>(s||"").toLowerCase().replace(/\s/g,"");
+
+  // 只按「词条名（套语）」与拼音匹配；不搜释义/例句/辨析，避免因别处提及而被带出
+  let hit=ITEMS.filter(x=>norm(x.t).includes(kn) || norm(x.p).includes(kn));
+  hit.sort((a,b)=>{
+    const na=norm(a.t), nb=norm(b.t);
+    const ea=na===kn?0:(na.indexOf(kn)===0?1:2);
+    const eb=nb===kn?0:(nb.indexOf(kn)===0?1:2);
+    return ea-eb || na.length-nb.length;
+  });
+  const wl=WENLEI.filter(r=>norm(r[0]).includes(kn));
+
+  let html="";
+  if(wl.length){
+    html+=`<div class="sub">公文类别<small>${wl.length}</small></div>`+
+      wl.map(r=>`<div class="item"><div class="it-h"><span class="it-t">${r[0]}</span>${dirTag(r[2])}<span class="src-tag">文种</span></div><div class="it-d">${r[1]}</div></div>`).join("");
+  }
+  if(hit.length){
+    html+=`<div class="sub">公文用语 / 惯用辞令<small>${hit.length}</small></div>`+hit.map(x=>entry(x)).join("");
+  }
+  const total=hit.length+wl.length;
+  document.getElementById("resh").innerHTML=`关键词「<b>${kw}</b>」 · 命中 ${total} 条（按词条名 / 拼音匹配）`;
+  document.getElementById("resbody").innerHTML=html;
+  document.getElementById("empty").classList.toggle("show",total===0);
+  document.getElementById("subtabs").style.display="none";
+  homeEl.style.display="none";detailEl.classList.remove("show");resultsEl.classList.add("show");
+}
+
+cardsEl.addEventListener("click",e=>{const c=e.target.closest(".card");if(c)showDetail(c.dataset.k);});
+document.getElementById("toolCta").addEventListener("click",()=>showDetail("shidu"));
+document.getElementById("back").addEventListener("click",showHome);
+
+const clearQ=document.getElementById("clearq");
+function syncClear(){ clearQ.classList.toggle("show", !!qEl.value); }
+qEl.addEventListener("input",e=>{ search(e.target.value); syncClear(); });
+clearQ.addEventListener("click",()=>{ qEl.value=""; syncClear(); showHome(); qEl.focus(); });
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="/"&&document.activeElement!==qEl){e.preventDefault();qEl.focus();}
+  if(e.key==="Escape"){qEl.value=""; syncClear(); showHome();}
+});
+
+/* ===== 公文识读：本地词表匹配（零 token、离线） ===== */
+function escHtml(s){return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function escAttr(s){return escHtml(s).replace(/'/g,"&#39;");}
+
+function splitTop(s){
+  const out=[]; let depth=0, cur="";
+  for(const ch of s){
+    if(ch==="（"||ch==="(") depth++;
+    else if(ch==="）"||ch===")") depth=Math.max(0,depth-1);
+    if((ch==="/"||ch==="／"||ch==="、") && depth===0){ out.push(cur); cur=""; }
+    else cur+=ch;
+  }
+  out.push(cur); return out;
+}
+function tkVariants(it){
+  const out=new Set();
+  splitTop(it.t).forEach(seg=>{
+    seg=seg.trim(); if(!seg) return;
+    const m=seg.match(/^(.*?)[（(]([^（）()]*)[)）]\s*$/);
+    if(m){
+      const base=m[1].trim();
+      if(base.includes("……")){
+        // 省略号条目只取≥2字片段，且跳过以「事/外」收尾的泛化片段
+        if(!/[事外]$/.test(base)){
+          base.split("……").forEach(p=>{ p=p.trim(); if(p.length>=2) out.add(p); });
+        }
+      }else if(base){ out.add(base); }
+      splitTop(m[2]).forEach(x=>{ x=x.trim(); if(x) out.add(x); });
+    }else if(seg.includes("……")){
+      seg.split("……").forEach(p=>{ p=p.trim(); if(p.length>=2) out.add(p); });
+    }else{
+      out.add(seg);
+    }
+  });
+  if(it.t==="为……事"){
+    ["为令遵事","为令知事","为令饬事","为通令事","为布告事","为咨请事","为咨复事","为咨商事",
+     "呈为呈请事","呈为呈复事","呈为呈报事","呈为呈送事"].forEach(v=>out.add(v));
+  }
+  return [...out];
+}
+
+const TERMS=(function(){
+  const seen=new Map();
+  // 倒序遍历：让更靠后、更具体的词条优先占位（如「为令遵事」优先于泛化的「为……事」）
+  [...ITEMS].reverse().forEach(it=>{ tkVariants(it).forEach(v=>{ if(!seen.has(v)) seen.set(v,it); }); });
+  return [...seen.entries()].map(([term,it])=>({term,it})).sort((a,b)=>b.term.length-a.term.length);
 })();
+
+let sdText="";
+const SD_SAMPLE="为令遵事：案据该县呈称，河道淤塞、亟应疏浚等情到厅，当经本厅复核属实。合行令仰该县即便遵照办理，迅将工程情形造册具报，毋得稍涉敷衍，切切此令。";
+
+function initShidu(){
+  const ta=document.getElementById("sdin"); if(!ta) return;
+  ta.value=sdText||"";
+  ta.addEventListener("input",()=>{ sdText=ta.value; });
+  document.getElementById("sdrun").addEventListener("click",analyzeShidu);
+  document.getElementById("sdclear").addEventListener("click",()=>{
+    sdText=""; ta.value="";
+    document.getElementById("sdout").innerHTML="";
+    document.getElementById("sdrep").innerHTML="";
+    ta.focus();
+  });
+  document.getElementById("sdsample").addEventListener("click",()=>{
+    sdText=SD_SAMPLE; ta.value=SD_SAMPLE; analyzeShidu();
+  });
+  document.getElementById("sdone").addEventListener("change",analyzeShidu);
+  if(sdText) analyzeShidu();
+  else document.getElementById("sdrep").innerHTML='<div class="rline">粘贴公文后点「识读」，或点「载入示例」。</div>';
+}
+
+function guessType(s){
+  if(/此状/.test(s)) return "任命状";
+  if(/此批/.test(s)) return "批";
+  if(/此布/.test(s)) return "布告";
+  if(/此咨/.test(s)) return "咨";
+  if(/此致/.test(s)) return "公函";
+  if(/谨呈/.test(s)) return "呈";
+  if(/此令/.test(s)){
+    if(/为令遵事|为令饬事|为令知事|训令/.test(s)) return "训令";
+    if(/呈悉|呈件均悉/.test(s)) return "指令";
+    return "令";
+  }
+  if(/为布告事|照得/.test(s)) return "布告";
+  if(/为咨请事|为咨复事|为咨商事/.test(s)) return "咨";
+  if(/径启者|迳启者/.test(s)) return "公函";
+  if(/呈为/.test(s)) return "呈";
+  return "";
+}
+
+function analyzeShidu(){
+  const ta=document.getElementById("sdin");
+  const text=ta?ta.value:"";
+  const out=document.getElementById("sdout"), rep=document.getElementById("sdrep");
+  if(!text.trim()){
+    out.innerHTML=""; rep.innerHTML='<div class="rline">请先粘贴公文，或点「载入示例」。</div>'; return;
+  }
+  const inc=document.getElementById("sdone").checked;
+  const terms=TERMS.filter(x=> x.term.length>=2 || inc);
+  const re=new RegExp(terms.map(x=>x.term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
+  let html="", last=0, count=0, m;
+  const stat=new Map();
+  while((m=re.exec(text))!==null){
+    const s=m.index, e=s+m[0].length;
+    const hit=terms.find(x=>x.term===m[0]);
+    html+=escHtml(text.slice(last,s));
+    html+=`<span class="tk" title="${escAttr(hit?hit.it.d:"")}">${escHtml(m[0])}</span>`;
+    last=e; count++;
+    if(hit) stat.set(hit.it,(stat.get(hit.it)||0)+1);
+    if(m[0].length===0) re.lastIndex++;
+  }
+  html+=escHtml(text.slice(last));
+  out.innerHTML=html;
+
+  const dirs={上行:0,平行:0,下行:0,通用:0};
+  stat.forEach((n,it)=>{ dirs[it.dir]=(dirs[it.dir]||0)+n; });
+  const top=[...stat.entries()].sort((a,b)=>b[1]-a[1]).slice(0,8);
+  const g=guessType(text);
+  rep.innerHTML=`<div class="rline">命中套语 <b>${count}</b> 处，涉及 <b>${stat.size}</b> 个词条</div>
+    <div class="rbox">
+      行文方向：上行 ${dirs.上行} · 平行 ${dirs.平行} · 下行 ${dirs.下行} · 通用 ${dirs.通用}<br>
+      ${g?`文种推测：<b>${g}</b><br>`:""}
+      ${top.length?`高频：`+top.map(([it,n])=>`<span class="pill">${escHtml(it.t)}×${n}</span>`).join(""):"未命中词库内套语。"}
+    </div>`;
+}
+
+/* 套语释义：点击/点按显示浮层（移动端无悬停） */
+const tipEl=document.createElement("div");
+tipEl.className="tip"; tipEl.id="tip";
+document.body.appendChild(tipEl);
+function showTip(el,text){
+  tipEl.textContent=text;
+  tipEl.classList.add("show");
+  const r=el.getBoundingClientRect();
+  const tw=tipEl.offsetWidth, th=tipEl.offsetHeight;
+  let left=r.left+r.width/2-tw/2;
+  left=Math.max(8,Math.min(left,window.innerWidth-tw-8));
+  let top=r.top-th-8;
+  if(top<8) top=r.bottom+8;
+  tipEl.style.left=left+"px"; tipEl.style.top=top+"px";
+  el.classList.add("hit"); setTimeout(()=>el.classList.remove("hit"),700);
+}
+function hideTip(){ tipEl.classList.remove("show"); }
+document.addEventListener("click",function(e){
+  const tk=e.target.closest(".tk");
+  if(tk){
+    const t=tk.getAttribute("title")||tk.getAttribute("data-tip");
+    if(t) showTip(tk,t);
+    return;
+  }
+  hideTip();
+});
+window.addEventListener("scroll",hideTip,{passive:true});
+window.addEventListener("resize",hideTip);
 </script>
 </body>
 </html>
