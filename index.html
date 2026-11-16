@@ -131,10 +131,123 @@
   .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
   .btn.primary:hover{background:var(--accent-l);color:#fff;}
   .sd-opt{font-size:12.5px;color:var(--ink2);display:inline-flex;align-items:center;gap:5px;cursor:pointer;}
-  .sd-out{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 16px;
-    font-family:"Noto Serif SC","Songti SC",serif;font-size:14.5px;line-height:2;
+  .sd-exp{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;background:var(--card);overflow:hidden;}
+  .sd-sel{border:0;background:transparent;font-family:inherit;font-size:13px;color:var(--ink2);
+    padding:8px 26px 8px 12px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,#8d8577 50%),linear-gradient(135deg,#8d8577 50%,transparent 50%);
+    background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+  .sd-exp .btn{border:0;border-left:1px solid var(--line);border-radius:0;padding:8px 15px;}
+  .sd-pick{position:relative;display:inline-block;}
+  .sd-pick-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;font-size:13px;}
+  .sd-pick-btn .car{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;
+    border-top:5px solid #8d8577;margin-top:1px;}
+  .sd-pick.on .sd-pick-btn{border-color:var(--accent-l);color:var(--accent);}
+  .pd-menu{display:none;position:fixed;z-index:80;
+    width:320px;max-width:calc(100vw - 16px);max-height:min(33vh,300px);overflow-y:auto;
+    background:#fff;border:1px solid var(--line);border-radius:10px;padding:5px;
+    box-shadow:0 12px 32px rgba(0,0,0,.14);-webkit-overflow-scrolling:touch;}
+  .sd-pick.on .pd-menu{display:block;}
+  .pd-menu .grp{font-size:11px;color:var(--ink3);letter-spacing:.5px;padding:7px 9px 4px;}
+  .pd-menu .it{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+    width:100%;text-align:left;border:0;background:transparent;font:inherit;
+    font-size:12.5px;color:var(--ink2);padding:6px 9px;border-radius:7px;cursor:pointer;
+    white-space:normal;overflow:hidden;line-height:1.45;min-height:2.9em;}
+  .pd-menu .it:hover{background:#f3eee0;color:var(--accent);}
+  .pd-menu .it-split{display:flex;align-items:flex-start;gap:2px;}
+  .pd-menu .it-split .pfx{flex:0 0 auto;white-space:nowrap;}
+  .pd-menu .it-split .rest{flex:1 1 auto;min-width:0;display:-webkit-box;
+    -webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;}
+  .sd-exp .btn:hover{background:#f3eee0;}
+  /* 导出预览弹层 */
+  .mo{position:fixed;inset:0;background:rgba(32,28,22,.55);display:none;z-index:999;padding:24px;box-sizing:border-box;}
+  .mo.on{display:flex;align-items:center;justify-content:center;}
+  .mo-box{background:#fbf7ec;border-radius:14px;max-width:940px;width:100%;max-height:92vh;
+    display:flex;flex-direction:column;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,.3);}
+  .mo-hd{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--line);
+    font-size:13.5px;color:var(--ink);}
+  .mo-hd b{font-weight:600;}
+  .mo-x{margin-left:auto;border:0;background:transparent;font-size:20px;line-height:1;color:var(--ink3);
+    cursor:pointer;padding:0 4px;}
+  .mo-bd{flex:1;overflow:auto;padding:18px;background:#efe8d8;text-align:center;-webkit-overflow-scrolling:touch;}
+  .mo-bd img{display:block;margin:0 auto 14px;max-width:100%;background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.12);border-radius:2px;}
+  .mo-bd iframe{border:0;background:#fff;transform-origin:top left;display:block;}
+  .mo-ft{display:flex;align-items:center;gap:10px;padding:12px 18px;border-top:1px solid var(--line);background:#fbf7ec;}
+  .mo-tip{font-size:12px;color:var(--ink3);margin-right:auto;line-height:1.6;}
+  .mo-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:rgba(36,31,25,.92);
+    color:#fff;font-size:12.5px;padding:8px 16px;border-radius:20px;z-index:1000;opacity:0;
+    transition:opacity .2s;pointer-events:none;}
+  .mo-toast.on{opacity:1;}
+  .sd-out{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px 14px;
+    font-family:"Noto Serif SC","Songti SC",serif;font-size:14.5px;line-height:1.9;
     white-space:pre-wrap;word-break:break-word;}
-  .sd-out:empty{display:none;}
+  .sd-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:2px 0 8px;}
+  .sd-pane{display:flex;flex-direction:column;min-width:0;height:clamp(320px,56vh,560px);}
+  .sd-lab{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap;
+    height:30px;flex:0 0 auto;margin-bottom:6px;font-size:12px;color:var(--ink3);letter-spacing:.6px;}
+  .sd-lab>span:first-child{white-space:nowrap;}
+  .sd-pane>textarea,.sd-pane>.sd-out{flex:1 1 auto;min-height:0;}
+  .sd-compare textarea{height:100%;resize:none;overflow:auto;scrollbar-gutter:stable;}
+  .sd-compare .sd-out{height:100%;overflow:auto;scrollbar-gutter:stable;}
+  .sd-foot{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;
+    margin-top:8px;border-top:1px dashed var(--line);padding-top:10px;}
+  .sd-foot .sd-rep{margin:0;border:0;padding:0;flex:1 1 100%;min-height:18px;}
+  .sr-line{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;color:var(--ink3);align-items:baseline;}
+  .sr-line b{color:var(--accent);}
+  .sr-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
+  .sr-chip{font-size:11px;color:var(--ink2);border:1px solid var(--line);border-radius:12px;
+    padding:1px 8px;background:#fff;line-height:1.6;}
+  .sr-chip i{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:5px;vertical-align:1px;}
+  .sr-chip b{color:var(--ink3);font-weight:400;margin-left:3px;}
+  .pd-bar{display:flex;align-items:center;gap:7px;flex-wrap:nowrap;font-size:11.5px;color:var(--ink3);
+    margin:0;justify-content:flex-end;flex:0 1 auto;min-width:0;}
+  .pd-sum{white-space:nowrap;margin-right:2px;}
+  .pd-mini{font-size:11px;padding:2px 9px;white-space:nowrap;border:1px solid var(--line);background:#fff;
+    border-radius:12px;cursor:pointer;color:var(--ink2);font-family:inherit;}
+  .pd-mini.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .pd-mini:disabled{opacity:.42;cursor:default;}
+  .pd-mini:disabled:hover{border-color:var(--line);color:var(--ink2);}
+  .pd-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .pd-chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink2);
+    border:1px solid var(--line);border-radius:14px;padding:2px 9px;background:#fff;cursor:pointer;}
+  .pd-chip.on{border-color:var(--accent);background:#eef2f5;color:var(--accent);}
+  .pd-chip input{accent-color:var(--accent);margin:0;}
+  .pd-list{display:flex;flex-direction:column;gap:5px;}
+  .pd-item{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--ink2);cursor:pointer;}
+  .pd-item.on{color:var(--accent);}
+  .pd-item input{accent-color:var(--accent);margin:0;flex:none;}
+  .pd-inline{display:inline-flex;align-items:center;gap:2px;vertical-align:baseline;margin:0 1px;}
+  .pd-inline input{width:12px;height:12px;margin:0;accent-color:var(--accent);vertical-align:middle;}
+  .pd-inline.on span{color:var(--accent);font-weight:700;}
+  .pd-inline.pd-add span{color:var(--ink3);}
+  .pd-chg{font-family:"Noto Serif SC","Songti SC",serif;}
+  .pd-empty{font-size:11.5px;color:var(--ink3);}
+  .pd-long{font-size:11px;color:var(--ink3);margin-top:6px;}
+  @media(max-width:640px){
+    .sd-compare{grid-template-columns:1fr;gap:14px;margin-bottom:10px;}
+    .sd-pane{height:290px;}
+    .sd-lab{height:auto;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-bottom:8px;}
+    .pd-bar{justify-content:flex-start;flex-wrap:wrap;gap:6px;flex:1 1 auto;}
+    .pd-mini{font-size:12px;padding:5px 11px;border-radius:15px;}
+    .pd-sum{width:100%;margin:0 0 2px;}
+    .sd-foot{flex-direction:column;align-items:stretch;gap:10px;}
+    .sd-foot .sd-rep{flex:1 1 auto;}
+    .sr-line{font-size:12px;gap:10px;}
+    .sd-out{padding:12px 13px;font-size:15px;}
+    .sd textarea{font-size:15px;padding:12px 13px;}
+    .sd-bar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0 12px;}
+    .sd-bar>.btn,.sd-bar>.sd-exp,.sd-bar>.sd-pick{width:100%;box-sizing:border-box;}
+    .sd-bar .sd-pick-btn{width:100%;justify-content:center;}
+    .sd-bar .sd-exp .sd-sel{flex:1 1 auto;min-width:0;width:auto;}
+    .sd-bar .sd-opt{grid-column:1 / -1;}
+    .sd-bar .btn{white-space:nowrap;}
+    .mo{padding:10px;}
+    .mo-bd{padding:12px;}
+    .mo-ft{flex-wrap:wrap;gap:8px;}
+    .mo-tip{width:100%;margin:0;}
+    .btn{padding:8px 12px;font-size:12.5px;}
+  }
+  .sd-out:empty::before{content:"识读结果将显示在这里";color:#b3aa99;font-size:13px;font-family:"PingFang SC",sans-serif;}
   .report{margin-top:6px;}
   .report .rline{font-size:13px;color:var(--ink2);margin:6px 0;}
   .report .rline b{color:var(--accent);}
@@ -142,6 +255,41 @@
     padding:12px 14px;margin-top:6px;font-size:13.2px;color:var(--ink2);line-height:1.9;}
   .report .pill{display:inline-block;background:#fff;border:1px solid var(--line);
     border-radius:20px;padding:2px 10px;margin:3px 4px 0 0;font-size:12px;}
+  /* 校对句读 */
+  .pmark{color:inherit;}
+  .pmark.pdiff{background:#f7e8c8;color:#9c4a3a;border-bottom:2px solid #9c4a3a;
+    border-radius:2px;padding:0 1px;font-weight:700;}
+  .pmark.pdel{color:#9c4a3a;text-decoration:line-through;opacity:.65;}
+  .pd-row{font-size:12.8px;color:var(--ink2);padding:6px 0;border-top:1px dashed var(--line);line-height:1.75;
+    display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;}
+  .pd-row:first-child{border-top:none;}
+  .pd-idx{display:inline-block;min-width:66px;color:var(--accent-l);font-size:11.5px;flex:none;}
+  .pd-ctx{flex:1;min-width:120px;}
+  .pd-btns{display:flex;gap:6px;flex:none;}
+  .pd-btn{font-size:11px;padding:2px 9px;border:1px solid var(--line);background:#fff;
+    border-radius:14px;cursor:pointer;color:var(--ink2);font-family:inherit;}
+  .pd-btn:hover{border-color:var(--accent-l);color:var(--accent);}
+  .pd-btn.on{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .pd-actions{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 10px;}
+  .pd-more{font-size:12px;color:var(--ink3);padding-top:6px;}
+  .pmark.pdiff-keep{background:#efe9dc;color:#6f675a;border-bottom:1px dotted #b9a06a;}
+  /* 导出（图片 / PDF） */
+  #printArea{display:none;}
+  @media print{
+    @page{margin:16mm 14mm;}
+    body.printing{background:#fff;}
+    body.printing > *:not(#printArea){display:none !important;}
+    body.printing #printArea{display:block !important;}
+    #printArea{font-family:"Noto Serif SC","Songti SC",serif;color:#241f19;font-size:13.5px;line-height:1.9;}
+    #printArea .pdf-h{font-size:20px;font-weight:700;margin-bottom:6px;}
+    #printArea .pdf-m{font-size:11.5px;color:#5c554a;line-height:1.8;margin-bottom:10px;
+      border-bottom:1px solid #ddd;padding-bottom:8px;}
+    #printArea .pdf-b{white-space:pre-wrap;word-break:break-word;}
+    #printArea .tk{background:#f7e8c8;color:#7c4a2c;border-bottom:1px dashed #b9a06a;
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    #printArea .pdf-f{margin-top:12px;border-top:1px solid #ddd;padding-top:8px;
+      font-size:10.5px;color:#948b7b;}
+  }
   /* 首页主工具入口 */
   .tool-cta{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#2b4a66,#3d6080);
     color:#fff;border-radius:14px;padding:18px 22px;margin:0 0 22px;cursor:pointer;
@@ -656,16 +804,39 @@ function staticHTML(k){
   if(k==="fagui"){ return document.getElementById("tpl-fagui").innerHTML; }
   if(k==="shidu"){
     return `<div class="sd">
-      <p class="hint">粘贴一段公文，系统自动标出套语（红字），点按可看释义，并生成识读报告。全部在本地完成，不上传、不消耗流量。</p>
-      <textarea id="sdin" placeholder="在此粘贴公文全文……"></textarea>
+      <p class="hint">粘贴一段公文，系统自动标出套语（红字），点按可看释义，并生成识读报告。原文若无标点，可先点「自动断句」（初步断句，需人工校对）。全部在本地完成，不上传、不消耗流量。</p>
       <div class="sd-bar">
         <button class="btn primary" id="sdrun">识读</button>
         <button class="btn" id="sdclear">清空</button>
-        <button class="btn" id="sdsample">载入示例</button>
+        <span class="sd-pick" id="sdpick">
+          <button class="btn sd-pick-btn" id="sdflbtn" aria-haspopup="listbox" aria-expanded="false">
+            载入示例<i class="car"></i>
+          </button>
+          <div class="pd-menu" id="sdfl" role="listbox" aria-label="示例例文"></div>
+        </span>
+        <span class="sd-exp">
+          <select id="sdfmt" class="sd-sel" aria-label="导出格式">
+            <option value="png">图片 PNG</option>
+            <option value="pdf">PDF</option>
+            <option value="doc">Word</option>
+          </select>
+          <button class="btn" id="sdexport">导出</button>
+        </span>
         <label class="sd-opt"><input type="checkbox" id="sdone"> 含单字词</label>
       </div>
-      <div id="sdout" class="sd-out"></div>
-      <div id="sdrep" class="report"></div>
+      <div class="sd-compare">
+        <div class="sd-pane">
+          <div class="sd-lab"><span>原文（可编辑）</span></div>
+          <textarea id="sdin" placeholder="在此粘贴公文全文……"></textarea>
+        </div>
+        <div class="sd-pane">
+          <div class="sd-lab"><span>识读结果</span><span id="sdproofbar" class="pd-bar"></span></div>
+          <div id="sdout" class="sd-out"></div>
+        </div>
+      </div>
+      <div class="sd-foot">
+        <div id="sdstat" class="sd-rep"></div>
+      </div>
     </div>`;
   }
   return "";
@@ -834,23 +1005,144 @@ const SD_SAMPLE="为令遵事：案据该县呈称，河道淤塞、亟应疏浚
 
 function initShidu(){
   const ta=document.getElementById("sdin"); if(!ta) return;
+  const outEl=document.getElementById("sdout");
+  const bar=document.getElementById("sdproofbar");
   ta.value=sdText||"";
   ta.addEventListener("input",()=>{ sdText=ta.value; });
-  document.getElementById("sdrun").addEventListener("click",analyzeShidu);
-  document.getElementById("sdclear").addEventListener("click",()=>{
-    sdText=""; ta.value="";
-    document.getElementById("sdout").innerHTML="";
-    document.getElementById("sdrep").innerHTML="";
-    ta.focus();
-  });
-  document.getElementById("sdsample").addEventListener("click",()=>{
-    sdText=SD_SAMPLE; ta.value=SD_SAMPLE; analyzeShidu();
-  });
-  document.getElementById("sdone").addEventListener("change",analyzeShidu);
-  if(sdText) analyzeShidu();
-  else document.getElementById("sdrep").innerHTML='<div class="rline">粘贴公文后点「识读」，或点「载入示例」。</div>';
-}
 
+  let lock=false;
+  const link=function(src,dst){
+    src.addEventListener("scroll",function(){
+      if(lock) return;
+      lock=true;
+      const a=src.scrollHeight-src.clientHeight;
+      const b=dst.scrollHeight-dst.clientHeight;
+      dst.scrollTop = a>0 ? (src.scrollTop/a)*b : 0;
+      requestAnimationFrame(function(){ lock=false; });
+    },{passive:true});
+  };
+  if(outEl){ link(ta,outEl); link(outEl,ta); }
+
+  function undoBtn(){
+    return `<button class="pd-mini" data-act="undo"${UNDO.length?"":" disabled"}>撤销</button>`;
+  }
+  function baseBar(){
+    bar.innerHTML=`<button class="pd-mini" data-act="auto">自动断句</button>
+      <button class="pd-mini" data-act="proof">校对句读</button>${undoBtn()}`;
+  }
+  function doUndo(){
+    if(!UNDO.length) return;
+    ta.value=UNDO.pop(); PROOF=null; analyzeShidu(); baseBar();
+  }
+  baseBar();
+
+  bar.addEventListener("click",function(e){
+    const a=e.target.closest("[data-act]"); if(!a) return;
+    const act=a.dataset.act;
+    if(act==="auto"){
+      if(!ta.value.trim()) return;
+      const fixed=punctuate(ta.value);
+      analyzeText(fixed,"已自动断句（原文未改动）");
+      baseBar();
+      return;
+    }
+    if(act==="proof"){ proofread(); return; }
+    if(act==="undo"){ doUndo(); return; }
+    if(act==="exit"){ PROOF=null; analyzeShidu(); baseBar(); return; }
+    if(!PROOF) return;
+    if(act==="all-s"){ PROOF.diffs.forEach(function(d){ PROOF.dec[d.p]="s"; }); renderProof(); return; }
+    if(act==="all-o"){ PROOF.diffs.forEach(function(d){ PROOF.dec[d.p]="o"; }); renderProof(); return; }
+    if(act==="apply"){
+      const prev=ta.value;
+      const txt=buildChosen();
+      if(txt!==prev) pushUndo(prev);
+      sdText=txt; ta.value=txt; PROOF=null; analyzeShidu(); baseBar();
+    }
+  });
+
+  outEl.addEventListener("change",function(e){
+    const cb=e.target.closest("input[data-p]");
+    if(!cb || !PROOF) return;
+    PROOF.dec[parseInt(cb.dataset.p,10)] = cb.checked ? "s" : "o";
+    renderProof();
+  });
+
+  document.getElementById("sdrun").addEventListener("click",()=>{ PROOF=null; baseBar(); analyzeShidu(); });
+  document.getElementById("sdclear").addEventListener("click",()=>{
+    if(ta.value.trim()) pushUndo(ta.value);
+    sdText=""; ta.value=""; PROOF=null; LAST=null;
+    outEl.innerHTML=""; baseBar(); ta.focus();
+  });
+  /* 例文下拉：自动抓取「通用例文」中的 16 篇（4 综合 + 12 文种示例） */
+  (function(){
+    const pick=document.getElementById("sdpick"), btn=document.getElementById("sdflbtn"),
+          menu=document.getElementById("sdfl");
+    if(!pick||!btn||!menu) return;
+    const EX=[];
+    [["tpl-lifa","综合例文（4 篇）"],["tpl-li12","十二文种示例（12 篇）"]].forEach(function(g){
+      const box=document.getElementById(g[0]); if(!box) return;
+      const ds=box.querySelectorAll("details"); if(!ds.length) return;
+      const h=document.createElement("div"); h.className="grp"; h.textContent=g[1]; menu.appendChild(h);
+      [...ds].forEach(function(d){
+        const sm=d.querySelector("summary"), bd=d.querySelector(".exbody");
+        if(!sm||!bd) return;
+        const raw=(bd.innerText||bd.textContent||"");
+        const txt=raw.replace(/\u00a0/g," ").replace(/[ \t]+/g," ")
+                     .replace(/ *\n */g,"\n").replace(/\n{2,}/g,"\n").trim();
+        if(!txt) return;
+        const full=sm.textContent.replace(/\s+/g," ").trim();
+        const b=document.createElement("button");
+        b.type="button"; b.className="it"; b.title=full;
+        const ci=full.indexOf("：");
+        if(ci>0 && /^例文/.test(full)){
+          b.className="it it-split";
+          b.innerHTML='<span class="pfx">'+escHtml(full.slice(0,ci+1))+'</span>'
+                     +'<span class="rest">'+escHtml(full.slice(ci+1))+'</span>';
+        }else{
+          b.textContent=full;
+        }
+        b.dataset.i=String(EX.push(txt)-1);
+        menu.appendChild(b);
+      });
+    });
+    function close(){ pick.classList.remove("on"); btn.setAttribute("aria-expanded","false"); }
+    function place(){
+      const r=btn.getBoundingClientRect();
+      const W=Math.min(320, (window.innerWidth||375)-16);
+      const H=Math.min(window.innerHeight*.33, 300);
+      menu.style.width=W+"px";
+      const narrow=(window.innerWidth||375)<=640;
+      const left=narrow ? (window.innerWidth-W)/2  // 手机：屏幕水平居中
+                        : Math.max(8,Math.min(r.left, window.innerWidth-W-8)); // 桌面：贴按钮、不越界
+      menu.style.left=Math.max(8,left)+"px";
+      menu.style.top=Math.max(8,Math.min(r.bottom+6, window.innerHeight-H-16))+"px";
+    }
+    btn.addEventListener("click",function(e){
+      e.stopPropagation();
+      const on=pick.classList.toggle("on");
+      btn.setAttribute("aria-expanded",on?"true":"false");
+      if(on) place();
+    });
+    window.addEventListener("resize",close);
+    menu.addEventListener("click",function(e){
+      const it=e.target.closest(".it"); if(!it) return;
+      const txt=EX[+it.dataset.i]; if(!txt) return;
+      if(ta.value.trim() && ta.value!==txt) pushUndo(ta.value);
+      sdText=txt; ta.value=txt; PROOF=null;
+      analyzeShidu(); baseBar(); close();
+    });
+    document.addEventListener("click",function(e){ if(!pick.contains(e.target)) close(); });
+    document.addEventListener("keydown",function(e){ if(e.key==="Escape") close(); });
+  })();
+
+  document.getElementById("sdexport").addEventListener("click",function(){
+    openExport(document.getElementById("sdfmt").value);
+  });
+  initExport();
+  document.getElementById("sdone").addEventListener("change",()=>{ analyzeShidu(); });
+
+  if(sdText) analyzeShidu();
+}
 function guessType(s){
   if(/此状/.test(s)) return "任命状";
   if(/此批/.test(s)) return "批";
@@ -870,40 +1162,466 @@ function guessType(s){
   return "";
 }
 
-function analyzeShidu(){
-  const ta=document.getElementById("sdin");
-  const text=ta?ta.value:"";
-  const out=document.getElementById("sdout"), rep=document.getElementById("sdrep");
-  if(!text.trim()){
-    out.innerHTML=""; rep.innerHTML='<div class="rline">请先粘贴公文，或点「载入示例」。</div>'; return;
+/* 启发式断句：依公文套语插入标点（初步断句，需人工校对） */
+const PUNCT_RULES = [
+  {p:"：", m:["为令知事","为令遵事","为令饬事","为通令事","为布告事","为会呈事",
+              "呈为呈请事","呈为呈复事","呈为呈报事","呈为呈送事",
+              "为咨请事","为咨复事","为咨商事","径启者","迳启者","敬启者","敬呈者","签呈"]},
+  {p:"：", m:["训令开","令开","咨开","函开","内开","节开","略开"]},
+  {p:"。", m:["各等因","各等情","等因","等由","等情","等语"]},
+  {p:"，", m:["奉此","准此","据此"]},
+  {p:"。", before:true, m:["此令","此批","此布","此咨","此致","此状","特此布告"]},
+  {p:"。", m:["在案","各在案","属实"]},
+  {p:"。", m:["呈及附件均悉","呈件均悉","来呈已悉","据呈已悉","呈悉","状悉","各呈均悉"]},
+  {p:"，", m:["到厅","到署","到县","到府","前来"]},
+  {p:"，", m:["是否有当"]},
+  {p:"。", m:["应毋庸议"]},
+  {p:"，", before:true, m:["仰祈鉴核示遵","仰祈鉴核施行","仰祈鉴核备案","伏乞鉴核"]},
+  {p:"。", before:true, m:["谨呈"]},
+  {p:"，", before:true, m:["合行","令仰","仰即","毋得","毋稍","勿延","勿再","切切","拟请","相应","即希","应准","仰一体知照",
+      "共用去","第一期","第二期","第三期","第四期","共计","总计","所有","前项","此项","以上"]}
+];
+
+function softBreak(s, th){
+  th=th||16;
+  const soft=["共计","总计","所有","前项","此项","共用去","第一期","第二期","第三期","第四期",
+              "查","惟","至","其","此","拟","应","但","如","若","因","另","又","再"];
+  let out="", run=0;
+  for(let i=0;i<s.length;i++){
+    if(/[，。：；、！？]/.test(s[i])){ out+=s[i]; run=0; continue; }
+    let hit=null;
+    for(let k=0;k<soft.length;k++){ if(s.startsWith(soft[k],i)){ hit=soft[k]; break; } }
+    if(hit && run>=th){ out+="，"; run=0; }
+    out+=s[i]; run++;
   }
-  const inc=document.getElementById("sdone").checked;
+  return out;
+}
+
+function punctuate(text, th){
+  const flat=[];
+  PUNCT_RULES.forEach(r=>r.m.forEach(m=>flat.push({m:m,p:r.p,before:!!r.before})));
+  flat.sort((a,b)=>b.m.length-a.m.length);
+  return text.split(/\n/).map(function(line){
+    let s=line.replace(/\s+/g,"");
+    if(!s) return "";
+    let res="", i=0;
+    while(i<s.length){
+      let hit=null;
+      for(let k=0;k<flat.length;k++){ if(s.startsWith(flat[k].m,i)){ hit=flat[k]; break; } }
+      if(hit){
+        // 「合行令仰」不拆开
+        if(hit.m==="令仰" && /合行$/.test(res)){ res+=hit.m; i+=hit.m.length; continue; }
+        if(hit.m==="合行" && s.startsWith("令仰", i+hit.m.length)){ res+=hit.m; i+=hit.m.length; continue; }
+        if(hit.m==="谨呈"){
+          if(/[，、；：]$/.test(res)) res=res.slice(0,-1)+"。";
+          else if(res && !/[。！？]$/.test(res)) res+="。";
+          res+=hit.m; i+=hit.m.length; continue;
+        }
+        if(hit.before){
+          if(res && !/[，。：；、]/.test(res.slice(-1))) res+=hit.p;
+          res+=hit.m; i+=hit.m.length;
+          continue;
+        }
+        res+=hit.m; i+=hit.m.length;
+        let p=hit.p;
+        // 「等情/等由」后接 到/前/据，改逗号更顺
+        if((hit.m==="等情"||hit.m==="等由") && /[到前据]/.test(s[i]||"")) p="";
+        if(i<s.length && !/[，。：；、]/.test(s[i])) res+=p;
+        continue;
+      }
+      res+=s[i]; i++;
+    }
+    res=res.replace(/，+/g,"，").replace(/。+/g,"。").replace(/，。/g,"。").replace(/：。+/g,"：");
+    res=softBreak(res, th);
+    if(!/[。！？]$/.test(res)) res+="。";
+    return res;
+  }).join("\n");
+}
+
+function buildSegments(text, inc){
   const terms=TERMS.filter(x=> x.term.length>=2 || inc);
   const re=new RegExp(terms.map(x=>x.term.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"g");
-  let html="", last=0, count=0, m;
+  const segs=[]; let last=0, m;
   const stat=new Map();
   while((m=re.exec(text))!==null){
-    const s=m.index, e=s+m[0].length;
+    if(m.index>last) segs.push({text:text.slice(last,m.index),hit:false});
     const hit=terms.find(x=>x.term===m[0]);
-    html+=escHtml(text.slice(last,s));
-    html+=`<span class="tk" title="${escAttr(hit?hit.it.d:"")}">${escHtml(m[0])}</span>`;
-    last=e; count++;
+    segs.push({text:m[0],hit:true,def:hit?hit.it.d:"",it:hit?hit.it:null});
     if(hit) stat.set(hit.it,(stat.get(hit.it)||0)+1);
+    last=m.index+m[0].length;
     if(m[0].length===0) re.lastIndex++;
   }
-  html+=escHtml(text.slice(last));
-  out.innerHTML=html;
+  if(last<text.length) segs.push({text:text.slice(last),hit:false});
+  let count=0; stat.forEach(n=>{count+=n;});
+  return {segs,stat,count};
+}
+
+let LAST=null;
+let LASTSUG=null;
+let PROOF=null;
+
+function analyzeShidu(){
+  const ta=document.getElementById("sdin");
+  analyzeText((ta?ta.value:"").replace(/\r/g,""),"");
+}
+
+function renderReport(stat,count,dirs,g,label){
+  const st=document.getElementById("sdstat"); if(!st) return;
+  const COL={上行:"#4f7a52",平行:"#a08246",下行:"#b04a4a",通用:"#6b8fa6"};
+  const top=[...stat.entries()].sort(function(a,b){ return b[1]-a[1]; }).slice(0,10);
+  st.className="sd-rep";
+  st.innerHTML=`<div class="sr-line">${label?`<span>${label}</span>`:""}
+    <span>命中套语 <b>${count}</b> 处，涉及 <b>${stat.size}</b> 个词条</span>
+    <span>行文方向 上 <b>${dirs.上行}</b> · 平 <b>${dirs.平行}</b> · 下 <b>${dirs.下行}</b> · 通 <b>${dirs.通用}</b></span>
+    ${g?`<span>文种推测 <b>${g}</b></span>`:""}</div>
+    ${top.length?`<div class="sr-chips">${top.map(function(p){
+      const it=p[0]; const nm=(it.t||"").length>26?it.t.slice(0,25)+"…":(it.t||"");
+      return `<span class="sr-chip"><i style="background:${COL[it.dir]||"#999"}"></i>${escHtml(nm)}<b>×${p[1]}</b></span>`;
+    }).join("")}</div>`:""}`;
+}
+
+function analyzeText(text, label){
+  const out=document.getElementById("sdout"), st=document.getElementById("sdstat");
+  if(!text.trim()){
+    out.innerHTML="";
+    if(st){ st.className="sd-rep"; st.textContent="识读后这里显示命中统计与高频词条。"; }
+    LAST=null; return;
+  }
+  const inc=document.getElementById("sdone").checked;
+  const r=buildSegments(text,inc);
+  const segs=r.segs, stat=r.stat, count=r.count;
+  out.innerHTML=segs.map(function(s){ return s.hit
+    ? `<span class="tk" title="${escAttr(s.def)}">${escHtml(s.text)}</span>`
+    : escHtml(s.text); }).join("");
 
   const dirs={上行:0,平行:0,下行:0,通用:0};
-  stat.forEach((n,it)=>{ dirs[it.dir]=(dirs[it.dir]||0)+n; });
-  const top=[...stat.entries()].sort((a,b)=>b[1]-a[1]).slice(0,8);
+  stat.forEach(function(n,it){ dirs[it.dir]=(dirs[it.dir]||0)+n; });
   const g=guessType(text);
-  rep.innerHTML=`<div class="rline">命中套语 <b>${count}</b> 处，涉及 <b>${stat.size}</b> 个词条</div>
-    <div class="rbox">
-      行文方向：上行 ${dirs.上行} · 平行 ${dirs.平行} · 下行 ${dirs.下行} · 通用 ${dirs.通用}<br>
-      ${g?`文种推测：<b>${g}</b><br>`:""}
-      ${top.length?`高频：`+top.map(([it,n])=>`<span class="pill">${escHtml(it.t)}×${n}</span>`).join(""):"未命中词库内套语。"}
-    </div>`;
+  renderReport(stat,count,dirs,g,label);
+  LAST={text:text,segs:segs,stat:stat,count:count,dirs:dirs,g:g};
+}
+
+const pad2=n=>("0"+n).slice(-2);
+function stamp(){ const d=new Date();
+  return d.getFullYear()+pad2(d.getMonth()+1)+pad2(d.getDate())+"_"+pad2(d.getHours())+pad2(d.getMinutes()); }
+function metaLine(){
+  const {count,stat,dirs,g}=LAST;
+  return `命中套语 ${count} 处 · 涉及 ${stat.size} 个词条　|　上行 ${dirs.上行} · 平行 ${dirs.平行} · 下行 ${dirs.下行} · 通用 ${dirs.通用}`+(g?`　|　文种推测：${g}`:"");
+}
+
+function buildReportCanvas(){
+  const W=900, PAD=44, LH=30, FS=15;
+  const cvs=document.createElement("canvas");
+  const ctx=cvs.getContext("2d");
+  ctx.font=`${FS}px "Noto Serif SC","Songti SC",serif`;
+  const maxW=W-PAD*2, chars=[];
+  LAST.segs.forEach(s=>{ for(const ch of s.text) chars.push({ch,hit:s.hit}); });
+  let lines=[], cur=[], w=0;
+  chars.forEach(c=>{
+    if(c.ch==="\n"){ lines.push(cur); cur=[]; w=0; return; }
+    const cw=ctx.measureText(c.ch).width;
+    if(w+cw>maxW && cur.length){ lines.push(cur); cur=[]; w=0; }
+    cur.push({ch:c.ch,hit:c.hit,w:cw,x:w}); w+=cw;
+  });
+  if(cur.length) lines.push(cur);
+
+  const TOP=PAD+16, HEAD=126, FOOT=64;
+  const H=TOP+HEAD+lines.length*LH+FOOT+PAD;
+  cvs.width=W*2; cvs.height=H*2;
+  ctx.scale(2,2);
+  ctx.fillStyle="#f7f2e4"; ctx.fillRect(0,0,W,H);
+  ctx.textBaseline="top";
+  let y=TOP;
+  ctx.fillStyle="#241f19"; ctx.font=`700 22px "Noto Serif SC","Songti SC",serif`;
+  ctx.fillText("民国公文识读报告", PAD, y); y+=34;
+  ctx.font=`13px "PingFang SC",sans-serif`; ctx.fillStyle="#5c554a";
+  ctx.fillText("生成时间："+new Date().toLocaleString("zh-CN"), PAD, y); y+=21;
+  ctx.fillText(metaLine(), PAD, y); y+=16;
+  ctx.strokeStyle="#e0d5bd"; ctx.beginPath(); ctx.moveTo(PAD,y); ctx.lineTo(W-PAD,y); ctx.stroke();
+  y+=16;
+  const bodyTop=y;
+  lines.forEach((ln,i)=>{ const ly=bodyTop+i*LH; ln.forEach(c=>{ if(c.hit){ ctx.fillStyle="#f7e8c8"; ctx.fillRect(PAD+c.x-1, ly+2, c.w+2, LH-6); } }); });
+  ctx.font=`${FS}px "Noto Serif SC","Songti SC",serif`;
+  lines.forEach((ln,i)=>{ const ly=bodyTop+i*LH; ln.forEach(c=>{ ctx.fillStyle=c.hit?"#7c4a2c":"#241f19"; ctx.fillText(c.ch, PAD+c.x, ly); }); });
+  const fy=bodyTop+lines.length*LH+20;
+  ctx.strokeStyle="#e0d5bd"; ctx.beginPath(); ctx.moveTo(PAD,fy); ctx.lineTo(W-PAD,fy); ctx.stroke();
+  ctx.font=`12px "PingFang SC",sans-serif`; ctx.fillStyle="#948b7b";
+  ctx.fillText("民国公文速查 · 公文识读　|　识别与释义仅供参考，非权威鉴定", PAD, fy+12);
+  return cvs;
+}
+
+function durlBytes(durl){
+  const bin=atob(durl.split(",")[1]);
+  const out=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) out[i]=bin.charCodeAt(i);
+  return out;
+}
+
+/* ===== 文字版 PDF（A4，可选中/检索） ===== */
+const PDF_CSS='@page{size:A4;margin:16mm 14mm;}'
+ +'body{margin:0;background:#fff;font-family:"Noto Serif SC","Songti SC",serif;color:#241f19;'
+ +'font-size:13.5px;line-height:1.9;padding:60px 53px;box-sizing:border-box;}'
+ +'.pdf-h{font-size:20px;font-weight:700;margin-bottom:6px;}'
+ +'.pdf-m{font-size:11.5px;color:#5c554a;line-height:1.8;margin-bottom:10px;border-bottom:1px solid #ddd;padding-bottom:8px;}'
+ +'.pdf-b{white-space:pre-wrap;word-break:break-word;}'
+ +'.tk{background:#f7e8c8;color:#7c4a2c;border-bottom:1px dashed #b9a06a;}'
+ +'.pdf-f{margin-top:12px;border-top:1px solid #ddd;padding-top:8px;font-size:10.5px;color:#948b7b;}';
+
+function reportHtmlBody(){
+  const body=LAST.segs.map(s=> s.hit
+    ? '<span class="tk">'+escHtml(s.text)+'</span>'
+    : escHtml(s.text)).join("");
+  return '<div class="pdf-h">民国公文识读报告</div>'
+    +'<div class="pdf-m">生成时间：'+new Date().toLocaleString("zh-CN")+'<br>'+escHtml(metaLine())+'</div>'
+    +'<div class="pdf-b">'+body+'</div>'
+    +'<div class="pdf-f">民国公文速查 · 公文识读　|　识别与释义仅供参考，非权威鉴定。</div>';
+}
+
+function pdfPreviewHtml(){
+  return '<!doctype html><html><head><meta charset="utf-8"><style>'+PDF_CSS+'</style></head>'
+    +'<body>'+reportHtmlBody()+'</body></html>';
+}
+
+function printReport(){
+  let area=document.getElementById("printArea");
+  if(!area){ area=document.createElement("div"); area.id="printArea"; document.body.appendChild(area); }
+  area.innerHTML=reportHtmlBody();
+  document.body.classList.add("printing");
+  const done=function(){ document.body.classList.remove("printing"); window.removeEventListener("afterprint",done); };
+  window.addEventListener("afterprint",done);
+  setTimeout(function(){
+    window.print();
+    setTimeout(function(){ document.body.classList.remove("printing"); },1500);
+  },80);
+  toast("在打印窗口「目标」里选「另存为 PDF」，即可选位置保存");
+}
+
+/* 通用 HTML 页面预览（等比缩放，A4 宽 794px） */
+function htmlPreview(bd, html, minH){
+  const wide=bd.clientWidth||Math.min(880, (window.innerWidth||1024)-60);
+  const avail=wide-40;
+  const scale=Math.max(.25, Math.min(1, avail/794));
+  const wrap=document.createElement("div");
+  wrap.style.cssText="width:"+(794*scale)+"px;height:"+((minH||1123)*scale)+"px;margin:0 auto;overflow:hidden;background:#fff;"
+    +"box-shadow:0 2px 10px rgba(0,0,0,.12);";
+  const fr=document.createElement("iframe");
+  fr.setAttribute("scrolling","no");
+  fr.style.cssText="width:794px;height:"+(minH||1123)+"px;border:0;background:#fff;display:block;"
+    +"transform:scale("+scale+");transform-origin:top left;";
+  fr.srcdoc=html;
+  fr.onload=function(){
+    let h=minH||1123;
+    try{
+      const d=fr.contentDocument;
+      h=Math.max(400, d.documentElement.scrollHeight||0, d.body?d.body.scrollHeight:0);
+    }catch(e){}
+    fr.style.height=h+"px"; wrap.style.height=(h*scale)+"px";
+  };
+  wrap.appendChild(fr); bd.appendChild(wrap);
+  return wrap;
+}
+
+function buildDocHtml(){
+  const body=LAST.segs.map(s=> s.hit
+    ? '<span style="color:#7c4a2c;background:#f7e8c8">'+escHtml(s.text)+'</span>'
+    : escHtml(s.text).replace(/\n/g,"<br>")).join("");
+  const meta=metaLine().replace(/　/g,"&nbsp;&nbsp;");
+  return '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">'
+    +'<head><meta charset="utf-8"><title>民国公文识读报告</title>'
+    +'<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->'
+    +'<style>@page{size:A4;margin:2.54cm 2.6cm;}'
+    +'body{font-family:"宋体",SimSun,serif;font-size:12pt;line-height:1.9;color:#241f19;}'
+    +'h1{font-family:"黑体",SimHei;font-size:18pt;margin:0 0 6pt;}'
+    +'.m{font-family:"宋体",SimSun;font-size:9.5pt;color:#555;margin:0 0 12pt;}'
+    +'.b{text-align:justify;}'
+    +'.f{font-size:8.5pt;color:#888;border-top:1px solid #ccc;padding-top:6pt;margin-top:16pt;font-family:"宋体",SimSun;}'
+    +'</style></head><body>'
+    +'<h1>民国公文识读报告</h1>'
+    +'<p class="m">生成时间：'+new Date().toLocaleString("zh-CN")+'<br>'+meta+'</p>'
+    +'<p class="b">'+body+'</p>'
+    +'<p class="f">民国公文速查 · 公文识读　|　识别与释义仅供参考，非权威鉴定。</p>'
+    +'</body></html>';
+}
+
+async function saveBlob(blob, name, mime, ext){
+  try{
+    if(window.showSaveFilePicker){
+      const handle=await window.showSaveFilePicker({suggestedName:name,
+        types:[{description:ext.replace(".","").toUpperCase()+" 文件", accept:{[mime]:[ext]}}]});
+      const w=await handle.createWritable();
+      await w.write(blob); await w.close();
+      toast("已保存："+name);
+      return;
+    }
+  }catch(err){
+    if(err && err.name==="AbortError") return;
+  }
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); },2500);
+  toast("已开始下载："+name);
+}
+
+let toastT=null;
+function toast(msg){
+  let el=document.getElementById("sdtoast");
+  if(!el){ el=document.createElement("div"); el.id="sdtoast"; el.className="mo-toast"; document.body.appendChild(el); }
+  el.textContent=msg; el.classList.add("on");
+  clearTimeout(toastT);
+  toastT=setTimeout(function(){ el.classList.remove("on"); },2200);
+}
+
+let SAVER=null;
+function openExport(fmt){
+  initExport();
+  if(!LAST){ var st=document.getElementById("sdstat"); if(st) st.textContent="请先「识读」再导出。"; return; }
+  const mo=document.getElementById("sdmo"), bd=document.getElementById("sdmobd"),
+        tip=document.getElementById("sdmotip"), fname=document.getElementById("sdmofmt");
+  mo.classList.add("on");
+  bd.innerHTML=""; tip.textContent=""; tip.className="mo-tip"; SAVER=null;
+  const base="民国公文识读_"+stamp();
+  if(fmt==="png"){
+    const cvs=buildReportCanvas();
+    const img=new Image(); img.src=cvs.toDataURL("image/png");
+    img.style.maxWidth=Math.min(560, Math.max(200,(bd.clientWidth||600)-40))+"px";
+    bd.appendChild(img);
+    fname.textContent="图片 · PNG";
+    tip.textContent="尺寸 "+cvs.width+"×"+cvs.height+" px（2 倍高清）；点「保存到本地」后自行选择存放位置。";
+    SAVER=function(){ cvs.toBlob(function(b){ saveBlob(b, base+".png", "image/png", ".png"); }, "image/png"); };
+  }else if(fmt==="pdf"){
+    htmlPreview(bd, pdfPreviewHtml(), 1123);
+    fname.textContent="PDF · A4 文字版";
+    tip.textContent="文字版 PDF：A4 纵向，可选中、可检索。点「保存到本地」后在打印窗口「目标」选「另存为 PDF」，再选存放位置。";
+    SAVER=printReport;
+  }else{
+    htmlPreview(bd, buildDocHtml(), 1123);
+    fname.textContent="Word · .doc";
+    tip.textContent="Word 文档（.doc，Word/WPS 均可打开、可继续编辑）；点「保存到本地」后自行选择存放位置。";
+    SAVER=function(){ saveBlob(new Blob(["\ufeff"+buildDocHtml()],{type:"application/msword"}),
+      base+".doc", "application/msword", ".doc"); };
+  }
+  bd.scrollTop=0;
+}
+
+function initExport(){
+  if(!document.getElementById("sdmo")){
+    const html='<div class="mo" id="sdmo"><div class="mo-box">'
+      +'<div class="mo-hd">导出预览 · <b id="sdmofmt"></b><button class="mo-x" id="sdmox" aria-label="关闭">×</button></div>'
+      +'<div class="mo-bd" id="sdmobd"></div>'
+      +'<div class="mo-ft"><span class="mo-tip" id="sdmotip"></span>'
+      +'<button class="btn" id="sdmocancel">取消</button>'
+      +'<button class="btn primary" id="sdmosave">保存到本地</button></div>'
+      +'</div></div>';
+    document.body.insertAdjacentHTML("beforeend",html);
+  }
+  const mo=document.getElementById("sdmo");
+  if(!mo || mo.dataset.ready) return;
+  mo.dataset.ready="1";
+  document.getElementById("sdmox").addEventListener("click",function(){ mo.classList.remove("on"); });
+  document.getElementById("sdmocancel").addEventListener("click",function(){ mo.classList.remove("on"); });
+  mo.addEventListener("click",function(e){ if(e.target===mo) mo.classList.remove("on"); });
+  document.getElementById("sdmosave").addEventListener("click",function(){ if(SAVER) SAVER(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") mo.classList.remove("on"); });
+}
+
+/* 校对句读：重新断句，并与原文标点逐位比对 */
+const PUNCT_SET=/[，。：；、！？,.:;!?「」『』（）()《》〈〉…—·\s"'“”‘’]/;
+function isP(ch){ return PUNCT_SET.test(ch); }
+function stripPunct(s){ return s.replace(/[，。：；、！？,.:;!?「」『』（）()《》〈〉…—·\s"'“”‘’]/g,""); }
+function markMap(s){
+  const m={}; let n=0;
+  for(const ch of s){
+    if(isP(ch)){ const c=ch.replace(/\s/g,""); if(c) m[n]=(m[n]||"")+c; }
+    else n++;
+  }
+  return m;
+}
+function currentMark(pos){
+  const d=PROOF.dec[pos];
+  return d==="s" ? (PROOF.sm[pos]||"") : (PROOF.om[pos]||"");
+}
+function buildChosen(){
+  const c=PROOF.chars; let out="";
+  for(let i=0;i<c.length;i++){ out+=c[i]; if(i+1<c.length) out+=currentMark(i+1); }
+  out+=currentMark(c.length);
+  return out;
+}
+function renderProof(){
+  const {om,sm,diffs,dec,base}=PROOF;
+  const out=document.getElementById("sdout"), bar=document.getElementById("sdproofbar");
+  const diffSet=new Set(diffs.map(function(d){return d.p;}));
+  const emitted=new Set();
+  const r=buildSegments(base, document.getElementById("sdone").checked);
+  let html="", n=0;
+  function diffLabel(pos){
+    if(!diffSet.has(pos) || emitted.has(pos)) return "";
+    emitted.add(pos);
+    const on=dec[pos]==="s";
+    const mk=on?(sm[pos]||""):(om[pos]||"");
+    return `<label class="pd-inline${on?" on":""}${mk?"":" pd-add"}"><input type="checkbox" data-p="${pos}" ${on?"checked":""}><span>${mk||"·"}</span></label>`;
+  }
+  r.segs.forEach(function(sg){
+    if(sg.hit){
+      html+=`<span class="tk" title="${escAttr(sg.def)}">${escHtml(sg.text)}</span>`;
+      n+=sg.text.length;
+      html+=diffLabel(n);
+      return;
+    }
+    for(const ch of sg.text){
+      if(isP(ch) && ch.replace(/\s/g,"")){
+        const d=diffLabel(n);
+        html+= d || escHtml(ch);
+      }else{
+        html+=escHtml(ch); n++;
+        html+=diffLabel(n);
+      }
+    }
+  });
+  html+=diffLabel(n);
+  out.innerHTML=html;
+
+  const accepted=diffs.filter(function(d){ return dec[d.p]==="s"; }).length;
+  bar.innerHTML=`<span class="pd-sum">建议 ${diffs.length} · 已采纳 ${accepted}</span>
+    <button class="pd-mini" data-act="all-s">全采纳</button>
+    <button class="pd-mini" data-act="all-o">全不采纳</button>
+    <button class="pd-mini primary" data-act="apply">应用</button>
+    <button class="pd-mini" data-act="exit">取消</button>`;
+}
+
+let UNDO=[];
+function pushUndo(t){ UNDO.push(t); if(UNDO.length>20) UNDO.shift(); }
+
+function proofread(){
+  const raw=(document.getElementById("sdin").value||"").replace(/\r/g,"");
+  if(!raw.trim()){
+    document.getElementById("sdout").innerHTML="";
+    var st2=document.getElementById("sdstat"); if(st2) st2.textContent="请先粘贴已加标点的文本。";
+    PROOF=null; return;
+  }
+  const base=raw;
+  const chars=stripPunct(base);
+  const sug=punctuate(base);
+  LASTSUG=sug;
+  const om=markMap(base), sm=markMap(sug);
+  const longs=[];
+  (function(){
+    let start=0;
+    for(let i=0;i<=base.length;i++){
+      if(i===base.length || /[，。：；、！？]/.test(base[i])){
+        const piece=base.slice(start,i).replace(/\s/g,"");
+        if(piece.length>=20) longs.push({head:piece.slice(0,8),tail:piece.slice(-8),len:piece.length});
+        start=i+1;
+      }
+    }
+  })();
+  const keys=[...new Set([...Object.keys(om),...Object.keys(sm)].map(Number))].sort(function(a,b){return a-b;});
+  const diffs=keys.filter(function(p){ return (sm[p]||"") && (sm[p]||"")!==(om[p]||""); })
+                 .map(function(p){ return {p:p,o:om[p]||"",s:sm[p]||""}; });
+  const dec={}; diffs.forEach(function(d){ dec[d.p]="o"; });
+  PROOF={chars:chars,om:om,sm:sm,diffs:diffs,dec:dec,longs:longs,base:base};
+  renderProof();
+  LAST=null;
 }
 
 /* 套语释义：点击/点按显示浮层（移动端无悬停） */
