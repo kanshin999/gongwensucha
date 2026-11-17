@@ -343,6 +343,8 @@
   footer{margin-top:52px;padding-top:18px;border-top:1px solid var(--line);
          text-align:center;color:var(--ink3);font-size:11.5px;letter-spacing:1px;line-height:2;}
   .ft-line{font-size:12.5px;color:#857d6d;letter-spacing:1.5px;margin-bottom:8px;}
+  .ft-view{font-size:12.5px;color:#857d6d;letter-spacing:.5px;margin:0 0 10px;text-align:center;}
+  .ft-view b{font-weight:400;}
   .ft-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 10px;margin-bottom:10px;}
   .ft-meta span{font-size:11.5px;color:var(--ink3);background:var(--card);
     border:1px solid var(--line);border-radius:20px;padding:2px 10px;letter-spacing:0;line-height:1.6;}
@@ -684,6 +686,7 @@
         <li>《公文程式条例》（1928）</li>
       </ul>
       <div class="ft-disc">例文均为虚构示例，非真实档案，仅供学习查阅。</div>
+      <div id="pvcounter" class="ft-view" style="display:none">本页被看过 <span id="busuanzi_value_page_pv">0</span> 次 · <span id="busuanzi_value_site_uv">0</span> 位访客</div>
     </div>
   </footer>
 </div>
@@ -1197,6 +1200,15 @@ function softBreak(s, th){
   return out;
 }
 
+/* 抬头、署名、标题、附件标注、事由行等「非句子行」不加句末标点 */
+function isFormatLine(s){
+  const t=s.trim();
+  if(!t) return true;
+  if(/由$/.test(t)) return true;                       // 「……立案由」等事由行
+  if(t.length<=24 && !/[，。：；、！？]/.test(t)) return true; // 短行、无标点：抬头/署名/标题
+  return /^(简体全文|繁体全文|全文|附[原抄件]|附录|抄件|原件|附件[一二三四五六七八九十0-9]*|计[呈发缴][^，。]*|第[一二三四五六七八九十0-9]+页)$/.test(t);
+}
+
 function punctuate(text, th){
   const flat=[];
   PUNCT_RULES.forEach(r=>r.m.forEach(m=>flat.push({m:m,p:r.p,before:!!r.before})));
@@ -1204,6 +1216,7 @@ function punctuate(text, th){
   return text.split(/\n/).map(function(line){
     let s=line.replace(/\s+/g,"");
     if(!s) return "";
+    if(isFormatLine(s)) return s;
     let res="", i=0;
     while(i<s.length){
       let hit=null;
@@ -1527,8 +1540,9 @@ function initExport(){
 
 /* 校对句读：重新断句，并与原文标点逐位比对 */
 const PUNCT_SET=/[，。：；、！？,.:;!?「」『』（）()《》〈〉…—·\s"'“”‘’]/;
-function isP(ch){ return PUNCT_SET.test(ch); }
-function stripPunct(s){ return s.replace(/[，。：；、！？,.:;!?「」『』（）()《》〈〉…—·\s"'“”‘’]/g,""); }
+function isLineBreak(ch){ return ch==="\n" || ch==="\r"; }
+function isP(ch){ return !isLineBreak(ch) && PUNCT_SET.test(ch); }
+function stripPunct(s){ return s.replace(/[，。：；、！？,.:;!?「」『』（）()《》〈〉…—·\t \u3000"'“”‘’]/g,""); }
 function markMap(s){
   const m={}; let n=0;
   for(const ch of s){
@@ -1653,5 +1667,8 @@ document.addEventListener("click",function(e){
 window.addEventListener("scroll",hideTip,{passive:true});
 window.addEventListener("resize",hideTip);
 </script>
+<!-- 浏览量：不蒜子（免后端、免账号，只显示数字；断网时自动隐藏） -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+  onload="setTimeout(function(){var a=document.getElementById('busuanzi_value_page_pv');if(a&&/\d/.test(a.textContent)){document.getElementById('pvcounter').style.display='';}},300)"></script>
 </body>
 </html>
