@@ -686,7 +686,7 @@
         <li>《公文程式条例》（1928）</li>
       </ul>
       <div class="ft-disc">例文均为虚构示例，非真实档案，仅供学习查阅。</div>
-      <div id="pvcounter" class="ft-view" style="display:none">本页被看过 <span id="busuanzi_value_page_pv">0</span> 次 · <span id="busuanzi_value_site_uv">0</span> 位访客</div>
+      <div id="busuanzi_container_page_pv" class="ft-view" style="display:none">本页被看过 <span id="busuanzi_value_page_pv">0</span> 次 · <span id="busuanzi_value_site_uv">0</span> 位访客</div>
     </div>
   </footer>
 </div>
@@ -1667,8 +1667,7 @@ document.addEventListener("click",function(e){
 window.addEventListener("scroll",hideTip,{passive:true});
 window.addEventListener("resize",hideTip);
 </script>
-<!-- 浏览量：不蒜子（免后端、免账号，只显示数字；断网时自动隐藏） -->
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
-  onload="setTimeout(function(){var a=document.getElementById('busuanzi_value_page_pv');if(a&&/\d/.test(a.textContent)){document.getElementById('pvcounter').style.display='';}},300)"></script>
+<!-- 浏览量：Vercount（不蒜子兼容替代，Cloudflare 后端；失败时自动隐藏） -->
+<script async src="https://events.vercount.one/js"></script>
 </body>
 </html>
